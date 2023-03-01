@@ -207,10 +207,10 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="footer-bottom style-2">
+                <div style={{padding:'8px' , backgroundColor:'#ff0911'}}  className=" style-2 ">
                     <div className="container">
                         <div className="section-wrapper">
-                            <p>&copy; 2022 <Link to="/">Edukon</Link> Designed by <a href="https://themeforest.net/user/CodexCoder" target="_blank">CodexCoder</a> </p>
+                            <p style={{color:'white',textAlign:"center" }}  >&copy; Copyright 2023 Soft Tech Hub All Rights Reserved. </p>
                         </div>
                     </div>
                 </div>

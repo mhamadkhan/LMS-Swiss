@@ -1,32 +1,21 @@
-import { Fragment } from "react";
-import Footer from "../component/layout/footer";
-import Header from "../component/layout/header";
-import PageHeader from "../component/layout/pageheader";
-import AchievementTwo from "../component/section/achievement-2";
-import Blog from "../component/section/blog";
-import Instructor from "../component/section/instructor";
-import Skill from "../component/section/skill";
-import Student from "../component/section/student";
 
+export default ()=>{
+    const subTitle = "About Our Soft Tech Hub";
+const title = "Success in Excellence Together";
+const desc = "For the most technologically difficult situations, Soft Tech Hub offers the most straightforward answers possible.Soft  Tech Hub IT-related technology and solutions have expanded quickly on a national and international scale to support internal product development and expansion in other organizations. The Right Sourcing model for IT outsourcing services was successfully created by us. It is distinctive and creates solutions specifically tailored to the expanding demands of enterprises for custom software development.Our company is always growing and taking on new challenges, and as a result, we are able to offer our esteemed clients the expertise of more than 30 highly experienced software engineers and professionals from the technology sector";
 
-
-
-const subTitle = "About Our Edukon";
-const title = "Good Qualification Services And Better Skills";
-const desc = "Distinctively provide acces mutfuncto users whereas transparent proceses somes ncentivize eficient functionalities rather than extensible archtectur communicate leveraged services and cross-platform.";
-
-const year = "30+";
+const year = "15+";
 const expareance = "Years Of Experiences";
 
 
 
 const aboutList = [
-    {
-        imgUrl: 'assets/images/about/icon/01.jpg',
-        imgAlt: 'about icon rajibraj91 rajibraj',
-        title: 'Skilled Instructors',
-        desc: 'Distinctively provide acces mutfuncto users whereas communicate leveraged services',
-    },
+    // {
+    //     imgUrl: 'assets/images/about/icon/01.jpg',
+    //     imgAlt: 'about icon rajibraj91 rajibraj',
+    //     title: 'Skilled Instructors',
+    //     desc: 'Distinctively provide acces mutfuncto users whereas communicate leveraged services',
+    // },
     {
         imgUrl: 'assets/images/about/icon/02.jpg',
         imgAlt: 'about icon rajibraj91 rajibraj',
@@ -40,14 +29,9 @@ const aboutList = [
         desc: 'Distinctively provide acces mutfuncto users whereas communicate leveraged services',
     },
 ]
-
-
-const AboutPage = () => {
-    return ( 
-        <Fragment>
-            <Header />
-            <PageHeader title={'About Our Edukon'} curPage={'About'} />
-            <div className="about-section style-3 padding-tb section-bg">
+    return(
+        <>
+          <div className="about-section style-3 padding-tb section-bg">
                 <div className="container">
                     <div className="row justify-content-center row-cols-xl-2 row-cols-1 align-items-center">
                         <div className="col">
@@ -58,7 +42,7 @@ const AboutPage = () => {
                                 <div className="abs-thumb">
                                     <img src="assets/images/about/02.jpg" alt="about" />
                                 </div>
-                                <div className="about-left-content">
+                                <div style={{backgroundColor:"#FF0911"}} className="about-left-content">
                                     <h3>{year}</h3>
                                     <p>{expareance}</p>
                                 </div>
@@ -68,8 +52,8 @@ const AboutPage = () => {
                             <div className="about-right">
                                 <div className="section-header">
                                     <span className="subtitle">{subTitle}</span>
-                                    <h2 className="title">{title}</h2>
-                                    <p>{desc}</p>
+                                    <h3 className="title">{title}</h3>
+                                    <p style={{textAlign:'justify'}}>{desc}</p>
                                 </div>
                                 <div className="section-wrapper">
                                     <ul className="lab-ul">
@@ -90,16 +74,7 @@ const AboutPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <Student />
-            <Instructor />
-            <Skill />
-            <AchievementTwo />
-            <Blog />
-            <Footer />
-        </Fragment>
-    );
+                </div>
+        </>
+    )
 }
-
-export default AboutPage;
- 

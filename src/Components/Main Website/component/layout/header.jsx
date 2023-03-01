@@ -1,29 +1,29 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-
-const phoneNumber = "+800-123-4567 6587";
-const address = "Beverley, New York 224 USA";
+import Logo from '../../assets/images/logo/02.png'
+const phoneNumber = "+92-313-7267-440";
+const address = "Jinnah Colony Saeed Mart Road, Faisalabad";
 
 
 let socialList = [
     {
-        iconName: 'icofont-facebook-messenger',
+        iconName: 'icofont-facebook',
+        siteLink: '#',
+    },
+    {
+        iconName: 'icofont-linkedin',
+        siteLink: '#',
+    },
+    {
+        iconName: 'icofont-instagram',
+        siteLink: '#',
+    },
+    {
+        iconName: 'icofont-youtube-play',
         siteLink: '#',
     },
     {
         iconName: 'icofont-twitter',
-        siteLink: '#',
-    },
-    {
-        iconName: 'icofont-vimeo',
-        siteLink: '#',
-    },
-    {
-        iconName: 'icofont-skype',
-        siteLink: '#',
-    },
-    {
-        iconName: 'icofont-rss-feed',
         siteLink: '#',
     },
 ]
@@ -42,8 +42,8 @@ const Header = () => {
 	});
 
     return (
-        <header className={`header-section ${headerFiexd ? "header-fixed fadeInUp" : ""}`}>
-            <div className={`header-top ${socialToggle ? "open" : ""}`}>
+        <header style={{backgroundColor:'white'}} className={`header-section ${headerFiexd ? "header-fixed fadeInUp" : ""}`}>
+            <div style={{backgroundColor:'#FF0911', color:'white'}} className={`header-top ${socialToggle ? "open" : ""}`}>
                 <div className="container">
                     <div className="header-top-area">
                         <ul className="lab-ul left">
@@ -51,34 +51,26 @@ const Header = () => {
                             <li><i className="icofont-location-pin"></i> {address}</li>
                         </ul>
                         <ul className="lab-ul social-icons d-flex align-items-center">
-                            <li><p>Find us on : </p></li>
+                            <li><p style={{color:'white'}} >Find us on : </p></li>
                             {socialList.map((val, i) => (
-                                <li key={i}><a href={val.siteLink}><i className={val.iconName}></i></a></li>
+                                <li    key={i}><a href={val.siteLink}><i style={{color:'white'}} className={val.iconName}></i></a></li>
                             ))}
                         </ul>
                     </div>
                 </div>
             </div>
-            <div className="header-bottom">
+            <div   className="header-bottom">
                 <div className="container">
                     <div className="header-wrapper">
                         <div className="logo">
-                            <Link to="/"><img src="assets/images/logo/01.png" alt="logo" /></Link>
+                            <Link to="/"><img style={{width:'50%'}} src={Logo} alt="logo" /></Link>
                         </div>
                         <div className="menu-area">
                             <div className="menu">
                                 <ul className={`lab-ul ${menuToggle ? "active" : ""}`}>
-                                    <li className="menu-item-has-children">
-                                        <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Home</a>
-                                        <ul className="lab-ul dropdown-menu">
-                                            <li><NavLink to="/">Home One</NavLink></li>
-                                            <li><NavLink to="/index-2">Home Two</NavLink></li>
-                                            <li><NavLink to="/index-3">Home Three</NavLink></li>
-                                            <li><NavLink to="/index-4">Home Four</NavLink></li>
-                                            <li><NavLink to="/index-5">Home Five</NavLink></li>
-                                            <li><NavLink to="/index-6">Home Six</NavLink></li>
-                                            <li><NavLink to="/index-7">Home Seven</NavLink></li>
-                                        </ul>
+
+                                    <li className="">
+                                        <Link to="/"  aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Home</Link>
                                     </li>
                                     <li className="menu-item-has-children">
                                         <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Courses</a>
@@ -90,7 +82,7 @@ const Header = () => {
                                         </ul>
                                     </li>
                                     <li className="menu-item-has-children">
-                                        <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Blog</a>
+                                        <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Our Services</a>
                                         <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/blog">Blog Grid</NavLink></li>
                                             <li><NavLink to="/blog-2">Blog Style 2</NavLink></li>
@@ -98,9 +90,9 @@ const Header = () => {
                                             <li><NavLink to="/blog-single">Blog Single</NavLink></li>
                                         </ul>
                                     </li>
-                                    <li className="menu-item-has-children">
-                                        <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Pages</a>
-                                        <ul className="lab-ul dropdown-menu">
+                                    <li className="">
+                                        <Link to='/about'   aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">About Us</Link>
+                                        {/* <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/about">About</NavLink></li>
                                             <li><NavLink to="/team">Team</NavLink></li>
                                             <li><NavLink to="/instructor">Instructor</NavLink></li>
@@ -110,14 +102,14 @@ const Header = () => {
                                             <li><NavLink to="/search-page">Search Page</NavLink></li>
                                             <li><NavLink to="/search-none">Search None</NavLink></li>
                                             <li><NavLink to="/404">404</NavLink></li>
-                                        </ul>
+                                        </ul> */}
                                     </li>
                                     <li><NavLink to="/contact">Contact</NavLink></li>
                                 </ul>
                             </div>
                             
-                            <Link to="/login" className="login"><i className="icofont-user"></i> <span>LOG IN</span> </Link>
-                            <Link to="/signup" className="signup"><i className="icofont-users"></i> <span>SIGN UP</span> </Link>
+                            <Link to="/login" className="login"><i style={{color:'#FF0911'}} className="icofont-user"></i> <span>LOG IN</span> </Link>
+                            <Link style={{backgroundColor:'#FF0911'}} to="/signup" className="signup"><i  style={{color:'white'}} className="icofont-users"></i> <span  >SIGN UP</span> </Link>
 
                             <div className={`header-bar d-lg-none ${menuToggle ? "active" : "" }`} onClick={() => setMenuToggle(!menuToggle)}>
                                 <span></span>

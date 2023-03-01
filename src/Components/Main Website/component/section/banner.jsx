@@ -1,10 +1,6 @@
-
-
-
-const subTitle = "Online education";
-const title = <h2 className="title"><span className="d-lg-block">Learn The</span> Skills You Need <span className="d-lg-block">To Succeed</span></h2>;
-const desc = "Free online courses from the world’s Leading experts. join 18+ million Learners today.";
-
+const subTitle = "An Overseas Education Consultant";
+const title = <h2 style={{fontWeight:'800'}} > FROM GOAL TO GLORY </h2>;
+const desc = "The Soft Tech Hub network of enterprises takes great satisfaction in promoting famous universities that not only have sizable and diverse student populations but also serve as the residence for millions of accomplished graduates who have found success all over the world.";
 
 const catagoryList = [
     {
@@ -56,30 +52,23 @@ const shapeList = [
 
 const Banner = () => {
     return (
-        <section className="banner-section">
-            <div className="container">
+        <section style={{backgroundSize:'auto'}} className="banner-section">
+            <div  className="container">
                 <div className="section-wrapper">
                     <div className="row align-items-center">
                         <div className="col-xxl-5 col-xl-6 col-lg-10">
                             <div className="banner-content">
-                                <h6 className="subtitle text-uppercase fw-medium">{subTitle}</h6>
+                                <p style={{color:'#FF0911'}} >{subTitle}</p>
                                 {title}
-                                <p className="desc">{desc}</p>
+                                <p style={{textAlign:'justify'}} className="desc">{desc}</p>
                                 <form action="/">
                                     <div className="banner-icon">
                                         <i className="icofont-search"></i>
                                     </div>
                                     <input type="text" placeholder="Keywords of your course" />
-                                    <button type="submit">Search Course</button>
+                                    <button style={{backgroundColor:'#FF0911'}} type="submit">Search Course</button>
                                 </form>
-                                <div className="banner-catagory d-flex flex-wrap">
-                                    <p>Most Popular : </p>
-                                    <ul className="lab-ul d-flex flex-wrap">
-                                        {catagoryList.map((val, i) => (
-                                            <li key={i}><a href={val.link}>{val.name}</a></li>
-                                        ))}
-                                    </ul>
-                                </div>
+                                
                             </div>
                         </div>
                         <div className="col-xxl-7 col-xl-6">
