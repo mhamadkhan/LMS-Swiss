@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 
-const newsTitle = "Want Us To Email You About Special Offers And Updates?";
+const newsTitle = "Subscribes Our Newsletter";
 const siteTitle = "Site Map";
 const useTitle = "Useful Links";
 const socialTitle = "Social Contact";
@@ -118,9 +118,9 @@ const Footer = () => {
                         </div>
                         <div className="news-form">
                             <form action="/">
-                                <div className="nf-list">
+                                <div style={{color:'#FF0911'}} className="nf-list">
                                     <input type="email" name="email" placeholder="Enter Your Email" />
-                                    <input type="submit" name="submit" value="Subscribe Now" />
+                                    <input style={{backgroundColor:'#FF0911'}} type="submit" name="submit" value="Subscribe Now" />
                                 </div>
                             </form>
                         </div>

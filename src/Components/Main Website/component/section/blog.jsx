@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 
-const subTitle = "FORM OUR BLOG POSTS";
+const subTitle = "Service We Offer";
 const title = "More Articles From Resource Library";
 
 

@@ -72,23 +72,23 @@ const Header = () => {
                                     <li className="">
                                         <Link to="/"  aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Home</Link>
                                     </li>
-                                    <li className="menu-item-has-children">
-                                        <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Courses</a>
-                                        <ul className="lab-ul dropdown-menu">
+                                    <li className="">
+                                        <Link to='/course'  aria-expanded="false" data-bs-offset="0,0">Courses</Link>
+                                        {/* <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/course">Course</NavLink></li>
                                             <li><NavLink to="/course-single">Course Details</NavLink></li>
                                             <li><NavLink to="/course-view">Course View</NavLink></li>
         
-                                        </ul>
+                                        </ul> */}
                                     </li>
-                                    <li className="menu-item-has-children">
-                                        <a href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Our Services</a>
-                                        <ul className="lab-ul dropdown-menu">
+                                    <li className="">
+                                        <Link to="Services"  aria-expanded="false" data-bs-offset="0,0">Our Services</Link>
+                                        {/* <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/blog">Blog Grid</NavLink></li>
                                             <li><NavLink to="/blog-2">Blog Style 2</NavLink></li>
                                             <li><NavLink to="/blog-3">Blog Style 3</NavLink></li>
                                             <li><NavLink to="/blog-single">Blog Single</NavLink></li>
-                                        </ul>
+                                        </ul> */}
                                     </li>
                                     <li className="">
                                         <Link to='/about'   aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">About Us</Link>

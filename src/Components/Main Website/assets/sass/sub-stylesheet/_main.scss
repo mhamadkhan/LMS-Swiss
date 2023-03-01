@@ -2426,7 +2426,7 @@
         @extend %w-100;
         @extend %h-100;
         top: 0;
-        @extend %bg-primary;
+        @extend %bg-primary-color;
         @include breakpoint(lg) {
             width: 50%;
         }

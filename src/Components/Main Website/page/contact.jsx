@@ -17,25 +17,25 @@ const contactList = [
         imgUrl: 'assets/images/icon/01.png',
         imgAlt: 'contact icon',
         title: 'Office Address',
-        desc: '1201 park street, Fifth Avenue',
+        desc: 'Jinnah Colony Saeed Mart Road, Faisalabad',
     },
     {
         imgUrl: 'assets/images/icon/02.png',
         imgAlt: 'contact icon',
         title: 'Phone number',
-        desc: '+22698 745 632,02 982 745',
+        desc: '+92-313-7267-440',
     },
     {
         imgUrl: 'assets/images/icon/03.png',
         imgAlt: 'contact icon',
         title: 'Send email',
-        desc: 'adminedukon@gmil.com',
+        desc: 'info@softtechhub.net',
     },
     {
         imgUrl: 'assets/images/icon/04.png',
         imgAlt: 'contact icon',
         title: 'Our website',
-        desc: 'www.edukon.com',
+        desc: 'www.softtechhub.net',
     },
 ]
 
@@ -44,11 +44,11 @@ const ContactPage = () => {
     return ( 
         <Fragment>
             <Header />
-            <PageHeader title={'Get In Touch With Us'} curPage={'Contact Us'} />
+            <PageHeader  title={'Get In Touch With Us'} curPage={'Contact Us'} />
             <div className="map-address-section padding-tb section-bg">
                 <div className="container">
                     <div className="section-header text-center">
-                        <span className="subtitle">{subTitle}</span>
+                        <span style={{color:'#FF0911'}} className="subtitle">{subTitle}</span>
                         <h2 className="title">{title}</h2>
                     </div>
                     <div className="section-wrapper">
@@ -78,7 +78,7 @@ const ContactPage = () => {
             <div className="contact-section padding-tb">
                 <div className="container">
                     <div className="section-header text-center">
-                        <span className="subtitle">{conSubTitle}</span>
+                        <span style={{color:'#FF0911'}} className="subtitle">{conSubTitle}</span>
                         <h2 className="title">{conTitle}</h2>
                     </div>
                     <div className="section-wrapper">
@@ -119,13 +119,13 @@ const ContactPage = () => {
                                 ></textarea>
                             </div>
                             <div className="form-group w-100 text-center">
-                                <button className="lab-btn"><span>{btnText}</span></button>
+                                <button style={{backgroundColor:'#FF0911'}} className="lab-btn"><span>{btnText}</span></button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <Footer />
+           
         </Fragment>
     );
 }

@@ -8,17 +8,7 @@ import Instructor from "../component/section/instructor";
 import Skill from "../component/section/skill";
 import Student from "../component/section/student";
 import Section1 from './AboutSection' 
-
-
-
-const subTitle = "About Our Edukon";
-const title = "Good Qualification Services And Better Skills";
-const desc = "Distinctively provide acces mutfuncto users whereas transparent proceses somes ncentivize eficient functionalities rather than extensible archtectur communicate leveraged services and cross-platform.";
-
-const year = "30+";
-const expareance = "Years Of Experiences";
-
-
+import ServicesCards from "../component/section/ServicesCards/ServicesCards";
 
 const aboutList = [
     {
@@ -46,13 +36,15 @@ const AboutPage = () => {
     return ( 
         <Fragment>
             <Header />
-            <PageHeader title={'About Our Edukon'} curPage={'About'} />
-            <Section1/>
-            <Student />
-            <Instructor />
+            <PageHeader title={'About Our Soft Tech Hub'} curPage={'About'} />
+            {/* <Blog /> */}
+              <h2  style={{textAlign:'center', marginTop:'2em'}} >How we Works </h2>
+            <ServicesCards/>
+            {/* <Section1/> */}
+            {/* <Student /> */}
+            {/* <Instructor /> */}
             <Skill />
             <AchievementTwo />
-            <Blog />
             {/* <Footer /> */}
         </Fragment>
     );

@@ -35,8 +35,8 @@ const skillList = [
 
 const Skill = () => {
     return (
-        <div className="skill-section padding-tb">
-            <div className="container">
+        <div  className="skill-section padding-tb">
+            <div  className="container">
                 <div className="row justify-content-center">
                     <div className="col-lg-5 col-12">
                         <div className="section-header">
@@ -44,7 +44,7 @@ const Skill = () => {
                             <Link to="/signup" className="lab-btn"><span>{btnText}</span></Link>
                         </div>
                     </div>
-                    <div className="col-lg-7 col-12">
+                    <div  className="col-lg-7 col-12">
                         <div className="section-wrpper">
                             <div className="row g-4 justify-content-center row-cols-sm-2 row-cols-1">
                                 {skillList.map((val, i) => (
