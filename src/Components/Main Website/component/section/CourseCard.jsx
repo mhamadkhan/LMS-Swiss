@@ -90,7 +90,7 @@ const courseList = [
 ]
 
     return(<>
-    
+      <h2 style={{textAlign:'center'}} > Our Courses  </h2>
     <div style={{width:"80%",margin:"auto"}} className="row g-4 justify-content-center row-cols-xl-3 row-cols-md-2 row-cols-1">
                             {courseList.map((val, i) => (
                                 <div className="col" key={i}>

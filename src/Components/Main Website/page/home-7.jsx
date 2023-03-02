@@ -21,7 +21,10 @@ const HomeSeven = () => {
             <Section1/>
             
             <FeatureFour />
+            <div style={{marginTop:"8%"}}>
+
             <Courses/>
+            </div>
             {/* <Offer /> */}
             <InstructorThree />
             {/* <BlogThree /> */}
