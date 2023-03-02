@@ -38,7 +38,7 @@ const CourseSingle = () => {
                                     </div>
                                 </div>
 
-                                <div className="course-video">
+                                {/* <div className="course-video">
                                     <div className="course-video-title">
                                         <h4>Course Content</h4>
                                     </div>
@@ -104,16 +104,16 @@ const CourseSingle = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <Author />
-                                <Comment />
-                                <Respond />
+                                </div> */}
+                                {/* <Author /> */}
+                                {/* <Comment /> */}
+                                {/* <Respond /> */}
                             </div>
                         </div>
                         <div className="col-lg-4">
                             <div className="sidebar-part">
                                 <CourseSideDetail />
-                                <CourseSideCetagory />
+                                {/* <CourseSideCetagory /> */}
                             </div>
                         </div>
                     </div>
