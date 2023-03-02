@@ -90,22 +90,12 @@ const Header = () => {
                                             <li><NavLink to="/Services/BlockChain">BlockChain</NavLink></li>
                                             <li><NavLink to="/Services/DigitalMarketing">Digital Marketing</NavLink></li>
                                             <li><NavLink to="/Services/SearchEngineOptimization">Search Engine Optimization</NavLink></li>
-                                            <li><NavLink to="/Services/ArtificialIntelligence">Artificial Intelligence</NavLink></li>
+                                            <li><NavLink to="/Services/WebDesigning">Web Designing</NavLink></li>
                                         </ul>
                                     </li>
                                     <li className="">
                                         <NavLink to='/about'   aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" onClick={() => setMenuToggle(!menuToggle)} >About Us</NavLink>
-                                        {/* <ul className="lab-ul dropdown-menu">
-                                            <li><NavLink to="/about">About</NavLink></li>
-                                            <li><NavLink to="/team">Team</NavLink></li>
-                                            <li><NavLink to="/instructor">Instructor</NavLink></li>
-                                            <li><NavLink to="/shop">Shop Page</NavLink></li>
-                                            <li><NavLink to="/shop-single">Shop Details Page</NavLink></li>
-                                            <li><NavLink to="/cart-page">Shop Cart Page</NavLink></li>
-                                            <li><NavLink to="/search-page">Search Page</NavLink></li>
-                                            <li><NavLink to="/search-none">Search None</NavLink></li>
-                                            <li><NavLink to="/404">404</NavLink></li>
-                                        </ul> */}
+                                        
                                     </li>
                                     <li><NavLink to="/contact" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" onClick={() => setMenuToggle(!menuToggle)} >Contact</NavLink></li>
                                 </ul>

@@ -26,9 +26,9 @@ const categoryList = [
         link: '/Services/SearchEngineOptimization',
     },
     {
-        text: 'Artificial Intelligence',
+        text: 'Web Designing',
       
-        link: '/Services/ArtificialIntelligence',
+        link: '/Services/WebDesigning',
     },
     {
         text: 'Blockchain',

@@ -15,7 +15,8 @@
 }
 .heading {
   width: 85%;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  margin: auto;
   text-align: center;
 }
 .heading h5:hover {

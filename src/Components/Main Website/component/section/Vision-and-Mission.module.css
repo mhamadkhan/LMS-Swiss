@@ -1,0 +1,14 @@
+
+.content{
+    color: rgb(255, 9, 17);
+}
+.data1{
+    margin-top: 4%;
+}
+.data1 p{
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    text-align: justify;
+    text-justify: inter-word;
+}
