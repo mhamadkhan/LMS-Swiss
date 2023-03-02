@@ -5,7 +5,7 @@ const price = "89";
 const excenge = "Limited time offer";
 const paymentTitle = "Secure Payment:";
 const shareTitle = "Share This Course:";
-const btnText = "Enrolled Now";
+const btnText = "Apply Now";
 
 
 const csdcList = [
@@ -91,18 +91,18 @@ const CourseSideDetail = () => {
                         ))}
                     </ul>
                 </div>
-                <div className="sidebar-payment">
+                {/* <div className="sidebar-payment">
                     <div className="sp-title">
                         <h6>{paymentTitle}</h6>
                     </div>
                     <div className="sp-thumb">
                         <img src="assets/images/pyment/01.jpg" alt="CodexCoder" />
                     </div>
-                </div>
+                </div> */}
                 <div className="sidebar-social">
-                    <div className="ss-title">
+                    {/* <div className="ss-title">
                         <h6>{shareTitle}</h6>
-                    </div>
+                    </div> */}
                     <div className="ss-content">
                         <ul className="lab-ul">
                             {socialList.map((val, i) => (
@@ -118,5 +118,5 @@ const CourseSideDetail = () => {
         </div>
     );
 }
- 
+
 export default CourseSideDetail;
