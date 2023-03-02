@@ -3,12 +3,12 @@ $bootstrap-sass-asset-helper: false !default;
 // Variables
 // --------------------------------------------------
 
-
 // Colors
+$new-color:#FF0911;
 
 $title-color: #101115;
 $desc-color: #555555;
-$theme-color: #f16126;
+$theme-color: $new-color;
 $primary-color:#26c976;
 $border-color: #ecf0f3;
 $white-color: #fff;

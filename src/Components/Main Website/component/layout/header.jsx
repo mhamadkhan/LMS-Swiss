@@ -63,17 +63,17 @@ const Header = () => {
                 <div className="container">
                     <div className="header-wrapper">
                         <div className="logo">
-                            <Link to="/"><img style={{width:'50%'}} src={Logo} alt="logo" /></Link>
+                            <NavLink to="/"><img style={{width:'50%'}} src={Logo} alt="logo" onClick={() => setMenuToggle(menuToggle)} /></NavLink>
                         </div>
                         <div className="menu-area">
                             <div className="menu">
                                 <ul className={`lab-ul ${menuToggle ? "active" : ""}`}>
 
                                     <li className="">
-                                        <Link to="/"  aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">Home</Link>
+                                        <NavLink to="/"  aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0"onClick={() => setMenuToggle(!menuToggle)} >Home</NavLink>
                                     </li>
                                     <li className="">
-                                        <Link to='/course'  aria-expanded="false" data-bs-offset="0,0">Courses</Link>
+                                        <NavLink to='/course'  aria-expanded="false" data-bs-offset="0,0" onClick={() => setMenuToggle(!menuToggle)}>Courses</NavLink>
                                         {/* <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/course">Course</NavLink></li>
                                             <li><NavLink to="/course-single">Course Details</NavLink></li>
@@ -81,17 +81,20 @@ const Header = () => {
         
                                         </ul> */}
                                     </li>
-                                    <li className="">
-                                        <Link to="Services"  aria-expanded="false" data-bs-offset="0,0">Our Services</Link>
-                                        {/* <ul className="lab-ul dropdown-menu">
-                                            <li><NavLink to="/blog">Blog Grid</NavLink></li>
-                                            <li><NavLink to="/blog-2">Blog Style 2</NavLink></li>
-                                            <li><NavLink to="/blog-3">Blog Style 3</NavLink></li>
-                                            <li><NavLink to="/blog-single">Blog Single</NavLink></li>
-                                        </ul> */}
+                                    <li className="menu-item-has-children">
+                                        <NavLink to="Services" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0"  onClick={() => setMenuToggle(!menuToggle)}>Our Services</NavLink>
+                                        <ul className="lab-ul dropdown-menu">
+                                            <li><NavLink to="/Services/WebDevelopment">Web Development</NavLink></li>
+                                            <li><NavLink to="/blog-2">Mobile App Development</NavLink></li>
+                                            <li><NavLink to="/Services/GraphicDesigning">Graphic Designing</NavLink></li>
+                                            <li><NavLink to="/Services/BlockChain">BlockChain</NavLink></li>
+                                            <li><NavLink to="/Services/DigitalMarketing">Digital Marketing</NavLink></li>
+                                            <li><NavLink to="/Services/SearchEngineOptimization">Search Engine Optimization</NavLink></li>
+                                            <li><NavLink to="/Services/ArtificialIntelligence">Artificial Intelligence</NavLink></li>
+                                        </ul>
                                     </li>
                                     <li className="">
-                                        <Link to='/about'   aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0">About Us</Link>
+                                        <NavLink to='/about'   aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" onClick={() => setMenuToggle(!menuToggle)} >About Us</NavLink>
                                         {/* <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/about">About</NavLink></li>
                                             <li><NavLink to="/team">Team</NavLink></li>
@@ -104,20 +107,20 @@ const Header = () => {
                                             <li><NavLink to="/404">404</NavLink></li>
                                         </ul> */}
                                     </li>
-                                    <li><NavLink to="/contact">Contact</NavLink></li>
+                                    <li><NavLink to="/contact" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" onClick={() => setMenuToggle(!menuToggle)} >Contact</NavLink></li>
                                 </ul>
                             </div>
                             
-                            <Link to="/login" className="login"><i style={{color:'#FF0911'}} className="icofont-user"></i> <span>LOG IN</span> </Link>
-                            <Link style={{backgroundColor:'#FF0911'}} to="/signup" className="signup"><i  style={{color:'white'}} className="icofont-users"></i> <span  >SIGN UP</span> </Link>
-
+                            <NavLink to="/login" className="login"><i style={{color:'#FF0911'}} className="icofont-user" onClick={() => setMenuToggle(!menuToggle)} > </i> <span>LOG IN</span> </NavLink>
+                            <NavLink style={{backgroundColor:'#FF0911'}} to="/signup" className="signup" onClick={() => setMenuToggle(!menuToggle)}><i  style={{color:'white'}} className="icofont-users"></i> <span  >SIGN UP</span> </NavLink>
+ 
                             <div className={`header-bar d-lg-none ${menuToggle ? "active" : "" }`} onClick={() => setMenuToggle(!menuToggle)}>
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </div>
-                            <div className="ellepsis-bar d-lg-none" onClick={() => setSocialToggle(!socialToggle)}>
-                                <i className="icofont-info-square"></i>
+                            <div  style={{color:'#FF0911'}} className="ellepsis-bar d-lg-none" onClick={() => setSocialToggle(!socialToggle)}>
+                                <i  style={{color:'#FF0911'}}className="icofont-info-square"></i>
                             </div>
                         </div>
                     </div>

@@ -1,57 +1,57 @@
+import {Link} from 'react-router-dom'
 
 
-
-const title = "Post Category";
+const title = "Our Services";
 
 
 const categoryList = [
     {
-        text: 'Themeforest',
-        count: '06',
-        link: '#',
+        text: 'Web Development',
+      
+        link: '/Services/WebDevelopment',
     },
     {
-        text: 'Photodune',
-        count: '11',
-        link: '#',
+        text: 'Mobile App Development',
+        
+        link: '/Services/MobileAppDevelopment',
     },
     {
-        text: 'Codecanyon',
-        count: '07',
-        link: '#',
+        text: 'Graphic Designing',
+      
+        link: '/Services/GraphicDesign',
     },
     {
-        text: 'GRaphicdriver',
-        count: '09',
-        link: '#',
+        text: 'Search Engine Optimization',
+     
+        link: '/Services/SearchEngineOptimization',
     },
     {
-        text: 'Wordpress',
-        count: '50',
-        link: '#',
+        text: 'Artificial Intelligence',
+      
+        link: '/Services/ArtificialIntelligence',
     },
     {
-        text: 'Joomla',
-        count: '20',
-        link: '#',
+        text: 'Blockchain',
+    
+        link: '/Services/Blockchain',
     },
     {
-        text: '3docean',
-        count: '93',
-        link: '#',
+        text: 'Digital Marketing',
+
+        link: '/Services/DigitalMarketing',
     },
 ]
 
 const PostCategory = () => {
     return (
-        <div className="widget widget-category">
+        <div style={{backgroundColor:'#FF0911' }} className="widget widget-category">
             <div className="widget-header">
-                <h5 className="title">{title}</h5>
+                <h5 style={{color:'white'}} className="title">{title}</h5>
             </div>
             <ul className="widget-wrapper">
                 {categoryList.map((val, i) => (
-                    <li key={i}>
-                        <a href={val.link} className="d-flex flex-wrap justify-content-between"><span><i className={"icofont-double-right"}></i>{val.text}</span><span>{val.count}</span></a>
+                    <li style={{color:'white'}} key={i}>
+                        <Link to={val.link} className="d-flex flex-wrap justify-content-between"><i style={{color:'white'}} span><spa className={"icofont-double-right"}></spa>{val.text}</i></Link>
                     </li>
                 ))}
             </ul>

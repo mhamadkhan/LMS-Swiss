@@ -166,7 +166,7 @@ const CoursePage = () => {
                     </div>
                 </div>
             </div>
-            {/* <Footer /> */}
+            
         </Fragment>
     );
 }

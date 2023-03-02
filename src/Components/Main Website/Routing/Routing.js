@@ -12,12 +12,6 @@ import CoursePage from "../page/course";
 import CourseSingle from "../page/course-single";
 import CourseView from "../page/course-view";
 import ForgetPass from "../page/forgetpass";
-// import Home from "../page/home";
-// import HomeTwo from "../page/home-2";
-// import HomeThree from "../page/home-3";
-// import HomeFour from "../page/home-4";
-// import HomeFive from "../page/home-5";
-// import HomeSix from "../page/home-6";
 import HomeSeven from "../page/home-7";
 import InstructorPage from "../page/instructor";
 import LoginPage from "../page/login";
@@ -30,6 +24,7 @@ import TeamPage from "../page/team";
 import TeamSingle from "../page/team-single";
 import Footer from "../component/layout/footer";
 import Header from "../component/layout/header";
+import Services from "../page/OurServices/Services";
 
 function RoutingCall(){
     return(
@@ -37,13 +32,8 @@ function RoutingCall(){
              <Header/>
           		<Routes>
 				<Route path="/" element={<HomeSeven />} />
-				{/* <Route path="index-2" element={<HomeTwo />} />
-				<Route path="index-3" element={<HomeThree />} />
-				<Route path="index-4" element={<HomeFour />} />
-				<Route path="index-5" element={<HomeFive />} />
-				<Route path="index-6" element={<HomeSix />} />
-				<Route path="index-7" element={<HomeSeven />} /> */}
 				<Route path="course" element={<CoursePage />} />
+				<Route path="Services/:Service" element={<Services/>}/>
 				<Route path="course-single" element={<CourseSingle />} />
 				<Route path="course-view" element={<CourseView />} />
 				<Route path="blog" element={<BlogPage />} />
