@@ -8,12 +8,12 @@ const About = () => {
   return (
     <div className="container">
       <div className="row">
-        <h3
+        <h2
           className="text-center"
           style={{ color: "rgb(255, 9, 17)" }}
         >
           {Title}
-        </h3>
+        </h2>
         <div className="col-sm-12 col-lg-6 mt-3 mb-3">
           <p style={{textAlign: "justify"}}>{desc1}</p>
         </div>

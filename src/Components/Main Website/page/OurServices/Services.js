@@ -3,6 +3,7 @@ import PageHeader from "../../component/layout/pageheader";
 import { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import Pic from "../../assets/images/services/Web Development.jpg";
+import SidebarForm from "../../component/sidebar/Sidebar-form";
 export default () => {
   
     let data = [
@@ -242,7 +243,7 @@ export default () => {
           />
 
           <div
-            style={{ backgroundColor: "#D3D3D3" }}
+            style={{backgroundColor:'#E5F6DF'}}
             className="blog-section flex padding-tb section-bg"
           >
             <div className="container">
@@ -250,7 +251,7 @@ export default () => {
                 <div className="col-lg-3 col-sm-12">
                  
                   <PostCategory />
-               
+                  <SidebarForm/>
                 </div>
                 <div className="col-lg-9 col-sm-12">
                   <div className="row">

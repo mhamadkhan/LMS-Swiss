@@ -35,20 +35,23 @@ const aboutList = [
 
 const AboutPage = () => {
     return ( 
-        <Fragment>
+
+        <Fragment  >
+            <div  >
             <Header />
             <PageHeader title={'About Our Soft Tech Hub'} curPage={'About'} />
             {/* <Blog /> */}
-              <h2  style={{textAlign:'center', marginTop:'2em'}} >How we Works </h2>
+              <h2  style={{textAlign:'center', marginTop:'2em', color:'#FF0911'}} >How we Works </h2>
             <ServicesCards/>
             <AboutCompany/>
             <MissionandVision/>
             {/* <Section1/> */}
             {/* <Student /> */}
             {/* <Instructor /> */}
-            <Skill />
+            {/* <Skill /> */}
             <AchievementTwo />
             {/* <Footer /> */}
+            </div>
         </Fragment>
     );
 }

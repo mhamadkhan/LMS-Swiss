@@ -4,3 +4,83 @@
 .themeColor{
       color:'#FF0911'
   }
+
+  .Approve{
+    background-color: rgb(19, 241, 78);
+    color: rgb(240, 238, 238); 
+    border: none;
+  margin-left: 1%;
+
+}
+.Approve:hover{
+  background-color: rgb(25, 248, 9);
+  color: rgb(240, 238, 238); 
+  border: none;
+  margin-left: 1%;
+
+}
+
+.Reject{
+  background-color: rgb(245, 65, 77);
+  color: rgb(240, 238, 238); 
+  border: none;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+.Reject:hover{
+  background-color: rgb(242, 8, 24) ;
+  color: rgb(240, 238, 238); 
+  border: none;
+  margin-left: 1%;
+
+}
+
+.Wait{
+  background-color: rgb(233, 229, 12);
+  color: rgb(240, 238, 238); 
+  border: none;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+.Wait:hover{
+  background-color: rgb(144, 132, 9) ;
+  color: rgb(240, 238, 238); 
+  border: none;
+  margin-left: 1%;
+
+}
+/* Dashboard Header CSS */
+
+.DHeader{
+   background-color: #319883!important;
+   border-color:#319883 !important ;
+   /* background-color: rgb(159 165 181)!important; */
+}
+
+/* SideBar ActiveLink Color */
+
+.color{
+  color:#319883 !important;
+   /* color: rgb(145, 151, 168) !important; */
+   /* color: rgb(100, 125, 193) !important; */
+}
+
+.storeName{
+    color: rgb(255, 255, 255);
+    font-family: 'Playfair Display SC', serif ;
+    letter-spacing: 0.2rem; 
+}
+
+.adminName{
+  color: rgb(255, 255, 255);
+  font-family: 'Playfair Display SC', serif ;
+  letter-spacing: 0.2rem;
+}
+
+.link{
+ text-decoration:none
+  /* margin-left: 10px !important; */
+}
+.warning{
+  color: red;
+}

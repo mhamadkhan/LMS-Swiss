@@ -14,7 +14,7 @@ const PageHeader = ({title, curPage,subCurPage }) => {
                                 <ol className="breadcrumb justify-content-center">
                                     <li className="breadcrumb-item"><Link to="/">Home</Link></li>
                                     <li className="breadcrumb-item active" aria-current="page">{curPage}</li>
-                                    <li className="breadcrumb-item active" aria-current="page">{subCurPage}</li>
+                                  {subCurPage?  <li className="breadcrumb-item active" aria-current="page">{subCurPage}</li> :null}
                                 </ol>
                             </nav>
                         </div>

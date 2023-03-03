@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import Rating from "../../component/sidebar/rating";
+import DigitalPic from '../../assets/images/CoursePics/Digital Marketing.jpeg'
 export default()=>{
     
 const courseList = [
     {
-        imgUrl: 'assets/images/course/01.jpg',
-        imgAlt: 'course rajibraj91 rajibraj',
+        imgUrl: DigitalPic,
+        imgAlt: 'Digital Marketing Course',
         price: 'Rs35K',
         cate: 'Digital Marketing',
         reviewCount: '03 reviews',
@@ -100,14 +101,14 @@ const courseList = [
                                                 <img src={`${val.imgUrl}`} alt={`${val.imgAlt}`} />
                                             </div>
                                             <div className="course-content">
-                                                <div className="course-price">{val.price}</div>
+                                                <div style={{backgroundColor:'#FF0911'}} className="course-price">{val.price}</div>
                                                 <div className="course-category">
                                                     <div className="course-cate">
                                                         <a href="#">{val.cate}</a>
                                                     </div>
                                                     <div className="course-reiew">
-                                                        <Rating />
-                                                        <span className="ratting-count"> {val.reviewCount}</span>
+                                                        {/* <Rating /> */}
+                                                        {/* <span className="ratting-count"> {val.reviewCount}</span> */}
                                                     </div>
                                                 </div>
                                                 <Link to="/course-single"><h4>{val.title}</h4></Link>
