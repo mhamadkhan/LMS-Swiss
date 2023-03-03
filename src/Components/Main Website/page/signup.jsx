@@ -1,10 +1,15 @@
+/* eslint-disable no-unused-vars */
 import { Fragment } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import Footer from "../component/layout/footer";
+// import Footer from "../component/layout/footer";
 import Header from "../component/layout/header";
 import PageHeader from "../component/layout/pageheader";
+import { RegisterSchema } from '../Schemas/index';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-
+// axios
+import axios from 'axios'
 
 const title = "Register Now";
 const socialTitle = "Register With Social Media";
@@ -39,8 +44,25 @@ let socialList = [
     },
 ]
 
-
 const SignupPage = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(RegisterSchema),
+    });
+
+    const onSubmit = async (data) => {
+        console.log("post ja rhi")
+
+        const DataSend = {
+            data
+        }
+
+        try {
+            const resp = await axios.post("/signup", DataSend);
+            // const response = await resp.json();
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
     return (
         <Fragment>
             <Header />
@@ -49,37 +71,46 @@ const SignupPage = () => {
                 <div className="container">
                     <div className="account-wrapper">
                         <h3 className="title">{title}</h3>
-                        <form className="account-form">
-                            <div className="form-group">
+
+                        <form className="account-form" onSubmit={handleSubmit(onSubmit)}>
+                            <div className="form-group text-start" style={{ height: "3.4rem" }}>
                                 <input
+                                    {...register('name')}
                                     type="text"
                                     name="name"
                                     placeholder="User Name"
                                 />
+                                {errors.name && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.name.message}</span>}
                             </div>
-                            <div className="form-group">
+                            <div className="form-group text-start" style={{ height: "3.4rem" }}>
                                 <input
+                                    {...register('email')}
                                     type="email"
                                     name="email"
                                     placeholder="Email"
                                 />
+                                {errors.email && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.email.message}</span>}
                             </div>
-                            <div className="form-group">
+                            <div className="form-group text-start" style={{ height: "3.4rem" }}>
                                 <input
+                                    {...register('password')}
                                     type="text"
                                     name="password"
                                     placeholder="Password"
                                 />
+                                {errors.password && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.password.message}</span>}
                             </div>
-                            <div className="form-group">
+                            <div className="form-group text-start" style={{ height: "3.4rem" }}>
                                 <input
+                                    {...register('confirmPassword')}
                                     type="text"
-                                    name="password"
+                                    name="confirmPassword"
                                     placeholder="Confirm Password"
                                 />
+                                {errors.confirmPassword && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.confirmPassword.message}</span>}
                             </div>
                             <div className="form-group">
-                                <button className="lab-btn"><span>{btnText}</span></button>
+                                <button className="lab-btn" type="submit"><span>{btnText}</span></button>
                             </div>
                         </form>
                         <div className="account-bottom">
@@ -101,5 +132,5 @@ const SignupPage = () => {
         </Fragment>
     );
 }
- 
+
 export default SignupPage;

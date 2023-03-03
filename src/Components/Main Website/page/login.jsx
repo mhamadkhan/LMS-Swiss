@@ -1,8 +1,13 @@
-import { Component, Fragment } from "react";
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../component/layout/footer";
+// import Footer from "../component/layout/footer";
 import Header from "../component/layout/header";
 import PageHeader from "../component/layout/pageheader";
+
+import { LoginSchema } from '../Schemas/index';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 
 
@@ -40,6 +45,23 @@ const socialList = [
 ]
 
 const LoginPage = () => {
+
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(LoginSchema),
+    });
+
+    const onSubmit = async (data) => {
+        const DataSend = {
+            data
+        }
+
+        try {
+            const resp = await axios.post("/login", DataSend);
+            // const response = await resp.json();
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
     return (
         <Fragment>
             <Header />
@@ -48,22 +70,27 @@ const LoginPage = () => {
                 <div className="container">
                     <div className="account-wrapper">
                         <h3 className="title">{title}</h3>
-                        <form className="account-form">
-                            <div className="form-group">
+
+                        <form className="account-form" onSubmit={handleSubmit(onSubmit)}>
+                            <div className="form-group text-start" style={{ height: "3.4rem" }}>
                                 <input
+                                    {...register('name')}
                                     type="text"
                                     name="name"
                                     placeholder="User Name *"
                                 />
+                                {errors.name && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.name.message}</span>}
                             </div>
-                            <div className="form-group">
+                            <div className="form-group text-start" style={{ height: "3.4rem" }}>
                                 <input
+                                    {...register('password')}
                                     type="password"
                                     name="password"
                                     placeholder="Password *"
                                 />
+                                {errors.password && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.password.message}</span>}
                             </div>
-                            <div className="form-group">
+                            <div className="form-group text-start" style={{ height: "3.4rem" }}>
                                 <div className="d-flex justify-content-between flex-wrap pt-sm-2">
                                     <div className="checkgroup">
                                         <input type="checkbox" name="remember" id="remember" />
@@ -73,7 +100,7 @@ const LoginPage = () => {
                                 </div>
                             </div>
                             <div className="form-group text-center">
-                                <button className="d-block lab-btn"><span>{btnText}</span></button>
+                                <button className="d-block lab-btn" type="submit"><span>{btnText}</span></button>
                             </div>
                         </form>
                         <div className="account-bottom">
@@ -90,10 +117,10 @@ const LoginPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
             {/* <Footer /> */}
-        </Fragment>
+        </Fragment >
     );
 }
- 
+
 export default LoginPage;
