@@ -8,7 +8,8 @@ import PageHeader from "../component/layout/pageheader";
 import { RegisterSchema } from '../Schemas/index';
 import { yupResolver } from '@hookform/resolvers/yup';
 
-
+// axios
+import axios from 'axios'
 
 const title = "Register Now";
 const socialTitle = "Register With Social Media";
@@ -48,8 +49,19 @@ const SignupPage = () => {
         resolver: yupResolver(RegisterSchema),
     });
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        console.log("post ja rhi")
+
+        const DataSend = {
+            data
+        }
+
+        try {
+            const resp = await axios.post("/signup", DataSend);
+            // const response = await resp.json();
+        } catch (error) {
+            console.log(error.message)
+        }
     }
     return (
         <Fragment>

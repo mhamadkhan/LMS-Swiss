@@ -7,6 +7,7 @@ import PageHeader from "../component/layout/pageheader";
 import { LoginSchema } from '../Schemas/index';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 
 
@@ -49,8 +50,17 @@ const LoginPage = () => {
         resolver: yupResolver(LoginSchema),
     });
 
-    const onSubmit = (data) => {
-        console.log(data);
+    const onSubmit = async (data) => {
+        const DataSend = {
+            data
+        }
+
+        try {
+            const resp = await axios.post("/login", DataSend);
+            // const response = await resp.json();
+        } catch (error) {
+            console.log(error.message)
+        }
     }
     return (
         <Fragment>
