@@ -1,4 +1,5 @@
-import { Fragment } from "react";
+/* eslint-disable no-unused-vars */
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 // import Footer from "../component/layout/footer";
 import Header from "../component/layout/header";
@@ -9,12 +10,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-
-
 const title = "Login";
 const socialTitle = "Login With Social Media";
 const btnText = "Submit Now";
-
 
 const socialList = [
     {
@@ -46,6 +44,8 @@ const socialList = [
 
 const LoginPage = () => {
 
+    const [RememberMe, setRememberMe] = useState(false);
+
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(LoginSchema),
     });
@@ -54,14 +54,25 @@ const LoginPage = () => {
         const DataSend = {
             data
         }
+        // first send request to the /login, 
+        // first get the user from mongodb, then make a token for him.
+        // set token to localstorage
+        if (RememberMe) {
+            try {
+                const resp = await axios.post("/login", DataSend);
+                const token = await resp.data;
+                // console.log(token);
 
-        try {
-            const resp = await axios.post("/login", DataSend);
-            // const response = await resp.json();
-        } catch (error) {
-            console.log(error.message)
+                localStorage.setItem("token", token);
+
+            } catch (error) {
+                console.log(error.message)
+            }
+        } else {
+            console.log("not checked")
         }
     }
+
     return (
         <Fragment>
             <Header />
@@ -93,7 +104,7 @@ const LoginPage = () => {
                             <div className="form-group text-start" style={{ height: "3.4rem" }}>
                                 <div className="d-flex justify-content-between flex-wrap pt-sm-2">
                                     <div className="checkgroup">
-                                        <input type="checkbox" name="remember" id="remember" />
+                                        <input type="checkbox" name="remember" id="remember" onChange={() => { setRememberMe(!RememberMe) }} />
                                         <label htmlFor="remember">Remember Me</label>
                                     </div>
                                     <Link to="/forgetpass">Forget Password?</Link>
