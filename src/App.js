@@ -4,8 +4,10 @@ import 'swiper/css';
 import ScrollToTop from "./Components/Main Website/component/layout/ScrollToTop";
 import RoutingCall from "./Components/Main Website/Routing/Routing";
 import AdminDashboard from "./Components/Admin DB/Admin Dashboard/Admin Dashboard";
+
 import { Suspense } from "react";
 import './App.css';
+
 
 function App() {
 
@@ -15,6 +17,7 @@ function App() {
 			<ScrollToTop />
 			<Routes>
 				<Route path="/*" element={<RoutingCall />} />
+
 				<Route path="/AdminDashboard*" element={<AdminDashboard />} />      
 			</Routes>
 		</BrowserRouter>
