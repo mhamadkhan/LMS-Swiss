@@ -9,7 +9,7 @@ import FeatureFour from "../component/section/feature-4";
 import InstructorThree from "../component/section/instructor-3";
 // import NewsletterTwo from "../component/section/newsletter-2";
 // import Offer from "../component/section/offer";
-
+import Courses from '../component/section/CourseCard'
 
 
 const HomeSeven = () => {
@@ -19,7 +19,12 @@ const HomeSeven = () => {
             <BannerSeven />
             {/* <CourseFour /> */}
             <Section1/>
+            
             <FeatureFour />
+            <div style={{marginTop:"8%"}}>
+
+            <Courses/>
+            </div>
             {/* <Offer /> */}
             <InstructorThree />
             {/* <BlogThree /> */}

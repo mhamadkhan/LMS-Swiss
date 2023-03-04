@@ -327,8 +327,8 @@
                                     color: $title-color;
                                     &:hover,
                                     &.active {
-                                        background: $yellow;
-                                        color: $title-color;
+                                        background-color: #FF0911;
+                                        // color: $title-color;
                                     }
                                     &.active {
                                         &::after, &::before {

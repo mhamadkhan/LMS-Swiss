@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import './header.css'
 import Logo from '../../assets/images/logo/02.png'
 const phoneNumber = "+92-313-7267-440";
 const address = "Jinnah Colony Saeed Mart Road, Faisalabad";
-
 
 let socialList = [
     {
@@ -66,14 +66,14 @@ const Header = () => {
                             <NavLink to="/"><img style={{width:'50%'}} src={Logo} alt="logo" onClick={() => setMenuToggle(menuToggle)} /></NavLink>
                         </div>
                         <div className="menu-area">
-                            <div className="menu">
-                                <ul className={`lab-ul ${menuToggle ? "active" : ""}`}>
+                            <div  className="menu">
+                                <ul  className={`lab-ul ${menuToggle ? "active activeul" : ""}`}>
 
                                     <li className="">
                                         <NavLink to="/"  aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0"onClick={() => setMenuToggle(!menuToggle)} >Home</NavLink>
                                     </li>
                                     <li className="">
-                                        <NavLink to='/course'  aria-expanded="false" data-bs-offset="0,0" onClick={() => setMenuToggle(!menuToggle)}>Courses</NavLink>
+                                        <NavLink to="/course"  aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0"onClick={() => setMenuToggle(!menuToggle)} >Courses</NavLink>
                                         {/* <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/course">Course</NavLink></li>
                                             <li><NavLink to="/course-single">Course Details</NavLink></li>
@@ -82,7 +82,7 @@ const Header = () => {
                                         </ul> */}
                                     </li>
                                     <li className="menu-item-has-children">
-                                        <NavLink to="Services" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0"  onClick={() => setMenuToggle(!menuToggle)}>Our Services</NavLink>
+                                        <NavLink to="/services" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" >Our Services</NavLink>
                                         <ul className="lab-ul dropdown-menu">
                                             <li><NavLink to="/Services/WebDevelopment">Web Development</NavLink></li>
                                             <li><NavLink to="/blog-2">Mobile App Development</NavLink></li>
@@ -90,31 +90,21 @@ const Header = () => {
                                             <li><NavLink to="/Services/BlockChain">BlockChain</NavLink></li>
                                             <li><NavLink to="/Services/DigitalMarketing">Digital Marketing</NavLink></li>
                                             <li><NavLink to="/Services/SearchEngineOptimization">Search Engine Optimization</NavLink></li>
-                                            <li><NavLink to="/Services/ArtificialIntelligence">Artificial Intelligence</NavLink></li>
+                                            <li><NavLink to="/Services/WebDesigning">Web Designing</NavLink></li>
                                         </ul>
                                     </li>
                                     <li className="">
                                         <NavLink to='/about'   aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" onClick={() => setMenuToggle(!menuToggle)} >About Us</NavLink>
-                                        {/* <ul className="lab-ul dropdown-menu">
-                                            <li><NavLink to="/about">About</NavLink></li>
-                                            <li><NavLink to="/team">Team</NavLink></li>
-                                            <li><NavLink to="/instructor">Instructor</NavLink></li>
-                                            <li><NavLink to="/shop">Shop Page</NavLink></li>
-                                            <li><NavLink to="/shop-single">Shop Details Page</NavLink></li>
-                                            <li><NavLink to="/cart-page">Shop Cart Page</NavLink></li>
-                                            <li><NavLink to="/search-page">Search Page</NavLink></li>
-                                            <li><NavLink to="/search-none">Search None</NavLink></li>
-                                            <li><NavLink to="/404">404</NavLink></li>
-                                        </ul> */}
+                                        
                                     </li>
-                                    <li><NavLink to="/contact" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" onClick={() => setMenuToggle(!menuToggle)} >Contact</NavLink></li>
+                                    <li><NavLink to="/contact" aria-haspopup="true" aria-expanded="false" data-bs-offset="0,0" onClick={() => setMenuToggle(!menuToggle)} >Contact Us</NavLink></li>
                                 </ul>
                             </div>
                             
                             <NavLink to="/login" className="login"><i style={{color:'#FF0911'}} className="icofont-user" onClick={() => setMenuToggle(!menuToggle)} > </i> <span>LOG IN</span> </NavLink>
                             <NavLink style={{backgroundColor:'#FF0911'}} to="/signup" className="signup" onClick={() => setMenuToggle(!menuToggle)}><i  style={{color:'white'}} className="icofont-users"></i> <span  >SIGN UP</span> </NavLink>
  
-                            <div className={`header-bar d-lg-none ${menuToggle ? "active" : "" }`} onClick={() => setMenuToggle(!menuToggle)}>
+                            <div style={{color:'#FF0911'}} className={`header-bar d-lg-none ${menuToggle ? "active" : "" }`} onClick={() => setMenuToggle(!menuToggle)}>
                                 <span></span>
                                 <span></span>
                                 <span></span>

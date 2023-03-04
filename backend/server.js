@@ -10,8 +10,9 @@ let cors = require('cors')
 app.use(cors())
 app.use(express.json())
 
+
 ///////////////////////////  connect Database
-// connectDB();
+connectDB();
 
 app.get('/', (req, res) => {
     res.send('<h3>Server at Home</h3>')

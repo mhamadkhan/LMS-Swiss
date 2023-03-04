@@ -10,20 +10,21 @@ export default ()=>{
       <>
 <div className="container mt-5 mb-3">
     <div className="row">
-        <div className="col-md-4">
-            <div className="card p-3 mb-2">
-                <div className="d-flex justify-content-between">
+        <div style={{backgroundColor:'B8F0A8'}} className="col-md-4">
+            {/* Card 1  */}
+            <div  className="card p-3 mb-2">
+                <div style={{backgroundColor:'B8F0A8'}} className="d-flex justify-content-between">
                     <div className="d-flex flex-row align-items-center">
                         <div className="icon"> <i className="bx bxl-mailchimp"></i> </div>
                         <div className="ms-2 c-details">
-                            <h3 style={{justifyContent:'center'}} className="mb-0">Project Planning  </h3> 
+                            <h3  className="mb-0">Project Planning  </h3> 
                         </div>
                     </div>
-                    <div className="badge"> <span>Design</span> </div>
+      
                 </div>
                 <div className="mt-5">
               
-                    {/* <h3 className="heading">Project Planning</h3> */}
+          
                     <p style={{textAlign:'justify'}} >Planning a project first involves determining its needs and the functionality that our customer desires.</p>
                     <div className="mt-5">
                         <div className="progress">
@@ -34,6 +35,7 @@ export default ()=>{
                 </div>
             </div>
         </div>
+         {/* Card 2 */}
         <div className="col-md-4">
             <div className="card p-3 mb-2">
                 <div className="d-flex justify-content-between">
@@ -57,6 +59,7 @@ export default ()=>{
                 </div>
             </div>
         </div>
+        {/* Card 3 */}
         <div className="col-md-4">
             <div className="card p-3 mb-2">
                 <div className="d-flex justify-content-between">

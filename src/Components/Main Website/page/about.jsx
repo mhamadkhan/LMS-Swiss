@@ -9,7 +9,8 @@ import Skill from "../component/section/skill";
 import Student from "../component/section/student";
 import Section1 from './AboutSection' 
 import ServicesCards from "../component/section/ServicesCards/ServicesCards";
-
+import AboutCompany from '../component/section/About-Company'
+import MissionandVision from "../component/section/Vision-and-Mission"
 const aboutList = [
     {
         imgUrl: 'assets/images/about/icon/01.jpg',
@@ -34,18 +35,23 @@ const aboutList = [
 
 const AboutPage = () => {
     return ( 
-        <Fragment>
+
+        <Fragment  >
+            <div  >
             <Header />
             <PageHeader title={'About Our Soft Tech Hub'} curPage={'About'} />
             {/* <Blog /> */}
-              <h2  style={{textAlign:'center', marginTop:'2em'}} >How we Works </h2>
+              <h2  style={{textAlign:'center', marginTop:'2em', color:'#FF0911'}} >How we Works </h2>
             <ServicesCards/>
+            <AboutCompany/>
+            <MissionandVision/>
             {/* <Section1/> */}
             {/* <Student /> */}
             {/* <Instructor /> */}
-            <Skill />
+            {/* <Skill /> */}
             <AchievementTwo />
             {/* <Footer /> */}
+            </div>
         </Fragment>
     );
 }

@@ -7,7 +7,8 @@ import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-
+import "./Components/Admin DB/Admin Dashboard/assets/scss/style.scss"
+// import "./components/Seller Dashboard/assets/scss/style.scss"
 import './Components/Main Website/assets/css/icofont.min.css';
 import './Components/Main Website/assets/css/animate.css';
 import './Components/Main Website/assets/css/style.min.css';
