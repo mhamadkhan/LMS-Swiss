@@ -1,5 +1,3 @@
-
-
 const { Router } = require("express");
 const { SignUpData } = require('../controllers/SignUpController');
 

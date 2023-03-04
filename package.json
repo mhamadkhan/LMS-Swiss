@@ -3,11 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-=======
     "@hookform/resolvers": "^2.9.11",
-    "@reduxjs/toolkit": "^1.9.3",
->>>>>>> 0121b2e748548a2538c3245cb3598574e5e2b9aa
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -23,14 +19,11 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
-<<<<<<< HEAD
     "react-toastify": "^9.1.1",
     "reactstrap": "^9.1.6",
-=======
-    "redux": "^4.2.1",
->>>>>>> 0121b2e748548a2538c3245cb3598574e5e2b9aa
     "swiper": "^8.2.2",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "yup": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
