@@ -112,7 +112,7 @@ const CourseSideDetail = () => {
                     </div>
                 </div>
                 <div className="course-enroll">
-                    <Link to="/signup" className="lab-btn"><span>{btnText}</span></Link>
+                    <Link style={{backgroundColor:'#FF0911'}} to="/courseregistrationform" className="lab-btn"><span>{btnText}</span></Link>
                 </div>
             </div>
         </div>

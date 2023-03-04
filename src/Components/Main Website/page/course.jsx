@@ -1,19 +1,20 @@
 import { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../component/layout/footer";
-import Header from "../component/layout/header";
 import PageHeader from "../component/layout/pageheader";
 import GroupSelect from "../component/sidebar/group-select";
 import Pagination from "../component/sidebar/pagination";
 import Rating from "../component/sidebar/rating";
 import SkillSelect from "../component/sidebar/skill-select";
-
-
-
+import DigitalPic from '../assets/images/CoursePics/Digital Marketing.jpeg';
+import GraphicDesign from '../assets/images/CoursePics/Graphic Design.jpeg';
+import SEO from '../assets/images/CoursePics/SEO.jpeg';
+import SMM from '../assets/images/CoursePics/SMM.jpeg';
+import GameDevelop from '../assets/images/CoursePics/GameDevelopment.jpeg';
+import VideoEditing from '../assets/images/CoursePics/Video Editing.jpeg'
 const courseList = [
     {
-        imgUrl: 'assets/images/course/01.jpg',
-        imgAlt: 'course rajibraj91 rajibraj',
+        imgUrl: DigitalPic,
+        imgAlt: 'Digital Marketing Course',
         price: 'Rs35K',
         cate: 'Digital Marketing',
         reviewCount: '03 reviews',
@@ -26,7 +27,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/02.jpg',
+        imgUrl:GraphicDesign,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs25K',
         cate: 'Graphic Design',
@@ -40,7 +41,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/03.jpg',
+        imgUrl: SEO,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs30K',
         cate: 'Search Engine Optimization',
@@ -54,7 +55,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/04.jpg',
+        imgUrl: GameDevelop,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs40k',
         cate: 'Game Development',
@@ -68,7 +69,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/05.jpg',
+        imgUrl: SMM,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs25k',
         cate: 'Social Media Marketing',
@@ -82,7 +83,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/06.jpg',
+        imgUrl: VideoEditing,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs20k',
         cate: 'Video Editing',
@@ -98,10 +99,13 @@ const courseList = [
 ]
 
 
+
+
+
 const CoursePage = () => {
     return (
         <Fragment>
-            <Header />
+         
             <PageHeader title={'Archives: Courses'} curPage={'Course Page'} />
             <GroupSelect />
             <div className="course-section padding-tb section-bg">
@@ -137,10 +141,7 @@ const CoursePage = () => {
                                                     <div className="course-cate">
                                                         <a href="#">{val.cate}</a>
                                                     </div>
-                                                    <div className="course-reiew">
-                                                        <Rating />
-                                                        <span className="ratting-count"> {val.reviewCount}</span>
-                                                    </div>
+                                                  
                                                 </div>
                                                 <Link to="/course-single"><h4>{val.title}</h4></Link>
                                                 <div className="course-details">

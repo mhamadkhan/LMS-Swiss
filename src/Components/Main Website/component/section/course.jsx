@@ -1,98 +1,101 @@
-
 import { Link } from "react-router-dom";
 import Rating from "../sidebar/rating";
-
 const subTitle = "Featured Courses";
 const title = "Pick A Course To Get Started";
+import DigitalPic from '../../assets/images/CoursePics/Digital Marketing.jpeg';
+import GraphicDesign from '../../assets/images/CoursePics/Graphic Design.jpeg';
+import SEO from '../../assets/images/CoursePics/SEO.jpeg';
+import SMM from '../../assets/images/CoursePics/SMM.jpeg';
+import GameDevelop from '../../assets/images/CoursePics/GameDevelopment.jpeg';
+import VideoEditing from '../../assets/images/CoursePics/Video Editing.jpeg'
 
-
+    
 const courseList = [
     {
-        imgUrl: 'assets/images/course/01.jpg',
-        imgAlt: 'course rajibraj91 rajibraj',
-        price: '$30',
-        cate: 'Adobe XD',
+        imgUrl: DigitalPic,
+        imgAlt: 'Digital Marketing Course',
+        price: 'Rs35K',
+        cate: 'Digital Marketing',
         reviewCount: '03 reviews',
-        title: 'Fundamentals of Adobe XD Theory Learn New',
-        totalLeson: '18x Lesson',
-        schdule: 'Online Class',
+        title: 'The Complete Digital Marketing Course',
+        totalLeson: '4 Months',
+        schdule: 'Physical Class',
         authorImgUrl: 'assets/images/course/author/01.jpg',
         authorImgAlt: 'course author rajibraj91 rajibraj',
         authorName: 'William Smith',
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/02.jpg',
+        imgUrl:GraphicDesign,
         imgAlt: 'course rajibraj91 rajibraj',
-        price: '$30',
-        cate: 'Adobe XD',
+        price: 'Rs25K',
+        cate: 'Graphic Design',
         reviewCount: '03 reviews',
         title: 'Certified Graphic Design with Free Project Course',
-        totalLeson: '18x Lesson',
-        schdule: 'Online Class',
+        totalLeson: '3 Months',
+        schdule: 'Physical Class',
         authorImgUrl: 'assets/images/course/author/02.jpg',
         authorImgAlt: 'course author rajibraj91 rajibraj',
         authorName: 'Lora Smith',
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/03.jpg',
+        imgUrl: SEO,
         imgAlt: 'course rajibraj91 rajibraj',
-        price: '$30',
-        cate: 'Adobe XD',
+        price: 'Rs30K',
+        cate: 'Search Engine Optimization',
         reviewCount: '03 reviews',
-        title: 'Theory Learn New Student And Fundamentals',
-        totalLeson: '18x Lesson',
-        schdule: 'Online Class',
+        title: 'The Ultimate SEO Training Course',
+        totalLeson: '3 Months',
+        schdule: 'Physical Class',
         authorImgUrl: 'assets/images/course/author/03.jpg',
         authorImgAlt: 'course author rajibraj91 rajibraj',
         authorName: 'Robot Smith',
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/04.jpg',
+        imgUrl: GameDevelop,
         imgAlt: 'course rajibraj91 rajibraj',
-        price: '$30',
-        cate: 'Adobe XD',
+        price: 'Rs40k',
+        cate: 'Game Development',
         reviewCount: '03 reviews',
-        title: 'Computer Fundamentals Basic Startup Ultricies Vitae',
-        totalLeson: '18x Lesson',
-        schdule: 'Online Class',
+        title: 'Unity 3D Game Development',
+        totalLeson: '3 Months',
+        schdule: 'Physical Class',
         authorImgUrl: 'assets/images/course/author/04.jpg',
         authorImgAlt: 'course author rajibraj91 rajibraj',
         authorName: 'Zinat Zaara',
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/05.jpg',
+        imgUrl: SMM,
         imgAlt: 'course rajibraj91 rajibraj',
-        price: '$30',
-        cate: 'Adobe XD',
+        price: 'Rs25k',
+        cate: 'Social Media Marketing',
         reviewCount: '03 reviews',
-        title: 'Boozy Halloween Drinks for the Grown Eleifend Kuismod',
-        totalLeson: '18x Lesson',
-        schdule: 'Online Class',
+        title: 'Social Media Marketing Course',
+        totalLeson: '2 Months',
+        schdule: 'Physical Class',
         authorImgUrl: 'assets/images/course/author/05.jpg',
         authorImgAlt: 'course author rajibraj91 rajibraj',
         authorName: 'Rajib Raj',
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/06.jpg',
+        imgUrl: VideoEditing,
         imgAlt: 'course rajibraj91 rajibraj',
-        price: '$30',
-        cate: 'Adobe XD',
+        price: 'Rs20k',
+        cate: 'Video Editing',
         reviewCount: '03 reviews',
-        title: 'Student Want to Learn About Science And Arts',
-        totalLeson: '18x Lesson',
-        schdule: 'Online Class',
+        title: 'Video Editing Course',
+        totalLeson: '2 Months',
+        schdule: 'Physical Class ',
         authorImgUrl: 'assets/images/course/author/06.jpg',
         authorImgAlt: 'course author rajibraj91 rajibraj',
         authorName: 'Angel Mili',
         btnText: 'Read More',
     },
 ]
-
 const Course = () => {
     return (
         <div className="course-section padding-tb section-bg">

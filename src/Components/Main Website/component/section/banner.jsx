@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import IntroVideo from "../../assets/images/Video/IntroVideo.mp4"
 const subTitle = "An Overseas Education Consultant";
 const title = <h2 style={{fontWeight:'800'}} > FROM GOAL TO GLORY </h2>;
@@ -22,11 +23,12 @@ const Banner = () => {
                                     <input type="text" placeholder="Keywords of your course" />
                                     <button style={{backgroundColor:'#FF0911'}} type="submit">Search Course</button>
                                 </form>
-                                {/* <div >
-                                    <h2 style={{display:"inline"}}>Want To Learn With Us?</h2>
-                                <button className="mb-2 ms-3" style={{backgroundColor:'#FF0911',color:"white"}}>Apply Now</button>
-                                </div> */}
-                            </div>
+                                
+                                  <Link to="/courseregistrationform" >
+                                <button  className="mb-2 ms-3"  style={{backgroundColor:'#FF0911',color:"white" ,borderRadius:'10%' }}>Apply Now</button>
+                               </Link>
+                               </div> 
+                          
                         </div>
                 <div  className="col-xxl-7 col-xl-6">
                             <div className="banner-thumb">

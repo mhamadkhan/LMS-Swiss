@@ -126,7 +126,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="logo">
-                          <img src={logo} style={{ width: "220px",position:'relative', left:"120px" }} alt="" />
+                          <img src={logo} style={{ width: "220px",position:'relative', left:"8%" }} alt="" />
                         </div>
 
       <footer>

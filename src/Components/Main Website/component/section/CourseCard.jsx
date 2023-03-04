@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import Rating from "../../component/sidebar/rating";
-import DigitalPic from '../../assets/images/CoursePics/Digital Marketing.jpeg'
-export default()=>{
-    
+import DigitalPic from '../../assets/images/CoursePics/Digital Marketing.jpeg';
+import GraphicDesign from '../../assets/images/CoursePics/Graphic Design.jpeg';
+import SEO from '../../assets/images/CoursePics/SEO.jpeg';
+import SMM from '../../assets/images/CoursePics/SMM.jpeg';
+import GameDevelop from '../../assets/images/CoursePics/GameDevelopment.jpeg';
+import VideoEditing from '../../assets/images/CoursePics/Video Editing.jpeg'
 const courseList = [
     {
         imgUrl: DigitalPic,
@@ -19,7 +22,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/02.jpg',
+        imgUrl:GraphicDesign,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs25K',
         cate: 'Graphic Design',
@@ -33,7 +36,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/03.jpg',
+        imgUrl: SEO,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs30K',
         cate: 'Search Engine Optimization',
@@ -47,7 +50,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/04.jpg',
+        imgUrl: GameDevelop,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs40k',
         cate: 'Game Development',
@@ -61,7 +64,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/05.jpg',
+        imgUrl: SMM,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs25k',
         cate: 'Social Media Marketing',
@@ -75,7 +78,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl: 'assets/images/course/06.jpg',
+        imgUrl: VideoEditing,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs20k',
         cate: 'Video Editing',
@@ -89,6 +92,8 @@ const courseList = [
         btnText: 'Read More',
     },
 ]
+export default()=>{
+    
 
     return(<>
       <h2 style={{textAlign:'center'}} > Our Courses  </h2>
