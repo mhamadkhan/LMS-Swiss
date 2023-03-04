@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'swiper/css';
 import ScrollToTop from "./Components/Main Website/component/layout/ScrollToTop";
 import RoutingCall from "./Components/Main Website/Routing/Routing";
+import AdminDashboard from "./Components/Admin DB/Admin Dashboard/Admin Dashboard";
 import { useDispatch } from "react-redux";
 import axios from 'axios';
 
@@ -36,9 +37,8 @@ function App() {
 		<BrowserRouter>
 			<ScrollToTop />
 			<Routes>
-
 				<Route path="/*" element={<RoutingCall />} />
-
+				<Route path="/AdminDashboard*" element={<AdminDashboard />} />
 			</Routes>
 		</BrowserRouter>
 	);
