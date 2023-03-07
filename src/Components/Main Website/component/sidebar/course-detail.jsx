@@ -103,13 +103,13 @@ const CourseSideDetail = () => {
                     {/* <div className="ss-title">
                         <h6>{shareTitle}</h6>
                     </div> */}
-                    <div className="ss-content">
+                    {/* <div className="ss-content">
                         <ul className="lab-ul">
                             {socialList.map((val, i) => (
                                 <li key={i}><a href={val.siteLink} className={val.className}><i className={val.iconName}></i></a></li>
                             ))}
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="course-enroll">
                     <Link style={{backgroundColor:'#FF0911'}} to="/courseregistrationform" className="lab-btn"><span>{btnText}</span></Link>

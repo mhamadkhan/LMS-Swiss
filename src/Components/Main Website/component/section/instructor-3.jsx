@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Autoplay, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Leadinstructor from '../../assets/images/instructor/01.jpeg'
+import Leadinstructor from '../../assets/images/instructor/09.jpg'
 const subTitle = "Why Choose Us";
 const title = "Get Everything for Learning";
 
@@ -11,12 +11,12 @@ const instructorTopList = [
     {
         imgUrl: Leadinstructor,
         imgAlt: 'instructor rajibraj91 rajibraj',
-        name: 'Hamza Salafi',
+        name: 'Albert',
         degi: 'Lead Instructor',
         infoList: [
             {
                 iconName: 'icofont-envelope',
-                text: 'hamzasalafiofficial@gmail.com',
+                text: 'info@prof.mail.com',
             },
             {
                 iconName: 'icofont-youtube-play',

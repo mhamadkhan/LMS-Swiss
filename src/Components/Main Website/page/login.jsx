@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-// import Footer from "../component/layout/footer";
+import store from '../../../Store/Store'
 import Header from "../component/layout/header";
+import toast, { Toaster } from 'react-hot-toast';
 import PageHeader from "../component/layout/pageheader";
-
+import { useNavigate } from "react-router-dom";
 import { LoginSchema } from '../Schemas/index';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from "react-hook-form";
@@ -43,34 +44,79 @@ const socialList = [
 ]
 
 const LoginPage = () => {
-
+    
     const [RememberMe, setRememberMe] = useState(false);
-
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    
+    const { register, handleSubmit, formState: { errors} , reset } = useForm({
         resolver: yupResolver(LoginSchema),
     });
+    
+    let navigate =useNavigate()
 
     const onSubmit = async (data) => {
-        const DataSend = {
-            data
-        }
+      
+           console.log(data)
+        
         // first send request to the /login, 
         // first get the user from mongodb, then make a token for him.
         // set token to localstorage
-        if (RememberMe) {
-            try {
-                const resp = await axios.post("/login", DataSend);
-                const token = await resp.data;
-                // console.log(token);
 
-                localStorage.setItem("token", token);
+            try {
+
+                let resp = await axios.post('/user/login', data)
+
+                  console.log(resp.data)
+      
+
+                if(resp.data.message=='LoginSuccessfully'){   
+
+                    toast.success("Login Succesfully")
+                    localStorage.setItem("someToken", resp.data.utoken);
+                    reset({email:'', password:''})
+                    navigate('/')
+                    store.dispatch({
+                      type:"USER_LOGGED_IN",
+                      payload:resp.data.user
+                    });
+                      console.log("user founded");
+                  } 
+                  else if(resp.data.message=='An Email sent to your account please verify'){
+                    toast.error("Email Not Verified", {
+                        style: {
+                          border: '1px solid #713200',
+                          padding: '16px',
+                          color: '#f97316',
+                        },
+                        iconTheme: {
+                          primary: '#713200',
+                          secondary: '#FFFAEE',
+                        },
+                        
+                    })
+                    reset({email:'', password:''})
+                     
+                }else if(resp.data.message=='Invalid Email or password'){
+                      console.log('Not founded')
+                      toast.error("User not exist", {
+                        style: {
+                          border: '1px solid #713200',
+                          padding: '16px',
+                          color: '#f97316',
+                        },
+                        iconTheme: {
+                          primary: '#713200',
+                          secondary: '#FFFAEE',
+                        },
+                        
+                    })
+                      reset({email:'', password:''})
+                }
+            
 
             } catch (error) {
                 console.log(error.message)
             }
-        } else {
-            console.log("not checked")
-        }
+       
     }
 
     return (
@@ -85,10 +131,10 @@ const LoginPage = () => {
                         <form className="account-form" onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-group text-start" style={{ height: "3.4rem" }}>
                                 <input
-                                    {...register('name')}
+                                    {...register('email')}
                                     type="text"
-                                    name="name"
-                                    placeholder="User Name *"
+                                    name="email"
+                                    placeholder="Email *"
                                 />
                                 {errors.name && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.name.message}</span>}
                             </div>
@@ -114,7 +160,7 @@ const LoginPage = () => {
                                 <button className="d-block lab-btn" type="submit"><span>{btnText}</span></button>
                             </div>
                         </form>
-                        <div className="account-bottom">
+                        {/* <div className="account-bottom">
                             <span className="d-block cate pt-10">Don’t Have any Account?  <Link to="/signup">Sign Up</Link></span>
                             <span className="or"><span>or</span></span>
                             <h5 className="subtitle">{socialTitle}</h5>
@@ -125,7 +171,7 @@ const LoginPage = () => {
                                     </li>
                                 ))}
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div >

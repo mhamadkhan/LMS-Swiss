@@ -4,8 +4,8 @@ import { Container } from "reactstrap";
 import Starter from "../views/Starter.js";
 import Products from "../views/ui/Products";
 import LiveStores from "../views/ui/LiveStores";
-import FeaturedProduct from "../views/ui/ProductFeatured";
-import AddProducts from "../views/ui/AddProducts.js";
+// import FeaturedProduct from "../views/ui/ProductFeatured";
+import AddCourse from "../views/ui/AddCourse";
 import Sellers from '../views/ui/Sellers'
 import { Route,Routes } from "react-router-dom";
 
@@ -32,7 +32,7 @@ const FullLayout = () => {
             <Route  path ="/Courses"   element = {<Products/>} />         
             <Route  path ="/AdmissionQueries"   element = {<LiveStores/>} />         
             <Route   path ="/Users"   element = {<Sellers/>} />                 
-            <Route   path ="/AddCourse"   element = {<AddProducts/>} />            
+            <Route   path ="/AddCourse"   element = {<AddCourse/>} />            
          </Routes>
           </Container>
         </div>

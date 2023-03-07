@@ -2,8 +2,8 @@ import { useForm } from "react-hook-form";
 const Title = "Quick Contact";
 const Title2 = "Need Help?";
 const desc="Please Feel Free To Contact Us. We Will Get Back To You With 1-2 Business Days."
-const mail="business@swissbraintec.ch";
-const num="+41 71 222 41 02"
+const mail="info@softtechhub.net";
+const num="+92-313-7267-440"
 
 const SidebarForm = () => {
   const {
