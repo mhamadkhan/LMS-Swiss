@@ -13,330 +13,7 @@ import style from "./ui.module.css"
 
 const ProjectTables = () => {
 
-  let [seller,setSeller]=useState(
-    [
-      {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-        {
-        name: "Khaadi",
-        storePhoneNo: "03001234567",
-        email: "Khaadi@gmail.com",
-        storeOwnerCnic: 3310012345678,
-        role: 'Seller',
-        _id: '123456789',
-        storeStatus: "approve",
-        userImage: 'https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80',
-      },
-    ]
-  );
+  let [students,setStudents]=useState([]);
 
   let [abc,setAbc]=useState("");
 
@@ -349,19 +26,19 @@ const ProjectTables = () => {
   let mydropdown = useRef()
   let [options, setoptions] = useState([])
   let [totalpage, settotalpage] = useState()
+   
 
-
-  const indexOfLastRecord = seller ? currentPage * recordsPerPage : 0;
-  const indexOfFirstRecord = seller ? indexOfLastRecord - recordsPerPage : 0;
-  const currentData = seller ? seller.slice(indexOfFirstRecord, indexOfLastRecord) : [];
+  const indexOfLastRecord = students ? currentPage * recordsPerPage : 0;
+  const indexOfFirstRecord = students ? indexOfLastRecord - recordsPerPage : 0;
+  const currentData = students ? students.slice(indexOfFirstRecord, indexOfLastRecord) : [];
 
   const handleClick = (event, page) => {
     setCurrentPage(page);
   };
-  totalpage = Math.ceil(seller.length / recordsPerPage)
+  totalpage = Math.ceil(students.length / recordsPerPage)
   let [pageNumbers, setpageNumbers] = useState([])
 
-  totalpage = Math.ceil(seller.length / recordsPerPage)
+  totalpage = Math.ceil(students.length / recordsPerPage)
 
   const previousButton = (
     <button
@@ -410,25 +87,27 @@ const ProjectTables = () => {
 
 
   useEffect(() => {
-    name = "live"
+    name = "Student"
     setname(name)
     if (totalpage >= 5) {
 
 
-      for (let i = 1; i <= (seller ? 4 : 0); i++) {
+      for (let i = 1; i <= (students ? 4 : 0); i++) {
         pageNumbers.push(i);
       }
       pageNumbers = pageNumbers
 
       setpageNumbers(pageNumbers)
 
-
+      // options = []
       for (let i = 5; i <= totalpage; i++) {
         options.push(i)
       }
       setoptions(options)
     } else {
-      for (let i = 1; i <= (seller ? Math.ceil(seller.length / recordsPerPage) : 0); i++) {
+      // pageNumbers= ""
+      // pageNumbers = [{ pg: 1, current: true }]
+      for (let i = 1; i <= (students ? Math.ceil(students.length / recordsPerPage) : 0); i++) {
         pageNumbers.push(i);
       }
       pageNumbers = pageNumbers
@@ -437,14 +116,14 @@ const ProjectTables = () => {
 
     }
 
-  }, [seller])
+  }, [students , totalpage])
 
     useEffect( ()=>{
      
       async function fetchProducts() { 
-        let resp = await axios.get('/user/allusers');
+        let resp = await axios.get('/user/');
         console.log(resp.data);
-        setSeller(resp.data);
+        setStudents(resp.data);
       }
       fetchProducts();  
       
@@ -461,46 +140,35 @@ const ProjectTables = () => {
      <div>
   <Card>
         <CardBody>
-          <CardTitle tag="h5">    {name} Stores Listing</CardTitle>
+          <CardTitle tag="h5">    Live User Listing</CardTitle>
           <CardSubtitle className="mb-2 text-muted" tag="h6">
-            Overview of the Sellers
+            Overview of the Students
           </CardSubtitle>
           <Table className="no-wrap mt-3 align-middle" responsive borderless>
             <thead>
               <tr>
-                <th>Seller Name</th>
-                <th>Seller Email</th>
-                <th>Seller Store</th>
+                <th>Students Username</th>
+                <th>Students Email</th>
+                <th>Students Status</th>
                 {/* <th>Actions</th> */}
                 
               </tr>
             </thead>
             <tbody>
-              {currentData.map((tdata, index) => tdata.role=="Seller" ?(
+              {currentData.map((tdata, index) => tdata.role=="Student" ?(
                 <tr key={index} className="border-top">
                   <td>
                     <div className="d-flex align-items-center p-2">
-                      <img
-                        src={tdata.userImage}
-                        className="rounded-circle"
-                        alt="avatar"
-                        width="45"
-                        height="45"
-                      />
+                     
                       <div className="ms-3">
-                        <h6 className="mb-0">{tdata.name}</h6>
+                        <h6 className="mb-0">{tdata.userName}</h6>
                       </div>
                     </div>
                   </td>
                   <td>{tdata.email}</td>
-                 <td>   
-                  <Link
-                    to={`/AdminDashboard/SellerStore${tdata._id}`}
-                    className=" text-secondary py-3 link"
-                  >
-                     View Store &nbsp;
-                    <i className="bi bi-eye "></i>
-                   </Link>    </td>                
+                 <td>  
+                    {tdata.verified == true ? "verified" : "unverified"} 
+                     </td>                
                 </tr>
               ):null)}
             </tbody>
@@ -510,7 +178,7 @@ const ProjectTables = () => {
               <div className="d-flex justify-content-left">
                 <p className="text-sm text-gray-700">
                   Showing <span className="font-medium">{((+currentPage - 1) * recordsPerPage) + 1}</span> to <span >{(((+currentPage - 1) * recordsPerPage)) + currentData.length}</span> of{' '}
-                  <span >{seller.length}</span> results
+                  <span >{students.length}</span> results
                 </p>
               </div>
             </div>

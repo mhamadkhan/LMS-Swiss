@@ -21,7 +21,7 @@ let courseRegistration = mongoose.Schema({
         type:String,
         required:true
      }, 
-      alternateNumber:{
+   preferredCourse:{
         type:String,
         required:true
      },

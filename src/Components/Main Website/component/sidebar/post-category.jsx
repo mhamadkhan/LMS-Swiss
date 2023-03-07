@@ -18,7 +18,7 @@ const categoryList = [
     {
         text: 'Graphic Designing',
       
-        link: '/Services/GraphicDesign',
+        link: '/Services/GraphicDesigning',
     },
     {
         text: 'Search Engine Optimization',

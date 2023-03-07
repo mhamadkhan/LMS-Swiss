@@ -9,8 +9,8 @@ const Starter = () => {
         <Col sm="6" lg="3">
           <TopCards
             bg="bg-light-success text-success"
-            title="Profit"
-            subtitle="Yearly Earning"
+            title="Users"
+            subtitle="Users"
             earning="$21k"
             icon="bi bi-wallet"
           />
@@ -18,8 +18,8 @@ const Starter = () => {
         <Col sm="6" lg="3">
           <TopCards
             bg="bg-light-danger text-danger"
-            title="Refunds"
-            subtitle="Refund given"
+            title="Services"
+            subtitle="Services"
             earning="$1k"
             icon="bi bi-coin"
           />
@@ -27,8 +27,8 @@ const Starter = () => {
         <Col sm="6" lg="3">
           <TopCards
             bg="bg-light-warning text-warning"
-            title="New Project"
-            subtitle="Yearly Project"
+            title="Courses"
+            subtitle="Courses"
             earning="456"
             icon="bi bi-basket3"
           />
@@ -36,8 +36,8 @@ const Starter = () => {
         <Col sm="6" lg="3">
           <TopCards
             bg="bg-light-info text-into"
-            title="Sales"
-            subtitle="Weekly Sales"
+            title="Applications"
+            subtitle="Course Applications"
             earning="210"
             icon="bi bi-bag"
           />

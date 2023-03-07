@@ -31,8 +31,7 @@ const AddCourse = () => {
   });
 
   // eslint-disable-next-line no-unused-vars
-  let [courses, setcourses] = useState(["demo", "demo1"]);
-
+  
   // const handleReset = () => {
   //   formRef.current.reset();
   // }
@@ -40,6 +39,30 @@ const AddCourse = () => {
   // let handleFileChange = (event) => {
   //   setCourseImage(event.target.files[0])
   // }
+    
+  let courses = [
+    {
+      categoryName: "category1"
+    },
+    {
+      categoryName: "category2"
+    },
+    {
+      categoryName: "category3"
+    },
+  ]
+
+  let skills =[
+    {
+      skillname: "skill1",
+    },
+    {
+      skillname: "skill2",
+    },
+    {
+      skillname: "skill3",
+    },
+  ]
 
   function onSubmit(data) {
 
@@ -86,19 +109,36 @@ const AddCourse = () => {
               </FormGroup>
 
               <FormGroup>
+                <Label for="desc">Course Description</Label>
+                <Controller control={control} name="desc" defaultValue="" render={({ field }) => <Input type="textarea" id="desc" {...field} invalid={!!errors.desc} />} />
+                {errors.desc && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.desc.message}</span>}
+              </FormGroup>
+
+              <FormGroup>
                 <Label for="category">Select Course Category</Label>
                 <Controller control={control} name="category" render={({ field }) => <Input type="select" id="category" {...field} invalid={!!errors.category} >
                   <option value="">Select Course Category</option>
                   {
                     courses.map((course, id) => {
-                      return <option key={id} value={course}>{course}</option>
+                      return <option key={id} value={course.categoryName}>{course.categoryName}</option>
                     })
                   }
                 </Input>} />
                 {errors.category && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.category.message}</span>}
               </FormGroup>
 
-
+              <FormGroup>
+                <Label for="skills">Select Course skills</Label>
+                <Controller control={control} name="skills" render={({ field }) => <Input type="select" id="skills" {...field} invalid={!!errors.skills} >
+                  <option value="">Select Course skills</option>
+                  {
+                    skills.map((course, id) => {
+                      return <option key={id} value={course.skillname}>{course.skillname}</option>
+                    })
+                  }
+                </Input>} />
+                {errors.skills && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.skills.message}</span>}
+              </FormGroup>
 
               <FormGroup>
                 <Label for="coursePrice">Course Price</Label>

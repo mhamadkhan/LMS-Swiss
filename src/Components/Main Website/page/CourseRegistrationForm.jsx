@@ -260,6 +260,14 @@ const countryList = [
 const Form = () => {
   const { register, handleSubmit, formState:{errors} , reset } = useForm();
     let navigate=useNavigate();
+
+        const courses = [
+          "Web Development",
+          "Mobile App development",
+          "Artifical Intelligence",
+          "Graphic Design",
+          "Block Chain",
+        ];
      
     const onSubmit = async(data) =>{
          
@@ -475,14 +483,23 @@ const Form = () => {
                   )}
                 </div>
                 <div className="col-lg-4">
-                  <th>Alternate Contact No</th>
-                  <input
+                  <th>Select Courses *</th>
+                  <select
+                    {...register("preferredCourse", { required: true })}
                     class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Enter alternate phone number"
-                    {...register("alternateNumber", { required: true })}
-                  />
-                  {errors.alternateNumber && (
+                    id="exampleFormControlSelect1"
+                    placeholder="Please select courses "
+                  >
+                    <option value="">Select Courses</option>
+                    {courses.map((val) => {
+                      return (
+                        <>
+                          <option value={val}>{val}</option>
+                        </>
+                      );
+                    })}
+                  </select>
+                  {errors.preferredCourse && (
                     <span
                       style={{
                         color: "rgb(255, 9, 17)",
@@ -544,21 +561,14 @@ const Form = () => {
                     class="form-control"
                     id="exampleFormControlSelect1"
                   >
+                    <option value="">Select Courses</option>
                     {countryList.map((val) => {
                       return (
                         <>
-                          <option
-                            value={val}
-                          >
-                            {val}
-                          </option>
+                          <option value={val}>{val}</option>
                         </>
                       );
                     })}
-                    {/* <option value="India">India</option>
-                    <option value="Germany">Germany</option>
-                    <option value="Afghanistan">Afghanistan</option>
-                    <option value="Bangladesh">Bangladesh</option> */}
                   </select>
                   {errors.nationality && (
                     <span
