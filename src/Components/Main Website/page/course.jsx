@@ -1,4 +1,4 @@
-import { Component, Fragment } from "react";
+import { Component, Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import PageHeader from "../component/layout/pageheader";
 import GroupSelect from "../component/sidebar/group-select";
@@ -10,7 +10,10 @@ import GraphicDesign from '../assets/images/CoursePics/Graphic Design.jpeg';
 import SEO from '../assets/images/CoursePics/SEO.jpeg';
 import SMM from '../assets/images/CoursePics/SMM.jpeg';
 import GameDevelop from '../assets/images/CoursePics/GameDevelopment.jpeg';
-import VideoEditing from '../assets/images/CoursePics/Video Editing.jpeg'
+import VideoEditing from '../assets/images/CoursePics/Video Editing.jpeg';
+
+import ReactPaginate from 'react-paginate';
+
 const courseList = [
     {
         imgUrl: DigitalPic,
@@ -27,7 +30,7 @@ const courseList = [
         btnText: 'Read More',
     },
     {
-        imgUrl:GraphicDesign,
+        imgUrl: GraphicDesign,
         imgAlt: 'course rajibraj91 rajibraj',
         price: 'Rs25K',
         cate: 'Graphic Design',
@@ -99,13 +102,75 @@ const courseList = [
 ]
 
 
+const CurrentItems = ({ Items }) => {
+    return (<>
+        {
+            Items && Items.map((val, i) => {
+                return <div className="col" key={i}>
+                    <div className="course-item">
+                        <div className="course-inner">
+                            <div className="course-thumb">
+                                <img src={`${val.imgUrl}`} alt={`${val.imgAlt}`} />
+                            </div>
+                            <div className="course-content">
+                                <div className="course-price" style={{ backgroundColor: "#ff0911" }}>{val.price}</div>
+                                <div className="course-category">
+                                    <div className="course-cate">
+                                        <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.cate}</a>
+                                    </div>
+                                    <div className="course-reiew">
+                                        <Rating />
+                                        <span className="ratting-count"> {val.reviewCount}</span>
+                                    </div>
+                                </div>
+                                <Link to="/course-single"><h4>{val.title}</h4></Link>
+                                <div className="course-details">
+                                    <div className="couse-count"><i className="icofont-video-alt"></i> {val.totalLeson}</div>
+                                    <div className="couse-topic"><i className="icofont-signal"></i> {val.schdule}</div>
+                                </div>
+                                <div className="course-footer">
+                                    <div className="course-author">
+                                        <img src={`${val.authorImgUrl}`} alt={`${val.authorImgAlt}`} />
+                                        <Link to="/team-single" className="ca-name">{val.authorName}</Link>
+                                    </div>
+                                    <div className="course-btn">
+                                        <Link to="/course-single" className="lab-btn-text">{val.btnText} <i className="icofont-external-link"></i></Link>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            })
+        }
+    </>)
+}
 
 
+const CoursePage = ({ itemsPerPage }) => {
 
-const CoursePage = () => {
+    const [startItems, setstartItems] = useState(0);
+
+    let endItems = startItems + itemsPerPage;
+
+    if (endItems > courseList.length) {
+        endItems = courseList.length;
+    }
+
+    // Getting items from the CourseList array to display current items
+    const currentItems = courseList.slice(startItems, endItems);
+    console.log(currentItems)
+    const pageCount = Math.ceil(courseList.length / itemsPerPage);
+
+    // Function to handle Page click
+    const handlePageClick = (event) => {
+        const newstartItem = (event.selected * itemsPerPage) % courseList.length;
+
+        setstartItems(newstartItem);
+    };
     return (
         <Fragment>
-         
+
             <PageHeader title={'Archives: Courses'} curPage={'Course Page'} />
             <GroupSelect />
             <div className="course-section padding-tb section-bg">
@@ -128,48 +193,36 @@ const CoursePage = () => {
                             </div>
                         </div>
                         <div className="row g-4 justify-content-center row-cols-xl-3 row-cols-md-2 row-cols-1">
-                            {courseList.map((val, i) => (
-                                <div className="col" key={i}>
-                                    <div className="course-item">
-                                        <div className="course-inner">
-                                            <div className="course-thumb">
-                                                <img src={`${val.imgUrl}`} alt={`${val.imgAlt}`} />
-                                            </div>
-                                            <div className="course-content">
-                                                <div className="course-price">{val.price}</div>
-                                                <div className="course-category">
-                                                    <div className="course-cate">
-                                                        <a href="#">{val.cate}</a>
-                                                    </div>
-                                                  
-                                                </div>
-                                                <Link to="/course-single"><h4>{val.title}</h4></Link>
-                                                <div className="course-details">
-                                                    <div className="couse-count"><i className="icofont-video-alt"></i> {val.totalLeson}</div>
-                                                    <div className="couse-topic"><i className="icofont-signal"></i> {val.schdule}</div>
-                                                </div>
-                                                <div className="course-footer">
-                                                    <div className="course-author">
-                                                        <img src={`${val.authorImgUrl}`} alt={`${val.authorImgAlt}`} />
-                                                        <Link to="/team-single" className="ca-name">{val.authorName}</Link>
-                                                    </div>
-                                                    <div className="course-btn">
-                                                        <Link to="/course-single" className="lab-btn-text">{val.btnText} <i className="icofont-external-link"></i></Link>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+                            <CurrentItems Items={currentItems} />
                         </div>
-                        <Pagination />
+                        <ReactPaginate
+                            className="default-pagination lab-ul"
+                            pageLinkClassName="lab-ul"
+                            pageClassName="lab-ul"
+                            activeLinkClassName="active"
+                            breakLabel="..."
+                            nextLabel={nextButton()}
+                            previousLabel={prevButton()}
+                            onPageChange={handlePageClick}
+                            pageRangeDisplayed={5}
+                            pageCount={pageCount}
+                            renderOnZeroPageCount={null}
+                        />
+                        {/* <Pagination /> */}
                     </div>
                 </div>
             </div>
-            
+
         </Fragment>
     );
 }
- 
+
+function prevButton() {
+    return <i className="icofont-rounded-left"></i>
+}
+
+function nextButton() {
+    return <i className="icofont-rounded-right"></i>
+}
+
 export default CoursePage;
