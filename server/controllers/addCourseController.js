@@ -5,56 +5,35 @@ let Course = require('../models/course');
 let path = require('path');
 const fs = require('fs');
 
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, 'uploads/')
-  },
-  filename(req, file, cb) {
-    cb(
-      null,
-      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
-    )
-  },
-})
+// write a code to store images in server through multer and create folder through fs and return link to store in mongoDB?
 
-function checkFileType(file, cb) {
-  const filetypes = /jpg|jpeg|png/ // Choose Types you want...
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase())
-  const mimetype = filetypes.test(file.mimetype)
 
-  if (extname && mimetype) {
-    return cb(null, true)
-  } else {
-    cb('Images only!') // custom this message to fit your needs
-  }
-}
-
-const upload = multer({
-  storage,
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb)
-  },
-})
+const upload = multer({ dest: 'server/uploads/media' })
+  
+//   const upload = multer({ storage: storage })
 
 // app.post('/', upload.single('image'), (req, res) => {
 //   res.send(`/${req.file.path}`)
 // })
 
-router.post('/addCourse', upload.single('picture'), async (req, res) => {
+router.post('/addCourse', upload.single('courseCardPic'), async (req, res) => {
 
     try {
         console.log(req.body);
-        const file = req.picture;
+        const file = req.file;
         // Save the file to disk using fs
-        const filename = `${file.filename}-${file.originalname}`;
-        const filepath = `uploads/${filename}`;
-        fs.renameSync(file.path, filepath);
-      
+        const filename = `${file.originalname}`;
+        const filepath = `server/upload/media/${filename}`;
+        // fs.writeFile(filename, filepath, 'base64', (err) => {
+        //     if (err) throw err;
+        //     console.log('Image file saved successfully.');
+        //   });
+        // fs.writeFile(filepath)      
         // Generate a URL for the file
-        const url = `http://example.com/${filepath}`;
+        const url = filepath;
       
         let course = new Course(req.body);
-        picture =  url;
+        course.courseCardPic =  url;
         await course.save();
         res.send({ message: "Course Added Successfully" });
         
