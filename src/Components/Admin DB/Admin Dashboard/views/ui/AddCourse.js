@@ -73,7 +73,7 @@ const AddCourse = () => {
               const resp = await axios.post('/course/addCourse', data);
           if(resp.data.message=="Course Added Successfully")
               toast.success("Course Added Successfully")
-              reset({skills:""},{category:''},{level:''} );
+              reset({skills:""},{category:''},{level:''} ,{picture:""} );
               reset();
             } catch (error) {
               console.log(error.message)
