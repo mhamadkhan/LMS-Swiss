@@ -3,11 +3,6 @@
 }
 
 
-.testimonialBody{
-    max-width: 80%;
-    margin: auto;
-    background: #1F1F33;
-}
 .owl-carousel {
     display: none;
     touch-action: manipulation;
@@ -20,6 +15,7 @@
 }
 
 .owl-stage {
+    background: orange;
     width: auto;
     overflow: hidden;
     margin: auto;
@@ -35,8 +31,10 @@
 }
 
 .owl-item {
+    width: 300px;
     min-height: 1px;
-    float: left;
+    margin: 0;
+    /* float: left; */
 }
 
 .testimonial {
@@ -89,6 +87,7 @@
     text-align: left;
     margin-bottom: 30px;
     opacity: 0.8;
+    word-break: break-all;
 }
 
 .testimonial .testimonial-content {
@@ -124,13 +123,23 @@
     font-weight: bold;
 }
 
+.testimonialBody {
+    max-width: 80%;
+    margin: auto;
+    background: #1F1F33;
+}
+
 .mySwiper {
     width: 100%;
-    max-width: 1024px;
+    max-width: 1000px;
+    max-height: 100%;
     margin: auto;
     overflow: hidden;
     padding: 0 0 6% 0 !important;
-    /* background: orangered; */
+}
+
+.swiperSlide {
+    height: auto !important;
 }
 
 .testimonial .pic img {
@@ -143,6 +152,14 @@
         width: 100%;
         max-width: 300px;
     }
+
+    .testimonialBody {
+        width: 100%;
+    }
+
+    .owl-item {
+        margin: auto;
+    }
 }
 
 @media screen and (min-width: 450px) {
@@ -150,7 +167,8 @@
         width: 100%;
         max-width: 400px;
     }
-    .testimonialBody{
+
+    .testimonialBody {
         width: 90%;
     }
 }
@@ -158,7 +176,22 @@
 @media screen and (min-width: 680px) {
     .mySwiper {
         width: 100%;
-        max-width: 680px;
+        max-width: 640px;
+    }
+
+    .testimonialBody {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 780px) {
+    .mySwiper {
+        width: 100%;
+        /* max-width: 640px; */
+    }
+
+    .testimonialBody {
+        width: 100%;
     }
 }
 
@@ -166,5 +199,9 @@
     .mySwiper {
         width: 100%;
         max-width: 1024px;
+    }
+
+    .testimonialBody {
+        width: 90%;
     }
 }

@@ -1,6 +1,6 @@
-import {Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import 'swiper/css';
-import {SecureStudentRoutes} from "../../Secure/Secure";
+import { SecureStudentRoutes } from "../../Secure/Secure";
 import Verification from "../page/verification";
 import ErrorPage from "../page/404";
 import AboutPage from "../page/about";
@@ -23,22 +23,22 @@ import Services from "../page/OurServices/Services";
 import ResetPassword from "../page/resetPass";
 import CourseRegisterForm from "../page/CourseRegistrationForm"
 
-function RoutingCall(){
-    return(
-        <>
-             <Header/>
-          		<Routes>
+function RoutingCall() {
+	return (
+		<>
+			<Header />
+			<Routes>
 				<Route path="/" element={<HomeSeven />} />
-				<Route path="course" element={<CoursePage itemsPerPage={6}/>} />
-				<Route path="Services/:Service" element={<Services/>}/>
+				<Route path="course" element={<CoursePage itemsPerPage={6} />} />
+				<Route path="Services/:Service" element={<Services />} />
 				<Route path="course-single" element={<CourseSingle />} />
 				<Route path="course-view" element={<CourseView />} />
 				<Route path="courseregistrationform" element={
-						<SecureStudentRoutes>
-							<CourseRegisterForm />
-						</SecureStudentRoutes>
+					<SecureStudentRoutes>
+						<CourseRegisterForm />
+					</SecureStudentRoutes>
 				} />
-				<Route path ="/user/:userId/:token"  element = {<ResetPassword/>} />  
+				<Route path="/user/:userId/:token" element={<ResetPassword />} />
 				<Route path="about" element={<AboutPage />} />
 				<Route path="team" element={<TeamPage />} />
 				<Route path="team-single" element={<TeamSingle />} />
@@ -53,9 +53,9 @@ function RoutingCall(){
 				<Route path="*" element={<ErrorPage />} />
 
 			</Routes>
-            <Footer/>
-        </>
-    )
+			<Footer />
+		</>
+	)
 }
 
 export default RoutingCall;
