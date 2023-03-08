@@ -22,12 +22,15 @@ import Header from "../component/layout/header";
 import Services from "../page/OurServices/Services";
 import ResetPassword from "../page/resetPass";
 import CourseRegisterForm from "../page/CourseRegistrationForm"
+import { useSelector } from "react-redux";
 
-function RoutingCall() {
-	return (
-		<>
-			<Header />
-			<Routes>
+function RoutingCall(){
+
+    return(
+        <>
+             <Header/>
+          		<Routes>
+
 				<Route path="/" element={<HomeSeven />} />
 				<Route path="course" element={<CoursePage itemsPerPage={6} />} />
 				<Route path="Services/:Service" element={<Services />} />

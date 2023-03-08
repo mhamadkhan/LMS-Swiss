@@ -12,16 +12,22 @@ function userReducer(olData = initialData, newData){
    
     if(newData.type == "USER_LOGGED_IN"){
         olData.currentUser = newData.payload;
+        localStorage.setItem("state", "loaded")
+        localStorage.setItem("role", "Student")
         olData.state = "loaded";
     }
 
     else if(newData.type == "USER_LOGGED_OUT"){
         localStorage.removeItem("someToken");
+        localStorage.removeItem("role");
+        localStorage.setItem("state", "loading")
         olData.state = "loading";
         olData.currentUser = [];        
     }
     else if(newData.type =="session_failed"){
         localStorage.removeItem("someToken");
+        localStorage.removeItem("role");
+        localStorage.setItem("state", "session_failed")
         olData.state = "session_failed";
     }
    

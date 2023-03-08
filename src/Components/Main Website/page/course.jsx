@@ -11,7 +11,7 @@ import SEO from '../assets/images/CoursePics/SEO.jpeg';
 import SMM from '../assets/images/CoursePics/SMM.jpeg';
 import GameDevelop from '../assets/images/CoursePics/GameDevelopment.jpeg';
 import VideoEditing from '../assets/images/CoursePics/Video Editing.jpeg';
-
+// import testing from './server/uploads/media/f4d4038eb10137262628d31fe6ce7df6-changing-from-web-2-0-to-web-3-0-concept-2022-12-16-11-14-37-utc.jpg'
 import ReactPaginate from 'react-paginate';
 
 const courseList = [
@@ -66,7 +66,7 @@ const courseList = [
         title: 'Unity 3D Game Development',
         totalLeson: '3 Months',
         schdule: 'Physical Class',
-        authorImgUrl: 'assets/images/course/author/04.jpg',
+        authorImgUrl: 'server/upload/media/5662d0c8e64f6d9ede84861f9d6a8c7a-changing-from-web-2-0-to-web-3-0-concept-2022-12-16-11-14-37-utc.jpg',
         authorImgAlt: 'course author rajibraj91 rajibraj',
         authorName: 'Zinat Zaara',
         btnText: 'Read More',
@@ -97,6 +97,46 @@ const courseList = [
         authorImgUrl: 'assets/images/course/author/06.jpg',
         authorImgAlt: 'course author rajibraj91 rajibraj',
         authorName: 'Angel Mili',
+        btnText: 'Read More',
+    },
+    {
+        imgUrl: DigitalPic,
+        imgAlt: 'Digital Marketing Course',
+        price: 'Rs35K',
+        cate: 'Digital Marketing',
+        reviewCount: '03 reviews',
+        title: 'The Complete Digital Marketing Course',
+        totalLeson: '4 Months',
+        schdule: 'Physical Class',
+        authorImgUrl: 'assets/images/course/author/01.jpg',
+        authorImgAlt: 'course author rajibraj91 rajibraj',
+        authorName: 'William Smith',
+        btnText: 'Read More',
+    },  {
+        imgUrl: DigitalPic,
+        imgAlt: 'Digital Marketing Course',
+        price: 'Rs35K',
+        cate: 'Digital Marketing',
+        reviewCount: '03 reviews',
+        title: 'The Complete Digital Marketing Course',
+        totalLeson: '4 Months',
+        schdule: 'Physical Class',
+        authorImgUrl: 'assets/images/course/author/01.jpg',
+        authorImgAlt: 'course author rajibraj91 rajibraj',
+        authorName: 'William Smith',
+        btnText: 'Read More',
+    },  {
+        imgUrl: DigitalPic,
+        imgAlt: 'Digital Marketing Course',
+        price: 'Rs35K',
+        cate: 'Digital Marketing',
+        reviewCount: '03 reviews',
+        title: 'The Complete Digital Marketing Course',
+        totalLeson: '4 Months',
+        schdule: 'Physical Class',
+        authorImgUrl: 'assets/images/course/author/01.jpg',
+        authorImgAlt: 'course author rajibraj91 rajibraj',
+        authorName: 'William Smith',
         btnText: 'Read More',
     },
 ]
