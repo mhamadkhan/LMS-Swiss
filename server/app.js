@@ -9,6 +9,7 @@ connectDB();
 const UserRoute = require('./controllers/userController');
 const passRoute = require('./controllers/passwordReset');
 const courseApply = require('./controllers/courseApplyController')
+const addCourse = require('./controllers/addCourseController')
 const paymentRoute = require('./controllers/paymentController');
 // const sliderController = require('./controllers/sliderController');
 
@@ -16,6 +17,8 @@ app.use('/user',UserRoute);
 app.use('/user',passRoute);
 app.use('/payment',cors(),paymentRoute);
 app.use('/courseApply',courseApply);
+app.use('/course',addCourse);
+
 
 
 app.listen(PORT,()=>{

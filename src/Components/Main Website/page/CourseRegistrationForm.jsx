@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { Fragment } from "react";
 import PageHeader from "../component/layout/pageheader";
 import axios from "axios";
-import { useEffect } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
 const countryList = [

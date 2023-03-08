@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let orderSchema = mongoose.Schema({
+let courseSchema = mongoose.Schema({
   
     courseTitle:{
         type:String,
@@ -38,10 +38,10 @@ let orderSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    courseCardPic:{
-        type:String,
-        required:true
-    },
+    // courseCardPic:{
+    //     type:String,
+    //     required:true
+    // },
     courseSkill:{
         type:String,
         required:true
@@ -49,4 +49,4 @@ let orderSchema = mongoose.Schema({
 
 })
 
-module.exports=mongoose.model('orders',orderSchema);
+module.exports=mongoose.model('course',courseSchema);

@@ -2,13 +2,12 @@ let express = require('express');
 let router = express.Router();
 let Course = require('../models/course');
 
+
 router.post('/addCourse', async (req, res) => {
 
     try {
         console.log(req.body);
-        let course = new CourseApply(req.body);
-       
-        
+        let course = new Course(req.body);
         await course.save();
         res.send({ message: "Course Added Successfully" });
         

@@ -1,6 +1,6 @@
 import { useState } from "react";
 // import axios from "axios";
-import { toast } from 'react-toastify';
+import toast, { Toaster } from 'react-hot-toast';
 import 'react-toastify/scss/main.scss';
 // import CurrentStore from "../../layouts/CurrentStore";
 import {
@@ -19,7 +19,7 @@ import {
 import { AddCourseValidation } from '../../Schemas/index'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, Controller } from "react-hook-form";
-
+import axios from "axios";
 
 const AddCourse = () => {
 
@@ -64,21 +64,22 @@ const AddCourse = () => {
     },
   ]
 
-  function onSubmit(data) {
+        async  function onSubmit(data) {
 
-    const dataSend = {
-      data
-    }
-    console.log(dataSend);
+            const dataSend = {
+              data
+            }
+            console.log(dataSend);
 
-    try {
+            try {
+              const resp = await axios.post('/course/addCourse', data);
+          if(resp.data.message=="Course Added Successfully")
+              toast.success("Course Added Successfully")
+            } catch (error) {
+              console.log(error.message)
+            }
 
-      toast.success("Course form added")
-    } catch (error) {
-      console.log(error.message)
-    }
-
-  }
+          }
 
   return (
     <Row>
