@@ -12,10 +12,10 @@ const Testimonials = () => {
         { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory loremsdjnjfasasfasfaslnlasfasfasasfasfasasfasfasfasfa" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" },
     ])
     return (
-        <div className="my-4 p-md-3 p-2 testimonialBody">
+        <div className=" container-fluid testimonialBody">
             <div className='row'>
                 <div className='col-12'>
-                    <h2 className='text-center text-white mb-3 mt-4'>See what our Students say</h2>
+                    <h2 className='text-center colrRed mb-3 mt-4'>See what our Students say</h2>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@ const Testimonials = () => {
                     pagination={{
                         clickable: true,
                     }}
-                    // autoplay={true}
+                    autoplay={true}
                     loop={'true'}
                     className="mySwiper"
                     breakpoints={{
@@ -57,7 +57,7 @@ const Testimonials = () => {
                     {
                         testmonials.map((person, index) => {
                             return <div className='d-flex justify-content-center swiperSlide'>
-                                <SwiperSlide key={index} className="">
+                                <SwiperSlide key={index}>
                                     <div className="owl-item" style={{ width: '300px' }}>
                                         <div className="testimonial">
                                             <i class="icofont-quote-left icofont-4x"></i>
@@ -79,16 +79,16 @@ const Testimonials = () => {
                                             </p>
                                             <div className="testimonial-content">
                                                 <div className="pic">
-                                                    <img src="http://hamza.wintifood.swiss/front/images/profile-14.png" alt="fizza Ali" />
+                                                    <img src="http://hamza.wintifood.swiss/front/images/profile-14.png" alt="student name" />
                                                 </div>
-                                                <h3 className="title">
+                                                <h3 className="title text-red">
                                                     <font style={{ verticalAlign: 'inherit' }}>
-                                                        <font style={{ verticalAlign: 'inherit' }}>{person.name}</font>
+                                                        <font style={{ verticalAlign: 'inherit' }} className="colrRed">{person.name}</font>
                                                     </font>
                                                 </h3>
                                                 <span className="post">
                                                     <font style={{ verticalAlign: 'inherit' }}>
-                                                        <font style={{ verticalAlign: 'inherit' }}>{person.date}</font>
+                                                        <font style={{ verticalAlign: 'inherit' }} className="colrRed">{person.date}</font>
                                                     </font>
                                                 </span>
                                             </div>
