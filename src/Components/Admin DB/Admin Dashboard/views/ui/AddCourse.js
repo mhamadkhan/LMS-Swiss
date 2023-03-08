@@ -24,22 +24,25 @@ import axios from "axios";
 const AddCourse = () => {
 
   // let currentStore = CurrentStore()
+  let [courseImage, setCourseImage] = useState();
 
 
-  const { control, handleSubmit, formState: { errors }, reset } = useForm({
+  const { control, register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(AddCourseValidation),
   });
 
   // eslint-disable-next-line no-unused-vars
-  
+
   // const handleReset = () => {
   //   formRef.current.reset();
   // }
 
-  // let handleFileChange = (event) => {
-  //   setCourseImage(event.target.files[0])
-  // }
-    
+  let handleFileChange = (event) => {
+    courseImage = event.target.files[0];
+    setCourseImage(courseImage)
+    // console.log(courseImage)
+  }
+
   let courses = [
     {
       categoryName: "category1"
@@ -52,7 +55,7 @@ const AddCourse = () => {
     },
   ]
 
-  let skills =[
+  let skills = [
     {
       skillname: "skill1",
     },
@@ -64,22 +67,36 @@ const AddCourse = () => {
     },
   ]
 
-        async  function onSubmit(data) {
+  async function onSubmit(data) {
 
-          
-            console.log(data);
+    data = { ...data, picture: courseImage }
+    console.log(data);
 
-            try {
-              const resp = await axios.post('/course/addCourse', data);
-          if(resp.data.message=="Course Added Successfully")
-              toast.success("Course Added Successfully")
-              reset({skills:""},{category:''},{level:''} );
-              reset();
-            } catch (error) {
-              console.log(error.message)
-            }
+    let formData = new FormData();
 
-          }
+    formData.append("courseTitle", data.title);
+    formData.append("coursePrice", data.price);
+    formData.append("courseDuration", data.duration);
+    formData.append("courseLevel", data.level);
+    formData.append("courseLessons", data.lessons);
+    formData.append("courseQuizzes", data.quizzes);
+    formData.append("courseLanguage", data.languages);
+    formData.append("courseDescription", data.desc);
+    formData.append("courseCertificate", data.certificates);
+    formData.append("courseCardPic", data.picture);
+    formData.append("courseSkill", data.skills);
+
+    try {
+      const resp = await axios.post('/course/addCourse', formData);
+      if (resp.data.message == "Course Added Successfully")
+        toast.success("Course Added Successfully")
+      reset({ skills: "" }, { category: '' }, { level: '' });
+      reset();
+    } catch (error) {
+      console.log(error.message)
+    }
+
+  }
 
   return (
     <Row>
@@ -102,7 +119,11 @@ const AddCourse = () => {
 
               <FormGroup>
                 <Label for="file">Course Picture</Label>
-                <Controller control={control} name="picture" render={({ field }) => <Input id="file" accept="image/*" type="file" {...field} invalid={!!errors.picture} />} />
+                <Controller control={control} name="picture" render={({ field }) => <Input id="file" accept="image/*" type="file" {...field} invalid={!!errors.picture} onChange={(e) => {
+                  field.onChange(e);
+                  handleFileChange(e)
+                }} />} />
+
                 {errors.picture && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.picture.message}</span>}
                 <FormText>
                   Attach Picture of Course

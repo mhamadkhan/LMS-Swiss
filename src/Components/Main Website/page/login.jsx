@@ -44,79 +44,81 @@ const socialList = [
 ]
 
 const LoginPage = () => {
-    
+
     const [RememberMe, setRememberMe] = useState(false);
-    
-    const { register, handleSubmit, formState: { errors} , reset } = useForm({
+    const [type, setType] = useState("password");
+    const [eye, seteye] = useState("none");
+
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(LoginSchema),
     });
-    
-    let navigate =useNavigate()
+
+    let navigate = useNavigate()
 
     const onSubmit = async (data) => {
-      
-           console.log(data)
-        
+
+        console.log(data)
+
         // first send request to the /login, 
         // first get the user from mongodb, then make a token for him.
         // set token to localstorage
 
-            try {
+        try {
 
-                let resp = await axios.post('/user/login', data)
+            let resp = await axios.post('/user/login', data)
 
-                  console.log(resp.data)
-      
+            console.log(resp.data)
 
-                if(resp.data.message=='LoginSuccessfully'){   
 
-                    toast.success("Login Succesfully")
-                    localStorage.setItem("someToken", resp.data.utoken);
-                    reset({email:'', password:''})
-                    navigate('/')
-                    store.dispatch({
-                      type:"USER_LOGGED_IN",
-                      payload:resp.data.user
-                    });
-                      console.log("user founded");
-                  } 
-                  else if(resp.data.message=='An Email sent to your account please verify'){
-                    toast.error("Email Not Verified", {
-                        style: {
-                          border: '1px solid #713200',
-                          padding: '16px',
-                          color: '#f97316',
-                        },
-                        iconTheme: {
-                          primary: '#713200',
-                          secondary: '#FFFAEE',
-                        },
-                        
-                    })
-                    reset({email:'', password:''})
-                     
-                }else if(resp.data.message=='Invalid Email or password'){
-                      console.log('Not founded')
-                      toast.error("User not exist", {
-                        style: {
-                          border: '1px solid #713200',
-                          padding: '16px',
-                          color: '#f97316',
-                        },
-                        iconTheme: {
-                          primary: '#713200',
-                          secondary: '#FFFAEE',
-                        },
-                        
-                    })
-                      reset({email:'', password:''})
-                }
-            
+            if (resp.data.message == 'LoginSuccessfully') {
 
-            } catch (error) {
-                console.log(error.message)
+                toast.success("Login Succesfully")
+                localStorage.setItem("someToken", resp.data.utoken);
+                reset({ email: '', password: '' })
+                navigate('/')
+                store.dispatch({
+                    type: "USER_LOGGED_IN",
+                    payload: resp.data.user
+                });
+                console.log("user founded");
             }
-       
+            else if (resp.data.message == 'An Email sent to your account please verify') {
+                toast.error("Email Not Verified", {
+                    style: {
+                        border: '1px solid #713200',
+                        padding: '16px',
+                        color: '#f97316',
+                    },
+                    iconTheme: {
+                        primary: '#713200',
+                        secondary: '#FFFAEE',
+                    },
+
+                })
+                reset({ email: '', password: '' })
+
+            } else if (resp.data.message == 'Invalid Email or password') {
+                console.log('Not founded')
+                toast.error("User not exist", {
+                    style: {
+                        border: '1px solid #713200',
+                        padding: '16px',
+                        color: '#f97316',
+                    },
+                    iconTheme: {
+                        primary: '#713200',
+                        secondary: '#FFFAEE',
+                    },
+
+                })
+                reset({ email: '', password: '' })
+            }
+
+
+        } catch (error) {
+            console.log(error.message)
+        }
+
     }
 
     return (
@@ -138,13 +140,27 @@ const LoginPage = () => {
                                 />
                                 {errors.name && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.name.message}</span>}
                             </div>
-                            <div className="form-group text-start" style={{ height: "3.4rem" }}>
+                            <div className="form-group text-start position-relative" style={{ height: "3.4rem" }}>
                                 <input
                                     {...register('password')}
-                                    type="password"
+                                    type={type}
                                     name="password"
                                     placeholder="Password *"
+                                    onFocus={() => {
+                                        seteye("");
+                                    }}
                                 />
+                                <span style={{ position: "absolute", right: "15px", top: "10px", cursor: "pointer", display: `${eye}` }}>
+                                    {
+                                        type === "password" ? <i className="icofont-eye" style={{ fontSize: "1.4rem" }} onClick={() => {
+                                            type === "password" ? setType("text") : setType("password");
+                                        }}></i>
+                                            :
+                                            <i className="icofont-eye-blocked" style={{ fontSize: "1.4rem" }} onClick={() => {
+                                                type === "password" ? setType("text") : setType("password");
+                                            }}></i>
+                                    }
+                                </span>
                                 {errors.password && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.password.message}</span>}
                             </div>
                             <div className="form-group text-start" style={{ height: "3.4rem" }}>
