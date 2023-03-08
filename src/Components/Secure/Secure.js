@@ -8,16 +8,18 @@ export  function  SecureStudentRoutes(props) {
    let reducer = useSelector((store) => {
       return store.userReducer;
     });
-  
-    return reducer.state == "loaded" ? (
-      localStorage.getItem("someToken") && reducer.currentUser.role == "Student" ? (
+    let state = localStorage.getItem("state")
+    let role = localStorage.getItem("role")
+    console.log(state);
+    return  state == "loaded" ? (
+      localStorage.getItem("someToken") && role == "Student" ? (
         props.children
-      ) : reducer.currentUser.userType != "Student" ? (
+      ) : role !== "Student" ? (
         <Navigate to="/" />
       ) : (
         <Navigate to="/" />
       )
-    ) : reducer.state == "session_failed" ? (
+    ) : state == "session_failed" ? (
       <Navigate to="/login" />
     ) :  <Navigate to="/login" />;
 

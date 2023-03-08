@@ -22,8 +22,14 @@ import Header from "../component/layout/header";
 import Services from "../page/OurServices/Services";
 import ResetPassword from "../page/resetPass";
 import CourseRegisterForm from "../page/CourseRegistrationForm"
+import { useSelector } from "react-redux";
 
 function RoutingCall(){
+
+	let reducer = useSelector((store) => {
+		return store.userReducer;
+	  });
+
     return(
         <>
              <Header/>
