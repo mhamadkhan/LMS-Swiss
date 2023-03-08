@@ -2,7 +2,9 @@
     list-style-type: none;
 }
 
-
+.colrRed{
+    color: red;
+}
 .owl-carousel {
     display: none;
     touch-action: manipulation;
@@ -124,9 +126,9 @@
 }
 
 .testimonialBody {
-    max-width: 80%;
+    max-width: 100%;
     margin: auto;
-    background: #1F1F33;
+    background: #e8e5e5;
 }
 
 .mySwiper {
