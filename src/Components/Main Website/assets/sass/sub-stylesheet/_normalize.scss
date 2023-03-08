@@ -1,11 +1,11 @@
-
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box; 
-	outline: none; 
+	box-sizing: border-box;
+	outline: none;
 	box-shadow: none;
 }
+
 html {
 	scroll-behavior: auto !important;
 }
@@ -18,15 +18,27 @@ body {
 	line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	color: $title-color; 
-	font-weight: 700; 
-	@include transition($transition); 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $title-color;
+	font-weight: 700;
+	@include transition($transition);
 	line-height: 1.3;
 }
-a>h1, a>h2, a>h3, a>h4, a>h5, a>h6 {
+
+a>h1,
+a>h2,
+a>h3,
+a>h4,
+a>h5,
+a>h6 {
 	@include transition($transition);
 }
+
 h1 {
 	font-size: $fs-h1;
 }
@@ -40,13 +52,14 @@ h3 {
 }
 
 h4 {
-	font-size:$fs-h5;
+	font-size: $fs-h5;
 }
 
 h5 {
 	font-size: $fs-h5;
 	margin-top: -5px;
 }
+
 h6 {
 	font-size: $fs-h6;
 }
@@ -66,7 +79,10 @@ a {
 	text-decoration: none;
 }
 
-a:hover, a:focus, a:active, a:visited {
+a:hover,
+a:focus,
+a:active,
+a:visited {
 	@extend %title-color;
 	text-decoration: none;
 	outline: none;
@@ -74,38 +90,58 @@ a:hover, a:focus, a:active, a:visited {
 
 img {
 	height: auto;
-	max-width: 100%; 
+	max-width: 100%;
 	@include transition($transition);
 }
 
 @include breakpoint(sm) {
-	h1 {font-size: $fs-h1;}
-	
-	h2{font-size: $fs-h2;}
-	
-	h3 {font-size: $fs-h3;}
-	
-	h4 {font-size:$fs-h4;}
-	
-	h5 {font-size: $fs-h5;}
-	
-	h6 {font-size: $fs-h6;}
+	h1 {
+		font-size: $fs-h1;
+	}
+
+	h2 {
+		font-size: $fs-h2;
+	}
+
+	h3 {
+		font-size: $fs-h3;
+	}
+
+	h4 {
+		font-size: $fs-h4;
+	}
+
+	h5 {
+		font-size: $fs-h5;
+	}
+
+	h6 {
+		font-size: $fs-h6;
+	}
 }
+
 ul {
 	&.lab-ul {
 		margin: 0;
 		padding: 0;
+
 		li {
 			list-style: none;
 		}
+
+
 	}
 }
-input, textarea, select {
+
+input,
+textarea,
+select {
 	@extend %w-100;
 	@extend %p-10;
 	outline: none;
 	border: 1px solid $border-color
 }
+
 button {
 	border: none;
 	outline: none;

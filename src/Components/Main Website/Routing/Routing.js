@@ -35,7 +35,7 @@ function RoutingCall(){
              <Header/>
           		<Routes>
 				<Route path="/" element={<HomeSeven />} />
-				<Route path="course" element={<CoursePage />} />
+				<Route path="course" element={<CoursePage itemsPerPage={6}/>} />
 				<Route path="Services/:Service" element={<Services/>}/>
 				<Route path="course-single" element={<CourseSingle />} />
 				<Route path="course-view" element={<CourseView />} />
