@@ -21,6 +21,11 @@ const ServicesNavigation=[
     href: "/AdminDashboard/AddService",
     icon: "bi bi-bag-check",
   },
+  {
+    title: "Add Service Detail",
+    href: "/AdminDashboard/AddServiceDetail",
+    icon: "bi bi-bag-check",
+  },
  {
    title: "Services",
    href: "/AdminDashboard/Services",
@@ -37,7 +42,19 @@ const AdmissionQueriesNavigation = [
   },
 
 ];
+const TestimonialsNavigation=[
+  {
+    title: "Add Testimonials",
+    href: "/AdminDashboard/AddTestimonials",
+    icon: "bi bi-bag-check",
+  },
+ {
+   title: "Testimonials",
+   href: "/AdminDashboard/Testimonials",
+   icon: "bi bi-bag-check",
+ },
 
+]
 const Sidebar = () => {
   const showMobilemenu = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
@@ -73,6 +90,22 @@ const Sidebar = () => {
               </Link>
             </NavItem>
 
+          <NavItem><strong> Admission Queries  </strong> </NavItem>
+            {AdmissionQueriesNavigation.map((navi, index) => (
+              <NavItem key={index} className="sidenav-bg">
+                <Link
+                  to={navi.href}
+                  className={
+                    location.pathname === navi.href
+                      ? "text-primary nav-link py-3 color"
+                      : "nav-link text-secondary py-3"
+                  }
+                >
+                  <i className={navi.icon}></i>
+                  <span className="ms-3 d-inline-block">{navi.title}</span>
+                </Link>
+              </NavItem>
+            ))}
           <NavItem><strong> User </strong> </NavItem>
         <NavItem  className="sidenav-bg">
               <Link
@@ -120,8 +153,8 @@ const Sidebar = () => {
             </Link>
           </NavItem>
         ))}      
-        <NavItem><strong> Admission Queries  </strong> </NavItem>
-          {AdmissionQueriesNavigation.map((navi, index) => (
+            <NavItem><strong> Testimonials </strong> </NavItem>
+          {TestimonialsNavigation.map((navi, index) => (
             <NavItem key={index} className="sidenav-bg">
               <Link
                 to={navi.href}

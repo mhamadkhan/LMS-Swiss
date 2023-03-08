@@ -67,6 +67,7 @@ const AddCourse = () => {
     },
   ]
 
+
   async function onSubmit(data) {
 
     data = { ...data, picture: courseImage }
@@ -97,6 +98,7 @@ const AddCourse = () => {
     }
 
   }
+
 
   return (
     <Row>
