@@ -2,47 +2,47 @@ const mongoose = require('mongoose');
 
 let courseSchema = mongoose.Schema({
   
-    courseTitle:{
+    title:{
         type:String,
         required:true
     },
-    coursePrice:{
+    price:{
         type:Number,
         required:true
     },
-    courseDuration:{
+    duration:{
         type:Number,
         required:true
     },
-    courseLevel:{
+    level:{
         type:String,
         required:true
     },
-    courseLessons:{
+    lessons:{
         type:String,
         required:true
     },
-    courseQuizzes:{
+    quizzes:{
         type:String,
         required:true
     },
-    courseLanguage:{
+    languages:{
         type:String,
         required:true
     },
-    courseDescription:{
+    desc:{
         type:String,
         required:true
     },
-    courseCertificate:{
+    certificates:{
         type:String,
         required:true
     },
-    // courseCardPic:{
+    // picture:{
     //     type:String,
     //     required:true
     // },
-    courseSkill:{
+    skills:{
         type:String,
         required:true
     },

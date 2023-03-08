@@ -26,7 +26,7 @@ const AddCourse = () => {
   // let currentStore = CurrentStore()
 
 
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const { control, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(AddCourseValidation),
   });
 
@@ -66,15 +66,15 @@ const AddCourse = () => {
 
         async  function onSubmit(data) {
 
-            const dataSend = {
-              data
-            }
-            console.log(dataSend);
+          
+            console.log(data);
 
             try {
               const resp = await axios.post('/course/addCourse', data);
           if(resp.data.message=="Course Added Successfully")
               toast.success("Course Added Successfully")
+              reset({skills:""},{category:''},{level:''} );
+              reset();
             } catch (error) {
               console.log(error.message)
             }
