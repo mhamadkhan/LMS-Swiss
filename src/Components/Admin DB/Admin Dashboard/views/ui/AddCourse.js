@@ -54,6 +54,14 @@ const AddCourse = () => {
       categoryName: "category3",
     },
   ];
+  let schedule = [
+    {
+      name: "Physical",
+    },
+    {
+      name: "Online",
+    },
+  ];
 
   let skills = [
     {
@@ -246,6 +254,39 @@ const AddCourse = () => {
                     style={{ fontSize: "13px", height: "3.7rem" }}
                   >
                     {errors.category.message}
+                  </span>
+                )}
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="schedule">Select Course Schedule</Label>
+                <Controller
+                  control={control}
+                  name="schedule"
+                  render={({ field }) => (
+                    <Input
+                      type="select"
+                      id="schedule"
+                      {...field}
+                      invalid={!!errors.schedule}
+                    >
+                      <option value="">Select Course schedule</option>
+                      {schedule.map((schedule, id) => {
+                        return (
+                          <option key={id} value={schedule.name}>
+                            {schedule.name}
+                          </option>
+                        );
+                      })}
+                    </Input>
+                  )}
+                />
+                {errors.schedule && (
+                  <span
+                    className={`text-danger`}
+                    style={{ fontSize: "13px", height: "3.7rem" }}
+                  >
+                    {errors.schedule.message}
                   </span>
                 )}
               </FormGroup>

@@ -22,6 +22,7 @@ export const AddCourseValidation = Yup.object().shape({
     picture: Yup.mixed().required("Course Picture field is required"),
     desc: Yup.string().required("Course Description field is required"),
     category: Yup.string().required("Please select a category field"),
+    schedule: Yup.string().required("Please select a schedule field"),
     skills: Yup.string().required("Please select a skills field"),
     price: Yup.string().required("Course Price field is required"),
     duration: Yup.string().required("Course Duration field is required"),

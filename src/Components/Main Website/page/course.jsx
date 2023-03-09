@@ -12,7 +12,7 @@ import SMM from '../assets/images/CoursePics/SMM.jpeg';
 import GameDevelop from '../assets/images/CoursePics/GameDevelopment.jpeg';
 import VideoEditing from '../assets/images/CoursePics/Video Editing.jpeg';
 import ReactPaginate from 'react-paginate';
-import { useEffect  } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 // import { } from "react";
 // const courseList = [
@@ -633,9 +633,11 @@ import axios from "axios";
 //     },
 // ]
 
+let btnText = "Read More";
+
 const CurrentItems = ({ Items }) => {
- 
-    
+    console.log(Items)
+
     return (<>
         {
             Items && Items.map((val, i) => {
@@ -646,29 +648,26 @@ const CurrentItems = ({ Items }) => {
                                 <img src={`${val.courseCardPic}`} alt={`${val.imgAlt}`} />
                             </div>
                             <div className="course-content">
-                                <div className="course-price" style={{ backgroundColor: "#ff0911" }}>{val.price}</div>
+                                <div className="course-price" style={{ backgroundColor: "#ff0911" }}>{val.coursePrice}</div>
                                 <div className="course-category">
                                     <div className="course-cate">
-                                        <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.cate}</a>
+                                        <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.cate || "no category"}</a>
                                     </div>
-                                    <div className="course-reiew">
-                                        <Rating />
-                                        <span className="ratting-count"> {val.reviewCount}</span>
-                                    </div>
+                                  
                                 </div>
-                               
-                                <Link to={`/course-single${val._id}` }><h4>{val.courseTitle}</h4></Link>
+
+                                <Link to={`/course-single/${val._id}`}><h4>{val.courseTitle}</h4></Link>
                                 <div className="course-details">
                                     <div className="couse-count"><i className="icofont-video-alt"></i> {val.courseLessons}</div>
                                     <div className="couse-topic"><i className="icofont-signal"></i> {val.courseDuration}</div>
                                 </div>
                                 <div className="course-footer">
-                                    <div className="course-author">
+                                    {/* <div className="course-author">
                                         <img src={`${val.courseCardPic}`} alt={`${val.authorImgAlt}`} />
                                         <Link to="/team-single" className="ca-name">{val.authorName}</Link>
-                                    </div>
+                                    </div> */}
                                     <div className="course-btn">
-                                        <Link to="/course-single" className="lab-btn-text">{val.btnText} <i className="icofont-external-link"></i></Link>
+                                        <Link  to={`/course-single/${val._id}`} className="lab-btn-text">{btnText} <i className="icofont-external-link"></i></Link>
                                     </div>
                                 </div>
                             </div>
@@ -683,7 +682,7 @@ const CurrentItems = ({ Items }) => {
 
 const CoursePage = ({ itemsPerPage }) => {
 
-  
+
 
     const [startItems, setstartItems] = useState(0);
     const [courseList, setCourseList] = useState([]);
@@ -694,19 +693,19 @@ const CoursePage = ({ itemsPerPage }) => {
         endItems = courseList.length;
     }
 
-    
-    useEffect( ()=>{
-     
-        async function fetchData() { 
-          let resp = await axios.get('/course/');
-          console.log(resp.data);
-          setCourseList(resp.data);
+
+    useEffect(() => {
+
+        async function fetchData() {
+            let resp = await axios.get('/course/');
+            console.log(resp.data);
+            setCourseList(resp.data);
         }
-        fetchData();  
-        
-        }, []);      
-           
-     
+        fetchData();
+
+    }, []);
+
+
     // Getting items from the courseList array to display current items
     const currentItems = courseList.slice(startItems, endItems);
     console.log(currentItems)
