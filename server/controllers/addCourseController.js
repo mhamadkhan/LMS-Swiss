@@ -24,6 +24,16 @@ router.post('/addCourse',  async (req, res) => {
     }
 })
 
+router.get('/singleCourse/:id',async(req,res)=>{
+    try {     
+        let course = await Course.findById(req.params.id);        
+        res.json(course);
+    } catch (e) {
+        console.error(e.message);
+        res.status(500).json('Server Error');
+    }
+});
+
 router.get('/',async(req,res)=>{
     try {     
         let Courses = await Course.find();        

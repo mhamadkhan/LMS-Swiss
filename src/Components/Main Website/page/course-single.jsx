@@ -7,9 +7,24 @@ import Comment from "../component/sidebar/comment";
 import CourseSideCetagory from "../component/sidebar/course-cetagory";
 import CourseSideDetail from "../component/sidebar/course-detail";
 import Respond from "../component/sidebar/respond";
-
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 const CourseSingle = () => {
+ 
+          let {courseID} = useParams();
+    useEffect( ()=>{
+        fetchData();
+        async function fetchData() {    
+            let resp = await axios.get('/course/singleCourse?id='+courseID);
+            console.log(resp.data);
+            
+           }
+       },[])
+
+      
+
     return (
         <Fragment>
             <Header />
