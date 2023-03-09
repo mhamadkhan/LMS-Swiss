@@ -11,6 +11,7 @@ const UserRoute = require('./controllers/userController');
 const passRoute = require('./controllers/passwordReset');
 const courseApply = require('./controllers/courseApplyController')
 const addCourse = require('./controllers/addCourseController')
+const addTestimonials = require('./controllers/testimonialsControllers')
 const paymentRoute = require('./controllers/paymentController');
 // const sliderController = require('./controllers/sliderController');
 
@@ -19,7 +20,8 @@ app.use('/user',passRoute);
 app.use('/payment',cors(),paymentRoute);
 app.use('/courseApply',courseApply);
 app.use('/course',addCourse);
-app.use('/server/uploads', express.static(path.join(__dirname + "/server/uploads")) )
+app.use('/testimonials',addTestimonials);
+
 
 
 

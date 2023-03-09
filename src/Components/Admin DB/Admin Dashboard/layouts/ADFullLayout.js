@@ -11,6 +11,7 @@ import AddServiceDetail from '../views/ui/AddSubService';
 import Sellers from '../views/ui/Sellers';
 import { Route, Routes } from "react-router-dom";
 import AddTestimonial from "../views/ui/AddTestimonial";
+import Testimonials from "../views/ui/TestimonialsTables";
 
 const FullLayout = () => {
 
@@ -39,7 +40,8 @@ const FullLayout = () => {
               <Route path="/AddTestimonials" element={<AddTestimonial />} />
               <Route path="/AddService" element={<AddService />} />
               <Route path="/AddServiceDetail" element={<AddServiceDetail />} />
-
+              <Route path="/Testimonials" element={<Testimonials />} />
+              Testimonials
 
 
             </Routes>

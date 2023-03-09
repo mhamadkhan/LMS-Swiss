@@ -17,7 +17,7 @@ const CourseSingle = () => {
     useEffect(() => {
         fetchData();
         async function fetchData() {
-            let resp = await axios.get('/course/singleCourse?id=' + courseID);
+            let resp = await axios.get('/course/singleCourse?id='+courseID);
             console.log(resp.data);
 
         }

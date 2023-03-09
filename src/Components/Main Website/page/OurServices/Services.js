@@ -272,12 +272,14 @@ export default () => {
                               {" "}
                               {val.Description}
                             </span>
-                            <br />
-                            <br />
-                            <img src={val.img} />
-                            <br />
-                            <br />
                             <span style={{ color: "black" }}>{val.SubDes}</span>
+                            <br />
+                            <br />
+                         <div style={{ margin: "auto", width: "80%" }}>
+                                  <img src={val.img} />
+                                </div>
+                            <br />
+                            <br />
                           </div>
                           <div>
                             {val.Detail.map((val, i) => (
@@ -298,7 +300,9 @@ export default () => {
                                 </span>
                                 <br />
                                 <br />
-                                <img src={val.img} />
+                                <div style={{ margin: "auto", width: "80%" }}>
+                                  <img src={val.img} />
+                                </div>
                                 <br />
                                 <br />
                               </>
