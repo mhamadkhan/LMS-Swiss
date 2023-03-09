@@ -86,30 +86,22 @@ const AddTestimonial = () => {
     try {
       let fileuploaded = await uploadBytes(imageRef, courseImage);
       var fileURL = await getDownloadURL(fileuploaded.ref);
-      // console.log(fileURL);
-      // data = { ...data, courseCardPic: fileURL };
+
     } catch (error) {
       console.log(error.message)
     }
 
     data = {
-      // courseTitle: data.title,
-      // coursePrice: data.price,
-      // courseDuration: data.duration,
-      // courseCategory: data.category,
-      // courseSchedule: data.schedule,
-      // courseLevel: data.level,
-      // courseLessons: data.lessons,
-      // courseQuizzes: data.quizzes,
-      // courseLanguage: data.languages,
-      // courseDescription: data.desc,
-      // courseCertificate: data.certificates,
-      // courseCardPic: fileURL,
-      // courseSkill: data.skills,
+      name: data.name,
+      picture: fileURL,
+      review: data.review,
+      rating: data.rating,
     }
 
+    // console.log(data);
+
     try {
-      const resp = await axios.post("/course/addCourse", data);
+      const resp = await axios.post("/testimonials/addTestimonials", data);
       if (resp.data.message == "Course Added Successfully")
         toast.success("Course Added Successfully");
       reset({ skills: "" }, { category: "" }, { level: "" });
@@ -127,7 +119,7 @@ const AddTestimonial = () => {
         {/* --------------------------------------------------------------------------------*/}
         <Card>
           <CardTitle tag="h6" className="border-bottom p-3 mb-0">
-            <i className="bi bi-bag-check"></i> Add Course Form
+            <i className="bi bi-bag-check"></i> Add Testimonial Form
           </CardTitle>
           <CardBody>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -213,190 +205,27 @@ const AddTestimonial = () => {
               </FormGroup>
 
               <FormGroup>
-                <Label for="stars">Course Rating</Label>
+                <Label for="rating">Course Rating</Label>
 
                 <Controller
                   control={control}
-                  name="stars"
+                  name="rating"
                   defaultValue=""
                   render={({ field }) => (
                     <Input
                       type="number"
-                      id="stars"
+                      id="rating"
                       {...field}
-                      invalid={!!errors.stars}
+                      invalid={!!errors.rating}
                     />
                   )}
                 />
-                {errors.stars && (
+                {errors.rating && (
                   <span
                     className={`text-danger`}
                     style={{ fontSize: "13px", height: "3.7rem" }}
                   >
-                    {errors.stars.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="Duration">Course Duration</Label>
-
-                <Controller
-                  control={control}
-                  name="duration"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="number"
-                      id="duration"
-                      {...field}
-                      invalid={!!errors.duration}
-                    />
-                  )}
-                />
-                {errors.duration && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.duration.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="CourseLevel">Select Course Level</Label>
-
-                <Controller
-                  control={control}
-                  name="level"
-                  render={({ field }) => (
-                    <Input
-                      type="select"
-                      id="level"
-                      {...field}
-                      invalid={!!errors.level}
-                    >
-                      <option value="">Select Course Level</option>
-                      <option value="Beginner">Beginner</option>
-                      <option value="Intermediate">Intermediate</option>
-                      <option value="Advanced">Advanced</option>
-                    </Input>
-                  )}
-                />
-                {errors.level && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.level.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="lessons">Course Lessons</Label>
-
-                <Controller
-                  control={control}
-                  name="lessons"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="number"
-                      id="lessons"
-                      {...field}
-                      invalid={!!errors.lessons}
-                    />
-                  )}
-                />
-                {errors.lessons && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.lessons.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="quizzes">Course Quizzes</Label>
-
-                <Controller
-                  control={control}
-                  name="quizzes"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="number"
-                      id="lessons"
-                      {...field}
-                      invalid={!!errors.quizzes}
-                    />
-                  )}
-                />
-                {errors.quizzes && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.quizzes.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="certificates">Course Certificates</Label>
-
-                <Controller
-                  control={control}
-                  name="certificates"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="select"
-                      id="certificates"
-                      {...field}
-                      invalid={!!errors.certificates}
-                    >
-                      <option value="">Certificates(if any)</option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                    </Input>
-                  )}
-                />
-                {errors.certificates && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.certificates.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="languages">Course languages</Label>
-                <Controller
-                  control={control}
-                  name="languages"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="text"
-                      id="languages"
-                      {...field}
-                      invalid={!!errors.languages}
-                    />
-                  )}
-                />
-                {errors.languages && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.languages.message}
+                    {errors.rating.message}
                   </span>
                 )}
               </FormGroup>
