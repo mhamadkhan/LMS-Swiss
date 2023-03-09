@@ -354,6 +354,28 @@ export const OrdersTables = () => {
           </CardSubtitle>
           <Table className="no-wrap mt-3 align-middle" responsive borderless>
             <tbody>
+            <Accordion className="mb-3" defaultActiveKey="0">
+                <Accordion.Item style={{backgroundColor:"#319883"}} eventKey="0">
+                  
+                    <div className="container d-flex">
+                      <div className="row " style={{ width: "920px" }}>
+                        <div className="col-lg-3">
+                          <h6 style={{color:"white"}}>Name</h6>
+                        </div>
+                        <div className="col-lg-3">
+                          <h6 style={{color:"white"}}>Preferred Course</h6>
+                        </div>
+                        <div className="col-lg-3">
+                          <h6 style={{color:"white"}}>Wattsapp No</h6>
+                        </div>
+                        <div className="col-lg-3">
+                          <h6 style={{color:"white"}}>City</h6>
+                        </div>
+                      </div>
+                    </div>
+                 
+                </Accordion.Item>
+              </Accordion>
               {applications.map((tdata, index) => (
                 <Accordion className="col-lg-12" defaultActiveKey={["0"]} alwaysOpen>
                   <Accordion.Item eventKey="1" >
