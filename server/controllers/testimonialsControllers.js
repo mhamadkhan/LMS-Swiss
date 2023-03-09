@@ -14,7 +14,7 @@ router.post('/addTestimonials',  async (req, res) => {
     
 
         await testimonials.save();
-        res.send({ message: "Testimonials Added Successfully" });
+        res.send({ message: "Testimonial Added Successfully" });
     }
     
     catch (error) {

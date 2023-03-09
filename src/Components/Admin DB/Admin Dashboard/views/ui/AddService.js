@@ -71,7 +71,7 @@ const AddService = () => {
                     <CardBody>
                         <Form onSubmit={handleSubmit(onSubmit)}>
                             <FormGroup>
-                                <Label for="ServiceTitle">Course Title</Label>
+                                <Label for="ServiceTitle">Service Title</Label>
                                 <Controller
                                     control={control}
                                     name="title"
@@ -96,7 +96,7 @@ const AddService = () => {
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="file">Course Picture</Label>
+                                <Label for="file">Service Picture</Label>
                                 <Controller
                                     control={control}
                                     name="picture"
@@ -127,7 +127,7 @@ const AddService = () => {
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="desc">Course Description</Label>
+                                <Label for="desc">Service Description</Label>
                                 <Controller
                                     control={control}
                                     name="desc"

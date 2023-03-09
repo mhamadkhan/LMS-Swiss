@@ -648,13 +648,13 @@ const CurrentItems = ({ Items }) => {
                                 <img src={`${val.courseCardPic}`} alt={`${val.imgAlt}`} />
                             </div>
                             <div className="course-content">
-                                <div className="course-price" style={{ backgroundColor: "#ff0911" }}>{val.coursePrice}</div>
+                                <div className="course-price" style={{ backgroundColor: "#ff0911" }}>Rs:{val.coursePrice}</div>
                                 <div className="course-category">
                                     <div className="course-cate">
                                         <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.courseCategory || "no category"}</a>
                                     </div>
                                     <div className="course-cate">
-                                        <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.courseSchedule || "no category"}</a>
+                                        <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.courseSchedule || "no schedule"}</a>
                                     </div>
                                   
                                 </div>

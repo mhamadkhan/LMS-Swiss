@@ -48,7 +48,7 @@ export const ServiceDetailValidation = Yup.object().shape({
 export const TestimonialValidation = Yup.object().shape({
     name: Yup.string().required("Username is required").min(2, "Username should be at least 2 characters"),
     picture: Yup.mixed().required("Picture field is required"),
-    review: Yup.string().required("Review Field is required"),
-    stars: Yup.string().required("Please give rating in numbers"),
+    review: Yup.string().required("Review Field is required").min(4, "Please write review in minimum 4 characters"),
+    rating: Yup.string().required("Please give rating in numbers"),
 })
 
