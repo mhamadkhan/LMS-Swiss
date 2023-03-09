@@ -16,19 +16,19 @@ import {
   Input,
   FormText,
 } from "reactstrap";
-import { AddCourseValidation } from "../../Schemas/index";
+import { TestimonialValidation } from "../../Schemas/index";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../../../../firebase";
 
-const AddCourse = () => {
+const AddTestimonial = () => {
   // let currentStore = CurrentStore()
   let [courseImage, setCourseImage] = useState(null);
 
   const { control, register, handleSubmit, formState: { errors }, reset, } = useForm({
-    resolver: yupResolver(AddCourseValidation),
+    resolver: yupResolver(TestimonialValidation),
   });
 
   // eslint-disable-next-line no-unused-vars
@@ -92,38 +92,21 @@ const AddCourse = () => {
       console.log(error.message)
     }
 
-    console.log(data);
-    console.log(data.category, data.schedule);
     data = {
-      courseTitle: data.title,
-      coursePrice: data.price,
-      courseDuration: data.duration,
-      courseCategory: data.category,
-      courseSchedule: data.schedule,
-      courseLevel: data.level,
-      courseLessons: data.lessons,
-      courseQuizzes: data.quizzes,
-      courseLanguage: data.languages,
-      courseDescription: data.desc,
-      courseCertificate: data.certificates,
-      courseCardPic: fileURL,
-      courseSkill: data.skills,
-   
+      // courseTitle: data.title,
+      // coursePrice: data.price,
+      // courseDuration: data.duration,
+      // courseCategory: data.category,
+      // courseSchedule: data.schedule,
+      // courseLevel: data.level,
+      // courseLessons: data.lessons,
+      // courseQuizzes: data.quizzes,
+      // courseLanguage: data.languages,
+      // courseDescription: data.desc,
+      // courseCertificate: data.certificates,
+      // courseCardPic: fileURL,
+      // courseSkill: data.skills,
     }
-
-    // let formData = new FormData();
-
-    // formData.append("courseTitle", data.title);
-    // formData.append("coursePrice", data.price);
-    // formData.append("courseDuration", data.duration);
-    // formData.append("courseLevel", data.level);
-    // formData.append("courseLessons", data.lessons);
-    // formData.append("courseQuizzes", data.quizzes);
-    // formData.append("courseLanguage", data.languages);
-    // formData.append("courseDescription", data.desc);
-    // formData.append("courseCertificate", data.certificates);
-    // formData.append("courseCardPic", fileURL);
-    // formData.append("courseSkill", data.skills);
 
     try {
       const resp = await axios.post("/course/addCourse", data);
@@ -149,32 +132,32 @@ const AddCourse = () => {
           <CardBody>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <FormGroup>
-                <Label for="CourseTitle">Course Title</Label>
+                <Label for="StudentName">Student Name</Label>
                 <Controller
                   control={control}
-                  name="title"
+                  name="name"
                   defaultValue=""
                   render={({ field }) => (
                     <Input
                       type="text"
-                      id="CourseTitle"
+                      id="StudentName"
                       {...field}
-                      invalid={!!errors.title}
+                      invalid={!!errors.name}
                     />
                   )}
                 />
-                {errors.title && (
+                {errors.name && (
                   <span
                     className={`text-danger`}
                     style={{ fontSize: "13px", height: "3.7rem" }}
                   >
-                    {errors.title.message}
+                    {errors.name.message}
                   </span>
                 )}
               </FormGroup>
 
               <FormGroup>
-                <Label for="file">Course Picture</Label>
+                <Label for="file">Student Picture</Label>
                 <Controller
                   control={control}
                   name="picture"
@@ -201,155 +184,56 @@ const AddCourse = () => {
                     {errors.picture.message}
                   </span>
                 )}
-                <FormText>Attach Picture of Course</FormText>
+                <FormText>Upload student picture</FormText>
               </FormGroup>
 
               <FormGroup>
-                <Label for="desc">Course Description</Label>
+                <Label for="review">Student Review</Label>
                 <Controller
                   control={control}
-                  name="desc"
+                  name="review"
                   defaultValue=""
                   render={({ field }) => (
                     <Input
                       type="textarea"
-                      id="desc"
+                      id="review"
                       {...field}
-                      invalid={!!errors.desc}
+                      invalid={!!errors.review}
                     />
                   )}
                 />
-                {errors.desc && (
+                {errors.review && (
                   <span
                     className={`text-danger`}
                     style={{ fontSize: "13px", height: "3.7rem" }}
                   >
-                    {errors.desc.message}
+                    {errors.review.message}
                   </span>
                 )}
               </FormGroup>
 
               <FormGroup>
-                <Label for="category">Select Course Category</Label>
-                <Controller
-                  control={control}
-                  name="category"
-                  render={({ field }) => (
-                    <Input
-                      type="select"
-                      id="category"
-                      {...field}
-                      invalid={!!errors.category}
-                    >
-                      <option value="">Select Course Category</option>
-                      {courses.map((course, id) => {
-                        return (
-                          <option key={id} value={course.categoryName}>
-                            {course.categoryName}
-                          </option>
-                        );
-                      })}
-                    </Input>
-                  )}
-                />
-                {errors.category && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.category.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="schedule">Select Course Schedule</Label>
-                <Controller
-                  control={control}
-                  name="schedule"
-                  render={({ field }) => (
-                    <Input
-                      type="select"
-                      id="schedule"
-                      {...field}
-                      invalid={!!errors.schedule}
-                    >
-                      <option value="">Select Course schedule</option>
-                      {schedule.map((schedule, id) => {
-                        return (
-                          <option key={id} value={schedule.name}>
-                            {schedule.name}
-                          </option>
-                        );
-                      })}
-                    </Input>
-                  )}
-                />
-                {errors.schedule && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.schedule.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="skills">Select Course skills</Label>
-                <Controller
-                  control={control}
-                  name="skills"
-                  render={({ field }) => (
-                    <Input
-                      type="select"
-                      id="skills"
-                      {...field}
-                      invalid={!!errors.skills}
-                    >
-                      <option value="">Select Course skills</option>
-                      {skills.map((course, id) => {
-                        return (
-                          <option key={id} value={course.skillname}>
-                            {course.skillname}
-                          </option>
-                        );
-                      })}
-                    </Input>
-                  )}
-                />
-                {errors.skills && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.skills.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="coursePrice">Course Price</Label>
+                <Label for="stars">Course Rating</Label>
 
                 <Controller
                   control={control}
-                  name="price"
+                  name="stars"
                   defaultValue=""
                   render={({ field }) => (
                     <Input
                       type="number"
-                      id="price"
+                      id="stars"
                       {...field}
-                      invalid={!!errors.price}
+                      invalid={!!errors.stars}
                     />
                   )}
                 />
-                {errors.price && (
+                {errors.stars && (
                   <span
                     className={`text-danger`}
                     style={{ fontSize: "13px", height: "3.7rem" }}
                   >
-                    {errors.price.message}
+                    {errors.stars.message}
                   </span>
                 )}
               </FormGroup>
@@ -526,4 +410,4 @@ const AddCourse = () => {
   );
 };
 
-export default AddCourse;
+export default AddTestimonial;

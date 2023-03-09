@@ -651,7 +651,10 @@ const CurrentItems = ({ Items }) => {
                                 <div className="course-price" style={{ backgroundColor: "#ff0911" }}>{val.coursePrice}</div>
                                 <div className="course-category">
                                     <div className="course-cate">
-                                        <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.cate || "no category"}</a>
+                                        <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.courseCategory || "no category"}</a>
+                                    </div>
+                                    <div className="course-cate">
+                                        <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.courseSchedule || "no category"}</a>
                                     </div>
                                   
                                 </div>
