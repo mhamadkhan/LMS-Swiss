@@ -9,7 +9,7 @@ import SMM from '../../assets/images/CoursePics/SMM.jpeg';
 import GameDevelop from '../../assets/images/CoursePics/GameDevelopment.jpeg';
 import VideoEditing from '../../assets/images/CoursePics/Video Editing.jpeg'
 
-    
+
 const courseList = [
     {
         imgUrl: DigitalPic,
