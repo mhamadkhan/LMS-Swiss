@@ -84,7 +84,7 @@ const AddSubService = () => {
                         <Form onSubmit={handleSubmit(onSubmit)}>
 
                             <FormGroup>
-                                <Label for="ServiceTitle">Course Title</Label>
+                                <Label for="ServiceTitle">Service Title</Label>
                                 <Controller
                                     control={control}
                                     name="title"
@@ -109,7 +109,7 @@ const AddSubService = () => {
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="file">Course Picture</Label>
+                                <Label for="file">Service Picture</Label>
                                 <Controller
                                     control={control}
                                     name="picture"
@@ -140,7 +140,7 @@ const AddSubService = () => {
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="desc">Course Description</Label>
+                                <Label for="desc">Service Description</Label>
                                 <Controller
                                     control={control}
                                     name="desc"
@@ -165,7 +165,7 @@ const AddSubService = () => {
                             </FormGroup>
 
                             <FormGroup>
-                                <Label for="category">Select Course Category</Label>
+                                <Label for="category">Select Service Category</Label>
                                 <Controller
                                     control={control}
                                     name="category"

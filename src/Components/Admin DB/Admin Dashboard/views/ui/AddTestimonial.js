@@ -102,9 +102,8 @@ const AddTestimonial = () => {
 
     try {
       const resp = await axios.post("/testimonials/addTestimonials", data);
-      if (resp.data.message == "Course Added Successfully")
-        toast.success("Course Added Successfully");
-      reset({ skills: "" }, { category: "" }, { level: "" });
+      if (resp.data.message === "Testimonial Added Successfully")
+        toast.success("Testimonial Added Successfully");
       reset();
     } catch (error) {
       console.log(error.message);
