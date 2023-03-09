@@ -11,9 +11,10 @@ import SEO from '../assets/images/CoursePics/SEO.jpeg';
 import SMM from '../assets/images/CoursePics/SMM.jpeg';
 import GameDevelop from '../assets/images/CoursePics/GameDevelopment.jpeg';
 import VideoEditing from '../assets/images/CoursePics/Video Editing.jpeg';
-// import testing from './server/uploads/media/f4d4038eb10137262628d31fe6ce7df6-changing-from-web-2-0-to-web-3-0-concept-2022-12-16-11-14-37-utc.jpg'
 import ReactPaginate from 'react-paginate';
-
+import { useEffect  } from "react";
+import axios from "axios";
+// import { } from "react";
 const courseList = [
     {
         imgUrl: DigitalPic,
@@ -66,7 +67,7 @@ const courseList = [
         title: 'Unity 3D Game Development',
         totalLeson: '3 Months',
         schdule: 'Physical Class',
-        authorImgUrl: 'server/upload/media/5662d0c8e64f6d9ede84861f9d6a8c7a-changing-from-web-2-0-to-web-3-0-concept-2022-12-16-11-14-37-utc.jpg',
+        authorImgUrl: 'http://localhost:5000/server/uploads/changing-from-web-2-0-to-web-3-0-concept-2022-12-16-11-14-37-utc.jpg',
         authorImgAlt: 'course author rajibraj91 rajibraj',
         authorName: 'Zinat Zaara',
         btnText: 'Read More',
@@ -632,8 +633,9 @@ const courseList = [
     },
 ]
 
-
 const CurrentItems = ({ Items }) => {
+ 
+    
     return (<>
         {
             Items && Items.map((val, i) => {
@@ -641,7 +643,7 @@ const CurrentItems = ({ Items }) => {
                     <div className="course-item">
                         <div className="course-inner">
                             <div className="course-thumb">
-                                <img src={`${val.imgUrl}`} alt={`${val.imgAlt}`} />
+                                <img src={`${val.courseCardPic}`} alt={`${val.imgAlt}`} />
                             </div>
                             <div className="course-content">
                                 <div className="course-price" style={{ backgroundColor: "#ff0911" }}>{val.price}</div>
@@ -654,14 +656,14 @@ const CurrentItems = ({ Items }) => {
                                         <span className="ratting-count"> {val.reviewCount}</span>
                                     </div>
                                 </div>
-                                <Link to="/course-single"><h4>{val.title}</h4></Link>
+                                <Link to="/course-single"><h4>{val.courseTitle}</h4></Link>
                                 <div className="course-details">
-                                    <div className="couse-count"><i className="icofont-video-alt"></i> {val.totalLeson}</div>
-                                    <div className="couse-topic"><i className="icofont-signal"></i> {val.schdule}</div>
+                                    <div className="couse-count"><i className="icofont-video-alt"></i> {val.courseLessons}</div>
+                                    <div className="couse-topic"><i className="icofont-signal"></i> {val.courseDuration}</div>
                                 </div>
                                 <div className="course-footer">
                                     <div className="course-author">
-                                        <img src={`${val.authorImgUrl}`} alt={`${val.authorImgAlt}`} />
+                                        <img src={`${val.courseCardPic}`} alt={`${val.authorImgAlt}`} />
                                         <Link to="/team-single" className="ca-name">{val.authorName}</Link>
                                     </div>
                                     <div className="course-btn">
@@ -680,6 +682,8 @@ const CurrentItems = ({ Items }) => {
 
 const CoursePage = ({ itemsPerPage }) => {
 
+  
+
     const [startItems, setstartItems] = useState(0);
 
     let endItems = startItems + itemsPerPage;
@@ -688,7 +692,7 @@ const CoursePage = ({ itemsPerPage }) => {
         endItems = courseList.length;
     }
 
-    // Getting items from the CourseList array to display current items
+    // Getting items from the courseList array to display current items
     const currentItems = courseList.slice(startItems, endItems);
     console.log(currentItems)
     const pageCount = Math.ceil(courseList.length / itemsPerPage);

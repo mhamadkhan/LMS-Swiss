@@ -1,6 +1,7 @@
 let express = require('express');
 let connectDB=require('./dbConfig/db')
 let cors = require('cors');
+let path = require('path');
 const PORT = process.env.PORT || 5000;
 let app = express();
 app.use(express.json());
@@ -18,6 +19,7 @@ app.use('/user',passRoute);
 app.use('/payment',cors(),paymentRoute);
 app.use('/courseApply',courseApply);
 app.use('/course',addCourse);
+app.use('/server/uploads', express.static(path.join(__dirname + "/server/uploads")) )
 
 
 
