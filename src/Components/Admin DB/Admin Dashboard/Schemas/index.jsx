@@ -33,3 +33,15 @@ export const AddCourseValidation = Yup.object().shape({
 
 })
 
+export const ServiceValidation = Yup.object().shape({
+    title: Yup.string().required("Service Title field is required").min(4, "Service Title shoud be at least 4 characters"),
+    picture: Yup.mixed().required("Service Picture field is required"),
+    desc: Yup.string().required("Service Description field is required"),
+})
+export const ServiceDetailValidation = Yup.object().shape({
+    title: Yup.string().required("Service Title field is required").min(4, "Service Title shoud be at least 4 characters"),
+    picture: Yup.mixed().required("Service Picture field is required"),
+    desc: Yup.string().required("Service Description field is required"),
+    category: Yup.string().required("Please select a category field"),
+})
+
