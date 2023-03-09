@@ -34,7 +34,7 @@ function RoutingCall(){
 				<Route path="/" element={<HomeSeven />} />
 				<Route path="course" element={<CoursePage itemsPerPage={6} />} />
 				<Route path="Services/:Service" element={<Services />} />
-				<Route path="course-single:courseID" element={<CourseSingle />} />
+				<Route path="course-single/:courseID" element={<CourseSingle />} />
 				<Route path="course-view" element={<CourseView />} />
 				<Route path="courseregistrationform" element={
 					<SecureStudentRoutes>
