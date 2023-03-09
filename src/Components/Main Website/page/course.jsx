@@ -15,7 +15,7 @@ import ReactPaginate from 'react-paginate';
 import { useEffect  } from "react";
 import axios from "axios";
 // import { } from "react";
-const course = [
+const courseList = [
     {
         imgUrl: DigitalPic,
         imgAlt: 'Digital Marketing Course',
@@ -682,36 +682,24 @@ const CurrentItems = ({ Items }) => {
 
 const CoursePage = ({ itemsPerPage }) => {
 
-    let [course , setCourse] = useState([])
-
-    useEffect( ()=>{
-     
-        async function fetchCourse() { 
-          let resp = await axios.get('/course/');
-          console.log(resp.data);
-          setCourse(resp.data);
-        }
-        fetchCourse();  
-        
-        }, []);
-    
+  
 
     const [startItems, setstartItems] = useState(0);
 
     let endItems = startItems + itemsPerPage;
 
-    if (endItems > course.length) {
-        endItems = course.length;
+    if (endItems > courseList.length) {
+        endItems = courseList.length;
     }
 
-    // Getting items from the course array to display current items
-    const currentItems = course.slice(startItems, endItems);
+    // Getting items from the courseList array to display current items
+    const currentItems = courseList.slice(startItems, endItems);
     console.log(currentItems)
-    const pageCount = Math.ceil(course.length / itemsPerPage);
+    const pageCount = Math.ceil(courseList.length / itemsPerPage);
 
     // Function to handle Page click
     const handlePageClick = (event) => {
-        const newstartItem = (event.selected * itemsPerPage) % course.length;
+        const newstartItem = (event.selected * itemsPerPage) % courseList.length;
 
         setstartItems(newstartItem);
     };
