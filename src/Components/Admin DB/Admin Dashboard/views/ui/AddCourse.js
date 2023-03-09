@@ -93,10 +93,13 @@ const AddCourse = () => {
     }
 
     console.log(data);
+    console.log(data.category, data.schedule);
     data = {
       courseTitle: data.title,
       coursePrice: data.price,
       courseDuration: data.duration,
+      courseCategory: data.category,
+      courseSchedule: data.schedule,
       courseLevel: data.level,
       courseLessons: data.lessons,
       courseQuizzes: data.quizzes,

@@ -10,7 +10,7 @@ router.post('/addCourse',  async (req, res) => {
     try {
         console.log(req.body);
         
-     
+        
         let course = new Course(req.body);
     
 
