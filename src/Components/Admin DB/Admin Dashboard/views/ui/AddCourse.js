@@ -20,18 +20,14 @@ import { AddCourseValidation } from "../../Schemas/index";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { storage } from "../../../../../firebase";
 
 const AddCourse = () => {
   // let currentStore = CurrentStore()
-  let [courseImage, setCourseImage] = useState();
+  let [courseImage, setCourseImage] = useState(null);
 
-  const {
-    control,
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
+  const { control, register, handleSubmit, formState: { errors }, reset, } = useForm({
     resolver: yupResolver(AddCourseValidation),
   });
 
@@ -72,25 +68,53 @@ const AddCourse = () => {
   ];
 
   async function onSubmit(data) {
-    data = { ...data, picture: courseImage };
-    console.log(data);
 
-    let formData = new FormData();
+    if (courseImage === null) return
 
-    formData.append("courseTitle", data.title);
-    formData.append("coursePrice", data.price);
-    formData.append("courseDuration", data.duration);
-    formData.append("courseLevel", data.level);
-    formData.append("courseLessons", data.lessons);
-    formData.append("courseQuizzes", data.quizzes);
-    formData.append("courseLanguage", data.languages);
-    formData.append("courseDescription", data.desc);
-    formData.append("courseCertificate", data.certificates);
-    formData.append("courseCardPic", data.picture);
-    formData.append("courseSkill", data.skills);
+    // saving the files into the firebase storage
+
+    const imageRef = ref(storage, `courseImages/${courseImage.name}`);
 
     try {
-      const resp = await axios.post("/course/addCourse", formData);
+      let fileuploaded = await uploadBytes(imageRef, courseImage);
+      var fileURL = await getDownloadURL(fileuploaded.ref);
+      // console.log(fileURL);
+      // data = { ...data, courseCardPic: fileURL };
+    } catch (error) {
+      console.log(error.message)
+    }
+
+    console.log(data);
+    data = {
+      courseTitle: data.title,
+      coursePrice: data.price,
+      courseDuration: data.duration,
+      courseLevel: data.level,
+      courseLessons: data.lessons,
+      courseQuizzes: data.quizzes,
+      courseLanguage: data.languages,
+      courseDescription: data.desc,
+      courseCertificate: data.certificates,
+      courseCardPic: fileURL,
+      courseSkill: data.skills,
+    }
+
+    // let formData = new FormData();
+
+    // formData.append("courseTitle", data.title);
+    // formData.append("coursePrice", data.price);
+    // formData.append("courseDuration", data.duration);
+    // formData.append("courseLevel", data.level);
+    // formData.append("courseLessons", data.lessons);
+    // formData.append("courseQuizzes", data.quizzes);
+    // formData.append("courseLanguage", data.languages);
+    // formData.append("courseDescription", data.desc);
+    // formData.append("courseCertificate", data.certificates);
+    // formData.append("courseCardPic", fileURL);
+    // formData.append("courseSkill", data.skills);
+
+    try {
+      const resp = await axios.post("/course/addCourse", data);
       if (resp.data.message == "Course Added Successfully")
         toast.success("Course Added Successfully");
       reset({ skills: "" }, { category: "" }, { level: "" });
