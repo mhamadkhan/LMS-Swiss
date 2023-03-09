@@ -9,6 +9,7 @@ import AddCourse from "../views/ui/AddCourse";
 import AddService from '../views/ui/AddService';
 import AddServiceDetail from '../views/ui/AddSubService';
 import Sellers from '../views/ui/Sellers';
+import Testimonials from '../views/ui/TestimonialsTables'
 import { Route,Routes } from "react-router-dom";
 
 const FullLayout = () => {
@@ -37,8 +38,9 @@ const FullLayout = () => {
             <Route   path ="/AddCourse"   element = {<AddCourse/>} />  
             <Route   path ="/AddService"   element = {<AddService/>} />  
             <Route   path ="/AddServiceDetail"   element ={<AddServiceDetail/>} />  
+            <Route   path ="/Testimonials"   element ={<Testimonials/>} />  
             
-
+    
 
          </Routes>
           </Container>

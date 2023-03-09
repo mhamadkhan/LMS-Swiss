@@ -4,6 +4,13 @@ const Title2 = "Need Help?";
 const desc="Please Feel Free To Contact Us. We Will Get Back To You With 1-2 Business Days."
 const mail="info@softtechhub.net";
 const num="+92-313-7267-440"
+const select = [
+  "Software & Research",
+  "Bussiness Services",
+  "Quality Resourcing",
+  "Travel and Aviation",
+  "Healthcare Services",
+];
 
 const SidebarForm = () => {
   const {
@@ -107,22 +114,33 @@ const SidebarForm = () => {
                   This field is required
                 </span>
               )}
-              <select
-                required
+             <select
+                
                 style={{ width: "90%", margin: "auto" }}
                 class="form-select mt-2"
                 aria-label="Default select example"
-                {...register("select option")}
+                {...register("preferredCourse", { required: true })}
               >
-                <option value="Financial Planning" selected>
-                  Financial Planning
-                </option>
-                <option value="Software & Research">Software & Research</option>
-                <option value="Bussiness Services">Bussiness Services</option>
-                <option value="Quality Resourcing">Quality Resourcing</option>
-                <option value="Travel and Aviation">Travel and Aviation</option>
-                <option value="Healthcare Services">Healthcare Services</option>
+                <option value="">Select Courses</option>
+                {select.map((val) => {
+                  return (
+                    <>
+                      <option value={val}>{val}</option>
+                    </>
+                  );
+                })}
               </select>
+              {errors.preferredCourse && (
+                <span
+                  style={{
+                    color: "rgb(255, 9, 17)",
+                    textAlign: "center",
+                    marginLeft: "10px",
+                  }}
+                >
+                  This field is required
+                </span>
+              )}
 
               <textarea
                 style={{ width: "90%", margin: "auto" }}

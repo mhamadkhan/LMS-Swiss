@@ -105,6 +105,7 @@ const AddCourse = () => {
       courseCertificate: data.certificates,
       courseCardPic: fileURL,
       courseSkill: data.skills,
+   
     }
 
     // let formData = new FormData();
