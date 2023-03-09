@@ -46,6 +46,15 @@ let courseSchema = mongoose.Schema({
         type:String,
         required:true
     },
+    courseCategory:{
+        type:String,
+        required:true
+    },
+    courseSchedule:{
+        type:String,
+        required:true
+    },
+
 
 })
 
