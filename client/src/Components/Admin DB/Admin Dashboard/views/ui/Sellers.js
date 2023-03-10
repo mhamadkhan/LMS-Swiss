@@ -5,7 +5,7 @@ const Tables = () => {
   return (
     <Row>
       <Col lg="12">
-        <UsersTable/>
+        <UsersTable itemsPerPage={4}/>
       </Col>
     </Row>
   );
