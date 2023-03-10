@@ -24,12 +24,12 @@ import ResetPassword from "../page/resetPass";
 import CourseRegisterForm from "../page/CourseRegistrationForm"
 import { useSelector } from "react-redux";
 
-function RoutingCall(){
+function RoutingCall() {
 
-    return(
-        <>
-             <Header/>
-          		<Routes>
+	return (
+		<>
+			<Header />
+			<Routes>
 
 				<Route path="/" element={<HomeSeven />} />
 				<Route path="course" element={<CoursePage itemsPerPage={6} />} />
