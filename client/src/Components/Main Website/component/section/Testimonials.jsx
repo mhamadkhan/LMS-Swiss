@@ -5,8 +5,12 @@ import './Testimonials.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from "swiper";
 import 'swiper/css';
+import { useEffect } from 'react';
 
 const Testimonials = () => {
+  
+   
+       
 
     const [testmonials, setTestimonials] = useState([
         { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory loremsdjnjfasasfasfaslnlasfasfasasfasfasasfasfasfasfa" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" },
