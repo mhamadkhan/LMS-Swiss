@@ -1,4 +1,4 @@
-import ProductsFeaturedTable from "./ProductFeaturedTable";
+import CourseTable from "./CourseTable";
 import { Row, Col, Table, Card, CardTitle, CardBody } from "reactstrap";
 
 const Tables = () => {
@@ -8,7 +8,7 @@ const Tables = () => {
       {/* table-1*/}
       {/* --------------------------------------------------------------------------------*/}
       <Col lg="12">
-        <ProductsFeaturedTable />
+        <CourseTable />
       </Col>
       
       

@@ -12,9 +12,13 @@ router.post('/addSkill',  async (req, res) => {
         
         let skills = new Skills(req.body);
     
-
-        await skills.save();
-        res.send({ message: "Skill Added Successfully" });
+        let alreadyExist = await Skills.findOne({ skill: req.body.skill });
+        if (alreadyExist) {
+            res.send({ message: "Skill already exist" });
+        }else{
+             await skills.save();
+             res.send({ message: "Skill Added Successfully" });
+        }
     }
     
     catch (error) {
