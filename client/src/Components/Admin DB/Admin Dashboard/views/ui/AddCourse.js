@@ -93,7 +93,7 @@ const AddCourse = () => {
     
     try {
       const resp = await axios.post("/course/addCourse", data);
-      if (resp.data.message == "Course Added Successfully")
+      if (resp.data.message === "Course Added Successfully")
         toast.success("Course Added Successfully");
       reset({ skills: "" }, { category: "" }, { level: "" });
       reset();
@@ -222,7 +222,9 @@ const AddCourse = () => {
                       invalid={!!errors.category}
                     >
                       <option value="">Select Course Category</option>
+
                       {category.map((val, id) => {
+
                         return (
                           <option key={id} value={val.category}>
                             {val.category}

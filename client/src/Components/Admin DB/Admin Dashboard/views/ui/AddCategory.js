@@ -30,19 +30,19 @@ const AddCategory = () => {
 
         console.log(data);
 
-      
-   data={
-    category :data.category,
-   }
-       
+
+        data = {
+            category: data.category,
+        }
+
 
         try {
             const resp = await axios.post("/category/addCategory", data);
-            if (resp.data.message == "Category Added Successfully"){
+            if (resp.data.message == "Category Added Successfully") {
                 toast.success("Category Added Successfully");
-            reset();
+                reset();
             }
-            else if(resp.data.message == "Category already exist "){
+            else if (resp.data.message == "Category already exist ") {
                 toast.error(" Already Added", {
                     style: {
                         border: '1px solid #713200',
@@ -53,9 +53,7 @@ const AddCategory = () => {
                         primary: '#713200',
                         secondary: '#FFFAEE',
                     },
-
                 })
-    
             }
         } catch (error) {
             console.log(error.message);
