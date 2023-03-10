@@ -93,7 +93,6 @@ const AddCourse = () => {
     }
 
     console.log(data);
-    console.log(data.category, data.schedule);
     data = {
       courseTitle: data.title,
       coursePrice: data.price,
@@ -108,22 +107,8 @@ const AddCourse = () => {
       courseCertificate: data.certificates,
       courseCardPic: fileURL,
       courseSkill: data.skills,
-   
+      passPercentage: data.passpercentage,
     }
-
-    // let formData = new FormData();
-
-    // formData.append("courseTitle", data.title);
-    // formData.append("coursePrice", data.price);
-    // formData.append("courseDuration", data.duration);
-    // formData.append("courseLevel", data.level);
-    // formData.append("courseLessons", data.lessons);
-    // formData.append("courseQuizzes", data.quizzes);
-    // formData.append("courseLanguage", data.languages);
-    // formData.append("courseDescription", data.desc);
-    // formData.append("courseCertificate", data.certificates);
-    // formData.append("courseCardPic", fileURL);
-    // formData.append("courseSkill", data.skills);
 
     try {
       const resp = await axios.post("/course/addCourse", data);
@@ -230,25 +215,25 @@ const AddCourse = () => {
               </FormGroup>
 
               <FormGroup>
-                <Label for="category">Select Course Category</Label>
+                <Label for="category">Enter Course Category</Label>
                 <Controller
                   control={control}
                   name="category"
                   render={({ field }) => (
                     <Input
-                      type="select"
+                      type="text"
                       id="category"
                       {...field}
                       invalid={!!errors.category}
                     >
-                      <option value="">Select Course Category</option>
+                      {/* <option value="">Select Course Category</option>
                       {courses.map((course, id) => {
                         return (
                           <option key={id} value={course.categoryName}>
                             {course.categoryName}
                           </option>
                         );
-                      })}
+                      })} */}
                     </Input>
                   )}
                 />
@@ -329,7 +314,7 @@ const AddCourse = () => {
               </FormGroup>
 
               <FormGroup>
-                <Label for="coursePrice">Course Price</Label>
+                <Label for="coursePrice">Course Price(Rs)</Label>
 
                 <Controller
                   control={control}
@@ -458,6 +443,32 @@ const AddCourse = () => {
                     style={{ fontSize: "13px", height: "3.7rem" }}
                   >
                     {errors.quizzes.message}
+                  </span>
+                )}
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="passpercentage">Enter Pass Percentage</Label>
+
+                <Controller
+                  control={control}
+                  name="passpercentage"
+                  defaultValue=""
+                  render={({ field }) => (
+                    <Input
+                      type="number"
+                      id="passpercentage"
+                      {...field}
+                      invalid={!!errors.passpercentage}
+                    />
+                  )}
+                />
+                {errors.passpercentage && (
+                  <span
+                    className={`text-danger`}
+                    style={{ fontSize: "13px", height: "3.7rem" }}
+                  >
+                    {errors.passpercentage.message}
                   </span>
                 )}
               </FormGroup>

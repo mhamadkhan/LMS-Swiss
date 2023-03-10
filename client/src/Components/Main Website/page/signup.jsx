@@ -79,7 +79,7 @@ const SignupPage = () => {
                                         name="userName"
                                         placeholder="User Name"
                                     />
-                                    {errors.name && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.name.message}</span>}
+                                    {errors.userName && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.userName.message}</span>}
                                 </div>
                                 <div className="form-group text-start" style={{ height: "3.4rem" }}>
                                     <input
