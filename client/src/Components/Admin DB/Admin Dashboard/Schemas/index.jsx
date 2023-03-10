@@ -52,3 +52,10 @@ export const TestimonialValidation = Yup.object().shape({
     rating: Yup.string().required("Please give rating in numbers"),
 })
 
+export const CategoryValidation = Yup.object().shape({
+    category: Yup.string().required("Category field is required").min(3, "please write minimum 3 characters"),
+})
+export const SkillValidation = Yup.object().shape({
+    skill: Yup.string().required("skill field is required").min(3, "please write minimum 3 characters"),
+})
+

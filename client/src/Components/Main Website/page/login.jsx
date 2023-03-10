@@ -138,7 +138,7 @@ const LoginPage = () => {
                                     name="email"
                                     placeholder="Email *"
                                 />
-                                {errors.name && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.name.message}</span>}
+                                {errors.email && <span className={`text-danger`} style={{ fontSize: "13px", height: "3.7rem" }}>{errors.email.message}</span>}
                             </div>
                             <div className="form-group text-start position-relative" style={{ height: "3.4rem" }}>
                                 <input
