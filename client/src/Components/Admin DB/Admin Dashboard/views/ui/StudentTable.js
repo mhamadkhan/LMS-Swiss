@@ -1,8 +1,4 @@
-import {
-  Card, CardBody, CardTitle, CardSubtitle, Table, Button, Modal, ModalFooter,
-  ModalHeader, ModalBody
-} from "reactstrap";
-import { Link } from "react-router-dom";
+import {Card, CardBody, CardTitle, CardSubtitle, Table, } from "reactstrap";
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import React from "react";
@@ -14,10 +10,6 @@ import style from "./ui.module.css"
 const ProjectTables = () => {
 
   let [students,setStudents]=useState([]);
-
-  let [abc,setAbc]=useState("");
-
-
   let [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(7);
 
@@ -127,7 +119,7 @@ const ProjectTables = () => {
       }
       fetchProducts();  
       
-      }, [abc]);
+      }, []);
 
 
 
