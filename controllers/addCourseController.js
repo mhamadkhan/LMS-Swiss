@@ -1,5 +1,4 @@
 let express = require('express');
-let multer =require('multer');
 let router = express.Router();
 let Course = require('../models/course');
 
