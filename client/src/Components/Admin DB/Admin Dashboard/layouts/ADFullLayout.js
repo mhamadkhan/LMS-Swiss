@@ -2,12 +2,12 @@ import Sidebar from "./ADSidebar";
 import Header from "./ADHeader";
 import { Container } from "reactstrap";
 import Starter from "../views/Starter.js";
-import Products from "../views/ui/Products";
-import LiveStores from "../views/ui/LiveStores";
+import Course from "../views/ui/Course";
+import AdmissionQueries from "../views/ui/AdmissionQueries";
 import AddCourse from "../views/ui/AddCourse";
 import AddService from '../views/ui/AddService';
 import AddServiceDetail from '../views/ui/AddSubService';
-import Sellers from '../views/ui/Sellers';
+import Students from '../views/ui/Student';
 import { Route, Routes } from "react-router-dom";
 import AddTestimonial from "../views/ui/AddTestimonial";
 import Testimonials from "../views/ui/TestimonialsTables";
@@ -36,19 +36,18 @@ const FullLayout = () => {
           <Container className="p-4 wrapper" fluid>
             <Routes>
               <Route path="/" element={<Starter />} />
-              <Route path="/Courses" element={<Products />} />
-              <Route path="/AdmissionQueries" element={<LiveStores />} />
-              <Route path="/Users" element={<Sellers />} />
+              <Route path="/AdmissionQueries" element={<AdmissionQueries />} />
+              <Route path="/Users" element={<Students/>} />
               <Route path="/AddCourse" element={<AddCourse />} />
-              <Route path="/AddTestimonials" element={<AddTestimonial />} />
-              <Route path="/AddService" element={<AddService />} />
-              <Route path="/AddServiceDetail" element={<AddServiceDetail />} />
-              <Route path="/Testimonials" element={<Testimonials />} />
+              <Route path="/Courses" element={<Course />} />
               <Route path="/AddCategory" element={<AddCategory />} />
               <Route path="/Categories" element={<Categories />} />
               <Route path="/AddSkill" element={<AddSkill />} />
               <Route path="/Skills" element={<Skills />} />
-       
+              <Route path="/AddTestimonials" element={<AddTestimonial />} />
+              <Route path="/Testimonials" element={<Testimonials />} />
+              <Route path="/AddService" element={<AddService />} />
+              <Route path="/AddServiceDetail" element={<AddServiceDetail />} />
             </Routes>
           </Container>
         </div>

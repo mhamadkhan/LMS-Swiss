@@ -1,4 +1,4 @@
-import UsersTable from "./SellerTable";
+import UsersTable from "./StudentTable";
 import { Row, Col, Table, Card, CardTitle, CardBody } from "reactstrap";
 
 const Tables = () => {

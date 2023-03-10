@@ -2,8 +2,6 @@ let express = require('express');
 let router = express.Router();
 let Course = require('../models/course');
 
-
-
 router.post('/addCourse',  async (req, res) => {
 
     try {
