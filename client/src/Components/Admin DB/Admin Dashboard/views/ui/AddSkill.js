@@ -30,15 +30,32 @@ const AddSkill = () => {
 
         console.log(data);
 
-        let formData = new FormData();
-
-        formData.append("Skill", data.skill);
-
+      
+   data={
+    skill :data.skill,
+   }
+       
         try {
-            const resp = await axios.post("/course/addskill", formData);
-            if (resp.data.message == "Category Added Successfully")
-                toast.success("Category Added Successfully");
-            reset();
+            const resp = await axios.post("/skill/addSkill", data);
+            if (resp.data.message == "Skill Added Successfully"){
+                toast.success("Skill Added Successfully");
+                   reset();
+            }
+            else if(resp.data.message == "Skill already exist"){
+                toast.error(" Already Added", {
+                    style: {
+                        border: '1px solid #713200',
+                        paddinSkillg: '16px',
+                        color: '#f97316',
+                    },
+                    iconTheme: {
+                        primary: '#713200',
+                        secondary: '#FFFAEE',
+                    },
+
+                })
+    
+            }
         } catch (error) {
             console.log(error.message);
         }

@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
 
 let skillsSchema = mongoose.Schema({
-   category:{
+   skill:{
         type:String,
         required:true
     },
