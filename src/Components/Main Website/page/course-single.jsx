@@ -1,4 +1,4 @@
-import { Component, Fragment } from "react";
+import { Component, Fragment, useState , useLayoutEffect} from "react";
 import Footer from "../component/layout/footer";
 import Header from "../component/layout/header";
 import PageHeaderTwo from "../component/layout/pageheader-2";
@@ -14,22 +14,24 @@ import axios from "axios";
 const CourseSingle = () => {
 
     let { courseID } = useParams();
-    console.log(courseID);
-    useEffect(() => {
+
+    let [course, setCourse] = useState();
+    // console.log(courseID);
+    useLayoutEffect(() => {
         fetchData();
         async function fetchData() {
-            let resp = await axios.get('/course/singleCourse/?id='+courseID);
-            console.log(resp.data);
-
+            let resp = await axios.get('/course/singleCourse/?id=' + courseID);
+            // console.log(resp.data);
+            course = resp.data;
+            setCourse(course)
+            console.log(course)
         }
     }, [])
-
-
 
     return (
         <Fragment>
             <Header />
-            <PageHeaderTwo />
+            <PageHeaderTwo title={course?.courseTitle} category={course?.courseCategory} />
             <div className="course-single-section padding-tb section-bg">
                 <div className="container">
                     <div className="row justify-content-center">
@@ -39,8 +41,8 @@ const CourseSingle = () => {
                                     <div className="course-inner">
                                         <div className="course-content">
                                             <h3>Course Overview</h3>
-                                            <p>In this course take you from the fundamentals and concepts of data modeling all the way through anumber of best practices and techniques that you’ll need to build data models in your organization. You’ll find many By the end of the course, you’ll be all set to not only put these principles to works but also to maike the key data modeling and design decisions required by the info data modeling that transcend the nuts-and-bolts that clearly the key covered the course and design patterns.</p>
-                                            <h4>What You'll Learn in This Course:</h4>
+                                            <p>{course?.courseDescription}</p>
+                                            {/* <h4>What You'll Learn in This Course:</h4>
                                             <ul className="lab-ul">
                                                 <li><i className="icofont-tick-mark"></i>Ready to begin working on real-world data modeling projects</li>
                                                 <li><i className="icofont-tick-mark"></i>Expanded responsibilities as part of an existing role</li>
@@ -49,7 +51,7 @@ const CourseSingle = () => {
                                                 <li><i className="icofont-tick-mark"></i>Work with color and Gradients and Grids</li>
                                             </ul>
                                             <p>In this course take you from the fundamentals and concepts of data modeling all the way through anumber  of best practices and techniques that you’ll need to build data models in your organization. You’ll find many examples that clearly the key covered the course</p>
-                                            <p>By the end of the course, you’ll be all set to not only put these principles to works but also to maike the key data modeling and design decisions required by the info data modeling that transcend the nuts-and-bolts that clearly the key covered the course and design patterns.</p>
+                                            <p>By the end of the course, you’ll be all set to not only put these principles to works but also to maike the key data modeling and design decisions required by the info data modeling that transcend the nuts-and-bolts that clearly the key covered the course and design patterns.</p> */}
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +130,7 @@ const CourseSingle = () => {
                         </div>
                         <div className="col-lg-4">
                             <div className="sidebar-part">
-                                <CourseSideDetail />
+                                <CourseSideDetail course={course} />
                                 {/* <CourseSideCetagory /> */}
                             </div>
                         </div>

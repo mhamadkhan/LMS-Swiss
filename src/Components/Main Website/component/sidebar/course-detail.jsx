@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const price = "89";
@@ -6,50 +7,6 @@ const excenge = "Limited time offer";
 const paymentTitle = "Secure Payment:";
 const shareTitle = "Share This Course:";
 const btnText = "Apply Now";
-
-
-const csdcList = [
-    {
-        iconName: 'icofont-ui-alarm',
-        leftText: 'Course level',
-        rightText: 'Beginner',
-    },
-    {
-        iconName: 'icofont-book-alt',
-        leftText: 'Course Duration',
-        rightText: '10 week',
-    },
-    {
-        iconName: 'icofont-signal',
-        leftText: 'Online Class',
-        rightText: '08',
-    },
-    {
-        iconName: 'icofont-video-alt',
-        leftText: 'Lessions',
-        rightText: '18x',
-    },
-    {
-        iconName: 'icofont-abacus-alt',
-        leftText: 'Quizzes',
-        rightText: '0',
-    },
-    {
-        iconName: 'icofont-hour-glass',
-        leftText: 'Pass parcentages',
-        rightText: '80',
-    },
-    {
-        iconName: 'icofont-certificate',
-        leftText: 'Certificate',
-        rightText: 'Yes',
-    },
-    {
-        iconName: 'icofont-globe',
-        leftText: 'Language',
-        rightText: 'English',
-    },
-]
 
 const socialList = [
     {
@@ -69,12 +26,13 @@ const socialList = [
     },
 ]
 
-const CourseSideDetail = () => {
+const CourseSideDetail = ({ course }) => {
+
     return (
         <div className="course-side-detail">
             <div className="csd-title">
                 <div className="csdt-left">
-                    <h4 className="mb-0"><sup>$</sup>{price}</h4>
+                    <h4 className="mb-0"><sup>$</sup>{course?.coursePrice}</h4>
                 </div>
                 <div className="csdt-right">
                     <p className="mb-0"><i className="icofont-clock-time"></i>{excenge}</p>
@@ -83,12 +41,57 @@ const CourseSideDetail = () => {
             <div className="csd-content">
                 <div className="csdc-lists">
                     <ul className="lab-ul">
-                        {csdcList.map((val, i) => (
-                            <li key={i}>
-                                <div className="csdc-left"><i className={val.iconName}></i>{val.leftText}</div>
-                                <div className="csdc-right">{val.rightText}</div>
-                            </li>
-                        ))}
+                        <li>
+                            <div className="csdc-left">
+                                <i className="icofont-ui-alarm"></i>Course level
+                            </div>
+                            <div className="csdc-right">{course?.courseLevel}</div>
+                        </li>
+                        <li>
+                            <div className="csdc-left">
+                                <i className="icofont-book-alt"></i>Course Duration
+                            </div>
+                            <div className="csdc-right">{course?.courseDuration}</div>
+                        </li>
+                        <li>
+                            <div className="csdc-left">
+                                <i className="icofont-signal"></i>Course Schedule
+                            </div>
+                            <div className="csdc-right">{course?.courseSchedule} {" "} Class</div>
+                        </li>
+
+                        <li>
+                            <div className="csdc-left">
+                                <i className="icofont-video-alt"></i>Course Lessons
+                            </div>
+                            <div className="csdc-right">{course?.courseLessons}</div>
+                        </li>
+
+                        <li>
+                            <div className="csdc-left">
+                                <i className="icofont-abacus-alt"></i>Course Quizzes
+                            </div>
+                            <div className="csdc-right">{course?.courseQuizzes}</div>
+                        </li>
+
+                        <li>
+                            <div className="csdc-left">
+                                <i className="icofont-hour-glass"></i>Pass Percentage
+                            </div>
+                            <div className="csdc-right">{course?.passPercentage || 80}</div>
+                        </li>
+                        <li>
+                            <div className="csdc-left">
+                                <i className="icofont-certificate"></i>Course Certificates
+                            </div>
+                            <div className="csdc-right">{course?.courseCertificate}</div>
+                        </li>
+                        <li>
+                            <div className="csdc-left">
+                                <i className="icofont-globe"></i>Course Langugage
+                            </div>
+                            <div className="csdc-right">{course?.courseLanguage}</div>
+                        </li>
                     </ul>
                 </div>
                 {/* <div className="sidebar-payment">
@@ -112,7 +115,7 @@ const CourseSideDetail = () => {
                     </div> */}
                 </div>
                 <div className="course-enroll">
-                    <Link style={{backgroundColor:'#FF0911'}} to="/courseregistrationform" className="lab-btn"><span>{btnText}</span></Link>
+                    <Link style={{ backgroundColor: '#FF0911' }} to="/courseregistrationform" className="lab-btn"><span>{btnText}</span></Link>
                 </div>
             </div>
         </div>

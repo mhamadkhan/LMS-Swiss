@@ -21,14 +21,15 @@ export const AddCourseValidation = Yup.object().shape({
     title: Yup.string().required("Course Title field is required").min(4, "Course Title shoud be at least 4 characters"),
     picture: Yup.mixed().required("Course Picture field is required"),
     desc: Yup.string().required("Course Description field is required"),
-    category: Yup.string().required("Please select a category field"),
+    category: Yup.string().required("Please enter a course category"),
     schedule: Yup.string().required("Please select a schedule field"),
     skills: Yup.string().required("Please select a skills field"),
     price: Yup.string().required("Course Price field is required"),
     duration: Yup.string().required("Course Duration field is required"),
     level: Yup.string().required("Course Level field is required"),
-    lessons: Yup.string().required("Course Lessons field is required"),
+    lessons: Yup.number().typeError("Course lessons field is required").required("Course Lessons field is required").min(0, "lessons cannot be less than 0"),
     quizzes: Yup.string().required("Course quizzes field is required"),
+    passpercentage: Yup.number().typeError("Course pass percentage field is required").required("Course pass percentage field is required").max(100, "percentage cannot be greater than 100").min(0, "percentage cannot be less than 0"),
     certificates: Yup.string().required("Course Certificates field is required"),
     languages: Yup.string().required("Course languages field is required"),
 
@@ -39,12 +40,14 @@ export const ServiceValidation = Yup.object().shape({
     picture: Yup.mixed().required("Service Picture field is required"),
     desc: Yup.string().required("Service Description field is required"),
 })
+
 export const ServiceDetailValidation = Yup.object().shape({
     title: Yup.string().required("Service Title field is required").min(4, "Service Title shoud be at least 4 characters"),
     picture: Yup.mixed().required("Service Picture field is required"),
     desc: Yup.string().required("Service Description field is required"),
     category: Yup.string().required("Please select a category field"),
 })
+
 export const TestimonialValidation = Yup.object().shape({
     name: Yup.string().required("Username is required").min(2, "Username should be at least 2 characters"),
     picture: Yup.mixed().required("Picture field is required"),
