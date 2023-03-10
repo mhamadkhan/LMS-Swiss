@@ -656,7 +656,6 @@ const CurrentItems = ({ Items }) => {
                                     <div className="course-cate">
                                         <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.courseSchedule || "no schedule"}</a>
                                     </div>
-                                  
                                 </div>
 
                                 <Link to={`/course-single/${val._id}`}><h4>{val.courseTitle}</h4></Link>
