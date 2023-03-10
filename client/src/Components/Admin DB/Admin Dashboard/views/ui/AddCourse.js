@@ -112,7 +112,7 @@ const AddCourse = () => {
 
     try {
       const resp = await axios.post("/course/addCourse", data);
-      if (resp.data.message == "Course Added Successfully")
+      if (resp.data.message === "Course Added Successfully")
         toast.success("Course Added Successfully");
       reset({ skills: "" }, { category: "" }, { level: "" });
       reset();
@@ -221,19 +221,19 @@ const AddCourse = () => {
                   name="category"
                   render={({ field }) => (
                     <Input
-                      type="text"
+                      type="select"
                       id="category"
                       {...field}
                       invalid={!!errors.category}
                     >
-                      {/* <option value="">Select Course Category</option>
+                      <option value="">Select Course Category</option>
                       {courses.map((course, id) => {
                         return (
                           <option key={id} value={course.categoryName}>
                             {course.categoryName}
                           </option>
                         );
-                      })} */}
+                      })}
                     </Input>
                   )}
                 />

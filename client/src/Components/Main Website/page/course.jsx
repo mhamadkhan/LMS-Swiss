@@ -669,7 +669,7 @@ const CurrentItems = ({ Items }) => {
                                         <Link to="/team-single" className="ca-name">{val.authorName}</Link>
                                     </div> */}
                                     <div className="course-btn">
-                                        <Link  to={`/course-single/${val._id}`} className="lab-btn-text">{btnText} <i className="icofont-external-link"></i></Link>
+                                        <Link to={`/course-single/${val._id}`} className="lab-btn-text">{btnText} <i className="icofont-external-link"></i></Link>
                                     </div>
                                 </div>
                             </div>
@@ -683,8 +683,6 @@ const CurrentItems = ({ Items }) => {
 
 
 const CoursePage = ({ itemsPerPage }) => {
-
-
 
     const [startItems, setstartItems] = useState(0);
     const [courseList, setCourseList] = useState([]);
