@@ -8,9 +8,9 @@ import 'swiper/css';
 import { useEffect } from 'react';
 
 const Testimonials = () => {
-  
-   
-       
+
+
+
 
     const [testmonials, setTestimonials] = useState([
         { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory loremsdjnjfasasfasfaslnlasfasfasasfasfasasfasfasfasfa" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" },
@@ -83,7 +83,7 @@ const Testimonials = () => {
                                             </p>
                                             <div className="testimonial-content">
                                                 <div className="pic">
-                                                    <img src="http://hamza.wintifood.swiss/front/images/profile-14.png" alt="student name" />
+                                                    <img src="https://images.unsplash.com/photo-1600572332000-e84eb5d63843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YW55fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="student name" />
                                                 </div>
                                                 <h3 className="title text-red">
                                                     <font style={{ verticalAlign: 'inherit' }}>
