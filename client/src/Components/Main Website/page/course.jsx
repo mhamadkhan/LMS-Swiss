@@ -1,16 +1,11 @@
-import { Component, Fragment, useState } from "react";
+import styles from './course.module.css'
+import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import PageHeader from "../component/layout/pageheader";
 import GroupSelect from "../component/sidebar/group-select";
 import Pagination from "../component/sidebar/pagination";
 import Rating from "../component/sidebar/rating";
 import SkillSelect from "../component/sidebar/skill-select";
-import DigitalPic from '../assets/images/CoursePics/Digital Marketing.jpeg';
-import GraphicDesign from '../assets/images/CoursePics/Graphic Design.jpeg';
-import SEO from '../assets/images/CoursePics/SEO.jpeg';
-import SMM from '../assets/images/CoursePics/SMM.jpeg';
-import GameDevelop from '../assets/images/CoursePics/GameDevelopment.jpeg';
-import VideoEditing from '../assets/images/CoursePics/Video Editing.jpeg';
 import ReactPaginate from 'react-paginate';
 import { useEffect } from "react";
 import axios from "axios";
@@ -644,7 +639,7 @@ const CurrentItems = ({ Items }) => {
                 return <div className="col" key={i}>
                     <div className="course-item">
                         <div className="course-inner">
-                            <div className="course-thumb">
+                            <div className={`course-thumb ${styles.coursePic}`}>
                                 <img src={`${val.courseCardPic}`} alt={`${val.imgAlt}`} />
                             </div>
                             <div className="course-content">

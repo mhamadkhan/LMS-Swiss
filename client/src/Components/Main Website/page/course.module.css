@@ -1,0 +1,22 @@
+.coursePic {
+    width: 20rem;
+    height: 15rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.coursePic img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: center;
+    transform-origin: center;
+}
+
+@media screen and (max-width: 800px) {
+    .coursePic{
+        width: auto;
+    }
+}
