@@ -46,7 +46,7 @@ const Header = () => {
   });
       let navigate = useNavigate()
           let state = useSelector((store)=>{
-            return store.userReducer.state;
+            return store.userReducer?.state;
           })
           console.log(state)
      
@@ -55,7 +55,7 @@ const Header = () => {
               store.dispatch({
                 type:"USER_LOGGED_OUT"
               })
-              navigate("/")
+              navigate("/login")
             } 
 
   return (
