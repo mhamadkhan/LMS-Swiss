@@ -148,12 +148,12 @@ const Testimonials = () => {
 
   return (
     <div>
-      {/* Approve Stores Table */}
+      {/* Testimonials Table */}
       <Card>
         <CardBody>
-          <CardTitle tag="h5">Admission Queries Listing</CardTitle>
+          <CardTitle tag="h5">Testimonials Listing</CardTitle>
           <CardSubtitle className="mb-2 text-muted" tag="h6">
-            Overview of the Admission Queries
+            Overview of the Testimonials 
           </CardSubtitle>
           <Table className="no-wrap mt-3 align-middle" responsive borderless>
             <tbody>

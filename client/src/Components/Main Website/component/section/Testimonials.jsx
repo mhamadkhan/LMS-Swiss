@@ -65,9 +65,9 @@ const Testimonials = () => {
                     }}
                 >
                     {
-                        testmonials.map((person, index) => {
-                            return <div className='d-flex justify-content-center swiperSlide'>
-                                <SwiperSlide key={index}>
+                        testmonials.map((person, index) => (
+                            <div className='d-flex justify-content-center swiperSlide'>
+                                <SwiperSlide >
                                     <div className="owl-item" style={{ width: '300px' }}>
                                         <div className="testimonial">
                                             <i class="icofont-quote-left icofont-4x"></i>
@@ -106,8 +106,8 @@ const Testimonials = () => {
                                     </div>
                                 </SwiperSlide>
                             </div>
-                        })
-                    }
+                                ))
+                            }
                 </Swiper>
             </div>
         </div>
