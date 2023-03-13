@@ -51,7 +51,7 @@ const CourseSideDetail = ({ course }) => {
                             <div className="csdc-left">
                                 <i className="icofont-book-alt"></i>Course Duration
                             </div>
-                            <div className="csdc-right">{course?.courseDuration}</div>
+                            <div className="csdc-right">{course?.courseDuration}{` `}months</div>
                         </li>
                         <li>
                             <div className="csdc-left">
