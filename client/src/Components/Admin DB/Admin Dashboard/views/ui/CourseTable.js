@@ -243,6 +243,7 @@ const ProjectTables = () => {
                               <div className="col-lg-12 mt-3">
                                 <th>Course Description*</th>
                                 <span>{tdata.courseDescription}</span>
+                    {/* <Link to={`/updateCourse/${tdata._id}`} > </Link> */}
                               </div>
                             </div>
                           </div>
@@ -270,8 +271,7 @@ const ProjectTables = () => {
                 </p>
               </div>
             </div>
-
-            <div className="d-flex justify-content-end ">
+              <div className="d-flex justify-content-end ">
               {previousButton}
               {pageNumbers.map((number) => (
                 <button

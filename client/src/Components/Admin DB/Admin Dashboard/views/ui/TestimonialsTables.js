@@ -19,242 +19,132 @@ import "react-dropdown/style.css";
 import style from "./ui.module.css";
 import Accordion from "react-bootstrap/Accordion";
 
-const data = [
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-  {
-    Name: "Muhammad Hamad",
-    Date: "2023-03-09",
-    userImage:
-      "https://images.unsplash.com/photo-1590874315261-788881621f7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c2hvcCUyMGxvZ298ZW58MHx8MHx8&w=1000&q=80",
-    rating: "2",
-    desc: "  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut",
-  },
-];
 
 const Testimonials = () => {
-  let [currentPage, setCurrentPage] = useState(1);
-  const [recordsPerPage] = useState(7);
-
+  // let [currentPage, setCurrentPage] = useState(1);
+  // const [recordsPerPage] = useState(7);
+  
   let [name, setname] = useState("Live");
-
+  
+  const [testmonials, setTestimonials] = useState([])
+  
+  useEffect( ()=>{
+  
+      fetchData();  
+      async function fetchData() { 
+        let resp = await axios.get('/testimonials/');
+        console.log(resp.data);
+        setTestimonials(resp.data);      
+      }
+      }, []);
+      
   let mydropdown = useRef();
-  let [options, setoptions] = useState([]);
-  let [totalpage, settotalpage] = useState();
+  // let [options, setoptions] = useState([]);
+  // let [totalpage, settotalpage] = useState();
 
-  const indexOfLastRecord = data ? currentPage * recordsPerPage : 0;
-  const indexOfFirstRecord = data ? indexOfLastRecord - recordsPerPage : 0;
-  const currentData = data
-    ? data.slice(indexOfFirstRecord, indexOfLastRecord)
-    : [];
+  // const indexOfLastRecord = data ? currentPage * recordsPerPage : 0;
+  // const indexOfFirstRecord = data ? indexOfLastRecord - recordsPerPage : 0;
+  // const currentData = data
+  //   ? data.slice(indexOfFirstRecord, indexOfLastRecord)
+  //   : [];
 
-  const handleClick = (event, page) => {
-    setCurrentPage(page);
-  };
-  totalpage = Math.ceil(data.length / recordsPerPage);
-  let [pageNumbers, setpageNumbers] = useState([]);
+  // const handleClick = (event, page) => {
+  //   setCurrentPage(page);
+  // };
+  // totalpage = Math.ceil(data.length / recordsPerPage);
+  // let [pageNumbers, setpageNumbers] = useState([]);
 
-  totalpage = Math.ceil(data.length / recordsPerPage);
+  // totalpage = Math.ceil(data.length / recordsPerPage);
 
-  const previousButton = (
-    <button
-      onClick={(e) => {
-        if (currentPage > 1) {
-          currentPage = currentPage - 1;
-          setCurrentPage(currentPage);
-          handleClick(e, currentPage);
-          if (currentPage > 4) {
-            mydropdown.current.state.selected.value = currentPage;
-            mydropdown.current.state.selected.label = currentPage;
-          }
-        }
-      }}
-      className="bg-light text-gray-800  py-2 px-2 fw-bold rounded m-2"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-chevron-left"
-        viewBox="0 0 16 16"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-        />
-      </svg>
-    </button>
-  );
+  // const previousButton = (
+  //   <button
+  //     onClick={(e) => {
+  //       if (currentPage > 1) {
+  //         currentPage = currentPage - 1;
+  //         setCurrentPage(currentPage);
+  //         handleClick(e, currentPage);
+  //         if (currentPage > 4) {
+  //           mydropdown.current.state.selected.value = currentPage;
+  //           mydropdown.current.state.selected.label = currentPage;
+  //         }
+  //       }
+  //     }}
+  //     className="bg-light text-gray-800  py-2 px-2 fw-bold rounded m-2"
+  //   >
+  //     <svg
+  //       xmlns="http://www.w3.org/2000/svg"
+  //       width="16"
+  //       height="16"
+  //       fill="currentColor"
+  //       class="bi bi-chevron-left"
+  //       viewBox="0 0 16 16"
+  //     >
+  //       <path
+  //         fill-rule="evenodd"
+  //         d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+  //       />
+  //     </svg>
+  //   </button>
+  // );
 
-  const nextButton = (
-    <button
-      onClick={(e) => {
-        if (currentPage < totalpage) {
-          currentPage = currentPage + 1;
-          setCurrentPage(currentPage);
-          handleClick(e, currentPage);
-          if (currentPage > 4) {
-            mydropdown.current.state.selected.value = currentPage;
-            mydropdown.current.state.selected.label = currentPage;
-          }
-        }
-      }}
-      className="bg-light  text-black fw-bold py-0 px-2 rounded m-2"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="currentColor"
-        class="bi bi-chevron-right"
-        viewBox="0 0 16 16"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-        />
-      </svg>
-    </button>
-  );
+  // const nextButton = (
+  //   <button
+  //     onClick={(e) => {
+  //       if (currentPage < totalpage) {
+  //         currentPage = currentPage + 1;
+  //         setCurrentPage(currentPage);
+  //         handleClick(e, currentPage);
+  //         if (currentPage > 4) {
+  //           mydropdown.current.state.selected.value = currentPage;
+  //           mydropdown.current.state.selected.label = currentPage;
+  //         }
+  //       }
+  //     }}
+  //     className="bg-light  text-black fw-bold py-0 px-2 rounded m-2"
+  //   >
+  //     <svg
+  //       xmlns="http://www.w3.org/2000/svg"
+  //       width="16"
+  //       height="16"
+  //       fill="currentColor"
+  //       class="bi bi-chevron-right"
+  //       viewBox="0 0 16 16"
+  //     >
+  //       <path
+  //         fill-rule="evenodd"
+  //         d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+  //       />
+  //     </svg>
+  //   </button>
+  // );
 
-  useEffect(() => {
-    name = "live";
-    setname(name);
-    if (totalpage >= 5) {
-      for (let i = 1; i <= (data ? 4 : 0); i++) {
-        pageNumbers.push(i);
-      }
-      pageNumbers = pageNumbers;
+  // useEffect(() => {
+  //   name = "live";
+  //   setname(name);
+  //   if (totalpage >= 5) {
+  //     for (let i = 1; i <= (data ? 4 : 0); i++) {
+  //       pageNumbers.push(i);
+  //     }
+  //     pageNumbers = pageNumbers;
 
-      setpageNumbers(pageNumbers);
+  //     setpageNumbers(pageNumbers);
 
-      for (let i = 5; i <= totalpage; i++) {
-        options.push(i);
-      }
-      setoptions(options);
-    } else {
-      for (
-        let i = 1;
-        i <= (data ? Math.ceil(data.length / recordsPerPage) : 0);
-        i++
-      ) {
-        pageNumbers.push(i);
-      }
-      pageNumbers = pageNumbers;
-      setpageNumbers(pageNumbers);
-    }
-  }, [data]);
+  //     for (let i = 5; i <= totalpage; i++) {
+  //       options.push(i);
+  //     }
+  //     setoptions(options);
+  //   } else {
+  //     for (
+  //       let i = 1;
+  //       i <= (data ? Math.ceil(data.length / recordsPerPage) : 0);
+  //       i++
+  //     ) {
+  //       pageNumbers.push(i);
+  //     }
+  //     pageNumbers = pageNumbers;
+  //     setpageNumbers(pageNumbers);
+  //   }
+  // }, [data]);
 
   return (
     <div>
@@ -287,7 +177,7 @@ const Testimonials = () => {
                   </div>
                 </Accordion.Item>
               </Accordion>
-              {currentData.map((tdata, index) => (
+              {testmonials.map((tdata, index) => (
                 <Accordion
                   className="col-lg-12 mb-1"
                   defaultActiveKey={["0"]}
@@ -301,7 +191,7 @@ const Testimonials = () => {
                             <div className="row" style={{ width: "900px" }}>
                               <div className=" col-lg-5 d-flex ">
                                 <img
-                                  src={tdata.userImage}
+                                  src={tdata.picture}
                                   className="rounded-circle"
                                   alt="avatar"
                                   width="50"
@@ -310,7 +200,7 @@ const Testimonials = () => {
                                   
                                 />
                                 <h6 className="mb-0 mt-1">
-                                  {tdata.Name}
+                                  {tdata.name}
                                 </h6>
                               </div>
                               <div className=" col-lg-4">
@@ -335,7 +225,7 @@ const Testimonials = () => {
                          
                           <div className="col-lg-12 mt-3">
                             <th>Description*</th>
-                            <span>{tdata.desc}</span>
+                            <span>{tdata.review}</span>
                           </div>
                         </div>
                       </div>
@@ -345,7 +235,7 @@ const Testimonials = () => {
               ))}
             </tbody>
           </Table>
-          <div className="d-flex justify-content-between border align-items-center">
+          {/* <div className="d-flex justify-content-between border align-items-center">
             <div>
               <div className="d-flex justify-content-left ms-3">
                 <p className="text-sm text-gray-700">
@@ -393,7 +283,7 @@ const Testimonials = () => {
               ) : null}
               {nextButton}
             </div>
-          </div>
+          </div> */}
         </CardBody>
       </Card>
     </div>

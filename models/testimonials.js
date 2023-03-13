@@ -18,7 +18,12 @@ let testimonialsSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    
+   Date:{
+    type:Date,
+    default:Date.now(),
+    required:true
+  
+    },
 
 
 })

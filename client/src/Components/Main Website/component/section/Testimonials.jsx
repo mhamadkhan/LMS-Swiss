@@ -6,15 +6,21 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from "swiper";
 import 'swiper/css';
 import { useEffect } from 'react';
-
+import axios from 'axios';
 const Testimonials = () => {
+  
+    const [testmonials, setTestimonials] = useState([])
 
-
-
-
-    const [testmonials, setTestimonials] = useState([
-        { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory loremsdjnjfasasfasfaslnlasfasfasasfasfasasfasfasfasfa" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" }, { name: "Ehtasham Toor", date: "Mar 7, 2023", review: "Satisfactory" },
-    ])
+    useEffect( ()=>{
+  
+        fetchData();  
+        async function fetchData() { 
+          let resp = await axios.get('/testimonials/');
+          console.log(resp.data);
+          setTestimonials(resp.data);      
+        }
+        }, []);
+        
     return (
         <div className=" container-fluid testimonialBody">
             <div className='row'>
@@ -83,7 +89,7 @@ const Testimonials = () => {
                                             </p>
                                             <div className="testimonial-content">
                                                 <div className="pic">
-                                                    <img src="https://images.unsplash.com/photo-1600572332000-e84eb5d63843?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YW55fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" alt="student name" />
+                                                    <img src={person.picture} alt="student name" />
                                                 </div>
                                                 <h3 className="title text-red">
                                                     <font style={{ verticalAlign: 'inherit' }}>
@@ -92,7 +98,7 @@ const Testimonials = () => {
                                                 </h3>
                                                 <span className="post">
                                                     <font style={{ verticalAlign: 'inherit' }}>
-                                                        <font style={{ verticalAlign: 'inherit' }} className="colrRed">{person.date}</font>
+                                                        <font style={{ verticalAlign: 'inherit' }} className="colrRed">{person.Date}</font>
                                                     </font>
                                                 </span>
                                             </div>
@@ -102,11 +108,7 @@ const Testimonials = () => {
                             </div>
                         })
                     }
-
                 </Swiper>
-
-
-
             </div>
         </div>
     )

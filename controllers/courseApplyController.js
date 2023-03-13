@@ -23,6 +23,17 @@ router.post('/apply', async (req, res) => {
 })
 
 
+router.get('/totalApplications',async(req,res)=>{
+    try {
+        
+        let applications = await CourseApply.find().countDocuments();
+        console.log(applications);
+        res.json(applications);
+    } catch (error) {
+        res.json(error.message);
+    }
+
+})
 
 router.get('/',async(req,res)=>{
     try {     
