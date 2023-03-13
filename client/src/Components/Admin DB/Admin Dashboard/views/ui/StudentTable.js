@@ -108,26 +108,6 @@ const ProjectTables = ({ itemsPerPage }) => {
                 <th>Verified</th>
               </tr> */}
             </thead>
-
-            <tbody>
-              {students.map((tdata, index) => tdata.role=="Student" ?(
-                <tr key={index} className="border-top">
-                  <td>
-                    <div className="d-flex align-items-center p-2">
-                     
-                      <div className="ms-3">
-                        <h6 className="mb-0">{tdata.userName}</h6>
-                      </div>
-                    </div>
-                  </td>
-                  <td>{tdata.email}</td>
-                 <td>  
-                    {tdata.verified === true ? "Yes" : "No"} 
-                     </td>                
-                </tr>
-              ):null)}
-            </tbody>
-
           </Table>
           <Items currentItems={currentItems} />
           <div className={Styles.mainPagination} >

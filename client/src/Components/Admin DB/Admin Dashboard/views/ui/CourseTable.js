@@ -2,12 +2,7 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  Table,
-  Button,
-  Modal,
-  ModalFooter,
-  ModalHeader,
-  ModalBody,
+  Table
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -63,14 +58,17 @@ const ProjectTables = ({ itemsPerPage }) => {
                         <h6 className="mb-0">{tdata.coursePrice}</h6>
                       </div>
                       <div className=" col-lg-2 ">
+
                       <button type="button" class="btn btn-danger" style={{ marginRight: "5px" }}>
                         <i class="bi bi-trash-fill"></i>
                       </button>
+
                       <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} >
                       <button type="button" class="btn btn-success" >
                         <i class="bi bi-pencil-fill"></i>
                       </button>
                       </Link>
+
                         {/* <h6 className="mb-0">{tdata.courseLevel}</h6> */}
                       </div>
                     </div>
@@ -117,10 +115,6 @@ const ProjectTables = ({ itemsPerPage }) => {
     );
   }
 
-  
-
-  
-
   const [itemOffset, setItemOffset] = useState(0);
 
   const endOffset = itemOffset + itemsPerPage;
@@ -144,9 +138,9 @@ const ProjectTables = ({ itemsPerPage }) => {
     <div>
       <Card>
         <CardBody>
-          <CardTitle tag="h5">Products Listing</CardTitle>
+          <CardTitle tag="h5">Courses Listing</CardTitle>
           <CardSubtitle className="mb-2 text-muted" tag="h6">
-            Overview of the projects
+            Overview of the Courses
           </CardSubtitle>
 
           <Table className="no-wrap mt-3" responsive borderless>
@@ -178,8 +172,6 @@ const ProjectTables = ({ itemsPerPage }) => {
                 </Accordion.Item>
               </Accordion>
 
-             
-   
             </tbody>
           </Table>
           <Items currentItems={currentItems} />
