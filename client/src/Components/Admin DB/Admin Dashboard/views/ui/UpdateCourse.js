@@ -41,14 +41,6 @@ const UpdateCourse = () => {
   };
 
 
-  let schedule = [
-    {
-      name: "Physical",
-    },
-    {
-      name: "Online",
-    },
-  ];
 
 
 
