@@ -40,6 +40,7 @@ const FullLayout = () => {
               <Route path="/Users" element={<Students/>} />
               <Route path="/AddCourse" element={<AddCourse />} />
               <Route path="/Courses" element={<Course />} />
+              {/* <Route path="/UpdateCourse:CourseID" element={<UpdateCourse />} /> */}
               <Route path="/AddCategory" element={<AddCategory />} />
               <Route path="/Categories" element={<Categories />} />
               <Route path="/AddSkill" element={<AddSkill />} />

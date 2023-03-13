@@ -40,7 +40,7 @@ router.put('/updateCourse',async(req,res)=>{
        
         console.log(courseid);
         let updateCourse = await Course.findById(courseid);
-        if(!updateCourse) res.status(404).json({msg:'no Product Found'});
+        if(!updateCourse) res.status(404).json({msg:'No Course Found'});
       
         updateCourse = await Course.findByIdAndUpdate(courseid,req.body);
               
@@ -58,7 +58,17 @@ router.put('/updateCourse',async(req,res)=>{
     }
 });
 
+router.get('/totalCourses',async(req,res)=>{
+    try {
+        
+        let totalCourse = await Course.find().countDocuments();
+        console.log(totalCourse);
+        res.json(totalCourse);
+    } catch (error) {
+        res.json(error.message);
+    }
 
+})
 router.get('/',async(req,res)=>{
     try {     
         let Courses = await Course.find();        
