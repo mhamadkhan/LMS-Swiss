@@ -139,10 +139,10 @@ const ProjectTables = () => {
           <Table className="no-wrap mt-3 align-middle" responsive borderless>
             <thead>
               <tr>
-                <th>Students Username</th>
-                <th>Students Email</th>
-                <th>Students Status</th>
-                {/* <th>Actions</th> */}
+                <th> Username</th>
+                <th> Email</th>
+                <th> Verified</th>
+            
                 
               </tr>
             </thead>
@@ -159,7 +159,7 @@ const ProjectTables = () => {
                   </td>
                   <td>{tdata.email}</td>
                  <td>  
-                    {tdata.verified == true ? "verified" : "unverified"} 
+                    {tdata.verified == true ? "Yes" : "No"} 
                      </td>                
                 </tr>
               ):null)}

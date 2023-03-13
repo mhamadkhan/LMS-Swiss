@@ -23,12 +23,14 @@ import axios from "axios";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../../../../firebase";
 
+
 const UpdateCourse = () => {
   // let currentStore = CurrentStore()
   let [courseImage, setCourseImage] = useState(null);
   let [category, setCategory] = useState([])
   let [skill, setSkill] = useState([])
-  let { CourseID } = useParams();
+  let [courseDetail , setCourseDetail ] = useState([])
+  let { courseID } = useParams();
 
   const { control, register, handleSubmit, formState: { errors }, reset, } = useForm({
     resolver: yupResolver(AddCourseValidation),
@@ -49,8 +51,18 @@ const UpdateCourse = () => {
       name: "Online",
     },
   ];
-
-
+  
+  
+  useEffect(() => {
+    fetchData();
+    async function fetchData() {
+        let resp = await axios.get('/course/singleCourse/?id=' + courseID);
+        // console.log(resp.data);
+        courseDetail = resp.data;
+        setCourseDetail(courseDetail)
+        console.log(courseDetail)
+    }
+}, [])
 
   async function onSubmit(data) {
 
@@ -88,9 +100,9 @@ const UpdateCourse = () => {
     }
 
     try {
-      const resp = await axios.post("/course/addCourse", data);
-      if (resp.data.message === "Course Added Successfully")
-        toast.success("Course Added Successfully");
+      const resp = await axios.put('/course/singleCourse/?id=' + courseID, data);
+      if (resp.data.message === "Course Updated Successfully")
+        toast.success("Course Updated Successfully");
       reset({ skills: "" }, { category: "" }, { level: "" });
       reset();
     } catch (error) {
@@ -98,21 +110,23 @@ const UpdateCourse = () => {
     }
 
   }
-  useEffect(() => {
 
-    fetchData();
-    async function fetchData() {
-      // let resp = await axios.get('/category/');
-      // console.log(resp.data);
-      // setCategory(resp.data);
-      // let data = await axios.get('/skill/');
-      // console.log(data.data);
-      // setSkill(data.data);
+  // useEffect(() => {
 
-      let EditCourse = await axios.put(`/updateCourse/${CourseID}`);
-      console.log(EditCourse)
-    }
-  }, []);
+  //   fetchData();
+  //   async function fetchData() {
+  //     // let resp = await axios.get('/category/');
+  //     // console.log(resp.data);
+  //     // setCategory(resp.data);
+  //     // let data = await axios.get('/skill/');
+  //     // console.log(data.data);
+  //     // setSkill(data.data);
+
+  //     let EditCourse = await axios.put(`/updateCourse/${courseID}`);
+      
+  //     console.log(EditCourse)
+  //   }
+  // }, []);
 
 
   return (

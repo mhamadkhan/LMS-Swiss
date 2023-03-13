@@ -32,7 +32,7 @@ router.get('/singleCourse', async (req, res) => {
     }
 });
 
-router.put('/updateCourse/:id', async (req, res) => {
+router.put('/updateCourse', async (req, res) => {
 
     try {
 
@@ -42,8 +42,12 @@ router.put('/updateCourse/:id', async (req, res) => {
         console.log(courseid);
         let updateCourse = await Course.findById(courseid);
         if (!updateCourse) res.status(404).json({ msg: 'No Course Found' });
+        else{
 
-        // updateCourse = await Course.findByIdAndUpdate(courseid, req.body);
+            updateCourse = await Course.findByIdAndUpdate(courseid, req.body);
+            res.send({ message: "Course Updated Successfully" });
+        }
+
 
         // if (updateCourse) {
         //     await updateCourse.save(updateCourse);

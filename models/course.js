@@ -40,7 +40,7 @@ let courseSchema = mongoose.Schema({
     },
     courseCardPic:{
         type:String,
-        required:true
+        
     },
     courseSkill:{
         type:String,
