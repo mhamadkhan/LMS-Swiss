@@ -8,7 +8,7 @@ const Tables = () => {
       {/* table-1*/}
       {/* --------------------------------------------------------------------------------*/}
       <Col lg="12">
-        <CourseTable />
+        <CourseTable itemsPerPage={6} />
       </Col>
       
       
