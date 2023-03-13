@@ -1,6 +1,5 @@
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import "react-toastify/scss/main.scss";
 
 import {
     Card,
