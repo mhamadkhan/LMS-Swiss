@@ -32,7 +32,7 @@ const CourseSideDetail = ({ course }) => {
         <div className="course-side-detail">
             <div className="csd-title">
                 <div className="csdt-left">
-                    <h4 className="mb-0"><sup>$</sup>{course?.coursePrice}</h4>
+                    <h4 className="mb-0"><sup>Rs</sup>{course?.coursePrice}</h4>
                 </div>
                 <div className="csdt-right">
                     <p className="mb-0"><i className="icofont-clock-time"></i>{excenge}</p>
