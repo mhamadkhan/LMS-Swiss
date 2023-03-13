@@ -113,10 +113,6 @@ const ProjectTables = ({ itemsPerPage }) => {
     );
   }
 
-  
-
-  
-
   const [itemOffset, setItemOffset] = useState(0);
 
   const endOffset = itemOffset + itemsPerPage;
@@ -140,9 +136,9 @@ const ProjectTables = ({ itemsPerPage }) => {
     <div>
       <Card>
         <CardBody>
-          <CardTitle tag="h5">Products Listing</CardTitle>
+          <CardTitle tag="h5">Courses Listing</CardTitle>
           <CardSubtitle className="mb-2 text-muted" tag="h6">
-            Overview of the projects
+            Overview of the Courses
           </CardSubtitle>
 
           <Table className="no-wrap mt-3" responsive borderless>
