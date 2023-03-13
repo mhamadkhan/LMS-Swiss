@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-import "react-toastify/scss/main.scss";
+// import "react-toastify/scss/main.scss";
 // import CurrentStore from "../../layouts/CurrentStore";
 import {
   Card,
