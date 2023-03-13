@@ -499,6 +499,7 @@ const UpdateCourse = () => {
                       {errors.languages.message}
                     </span>
                   )}
+
                 </FormGroup>
 
                 <FormGroup>
@@ -526,6 +527,7 @@ const UpdateCourse = () => {
                 <Button type="submit">Submit</Button>
               </Form>
             }
+
           </CardBody>
         </Card>
       </Col>

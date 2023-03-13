@@ -2,6 +2,7 @@ import React from "react";
 import { Link ,useNavigate } from "react-router-dom";
 import ProfilePic from '../assets/images/users/user1.jpg'
 import store from "../../../../Store/Store"
+import { useSelector } from "react-redux";
 import {
   Navbar,
   Collapse,
@@ -32,15 +33,15 @@ const Header = () => {
     document.getElementById("sidebarArea").classList.toggle("showSidebar");
   };
 
-  let currentUsers={
-       name:"Sara",
-       userImage:ProfilePic
-        }
 
+  let reducer = useSelector((store) => {
+    return store.userReducer;
+  });
   // let user=localStorage.getItem("currentUser")
   // let currentUser=JSON.parse(user)
   // let currentUsers=JSON.parse(currentUser)
 
+         let currentUser =reducer.currentUser
   return (
     <Navbar  className="DHeader" dark expand="md">
       <div className="d-flex align-items-center">
@@ -73,14 +74,14 @@ const Header = () => {
       <Collapse navbar isOpen={isOpen}>
         <Nav className="me-auto" navbar>
           <NavItem>
-             <h2  className="adminName"> Welcome {currentUsers.name} </h2>
+             <h2  className="adminName"> Welcome {currentUser.userName} </h2>
           </NavItem>
           
         </Nav>
         <Dropdown isOpen={dropdownOpen} toggle={toggle}>
           <DropdownToggle  className="DHeader" >
             <img
-             src={currentUsers.userImage}
+             src={ProfilePic}
               alt="profile"
               className="rounded-circle"
               width="40"
@@ -93,7 +94,7 @@ const Header = () => {
                 store.dispatch({
                     type:"USER_LOGGED_OUT"
                   })
-                  navigate("/")
+                  navigate("/login")
               }
             }
             >Logout</DropdownItem>
@@ -102,7 +103,7 @@ const Header = () => {
      {/* <Nav>
       <NavItem>
             <img
-              src={currentUsers.userImage}
+              src={ProfilePic}
               alt="profile"
               className="rounded-circle"
               width="35"

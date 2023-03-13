@@ -43,11 +43,11 @@ const FullLayout = () => {
               <Route path="/Courses" element={<Course />} />
               <Route path="/updateCourse/:courseID" element={<UpdateCourse />} />
               <Route path="/AddCategory" element={<AddCategory />} />
-              <Route path="/Categories" element={<Categories />} />
+              <Route path="/Categories" element={<Categories itemsPerPage={6}  />} />
               <Route path="/AddSkill" element={<AddSkill />} />
               <Route path="/Skills" element={<Skills />} />
               <Route path="/AddTestimonials" element={<AddTestimonial />} />
-              <Route path="/Testimonials" element={<Testimonials />} />
+              <Route path="/Testimonials" element={<Testimonials itemsPerPage={6} />} />
               <Route path="/AddService" element={<AddService />} />
               <Route path="/AddServiceDetail" element={<AddServiceDetail />} />
             </Routes>

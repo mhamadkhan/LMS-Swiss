@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState , useEffect } from "react";
 // import styles from './course.module.css'
 import styles from '../../page/course.module.css'
-
+let btnText = "Read More";
 
 export default () => {
   let [courseList, setCourseList] = useState([])
@@ -40,20 +40,20 @@ export default () => {
                                         <a href="#" style={{ backgroundColor: "#ff0911" }}>{val.courseSchedule || "no schedule"}</a>
                                     </div> */}
                                 </div>
-                                <Link to="/course-single"><h4>{val.courseTitle}</h4></Link>
+                                <Link to={`/course-single/${val._id}`}><h4>{val.courseTitle}</h4></Link>
                                 <div className="course-details">
                                     <div className="couse-count"><i className="icofont-video-alt"></i> {val.courseLessons}</div>
                                     <div className="couse-topic"><i className="icofont-signal"></i> {val.courseSchedule}</div>
                                 </div>
-                                {/* <div className="course-footer">
-                                                    <div className="course-author">
+                                <div className="course-footer">
+                                                    {/* <div className="course-author">
                                                         <img src={`${val.authorImgUrl}`} alt={`${val.authorImgAlt}`} />
                                                         <Link to="/team-single" className="ca-name">{val.authorName}</Link>
-                                                    </div>
+                                                    </div> */}
                                                     <div className="course-btn">
-                                                        <Link to="/course-single" className="lab-btn-text">{val.btnText} <i className="icofont-external-link"></i></Link>
+                                                    <Link to={`/course-single/${val._id}`} className="lab-btn-text">{btnText} <i className="icofont-external-link"></i></Link>
                                                     </div>
-                                                </div> */}
+                                                </div>
                             </div>
                         </div>
                     </div>

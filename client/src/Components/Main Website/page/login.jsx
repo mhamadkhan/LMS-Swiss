@@ -75,7 +75,12 @@ const LoginPage = () => {
                 toast.success("Login Succesfully")
                 localStorage.setItem("someToken", resp.data.utoken);
                 reset({ email: '', password: '' })
-                navigate('/')
+                console.log(resp.data.user.role)
+                if(resp.data.user.role=="Admin"){
+                    navigate('/AdminDashboard')
+                }else if(resp.data.user.role=="Student"){
+                    navigate('/')
+                }
                 store.dispatch({
                     type: "USER_LOGGED_IN",
                     payload: resp.data.user

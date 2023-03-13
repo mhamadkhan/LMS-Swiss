@@ -58,6 +58,11 @@ let courseSchema = mongoose.Schema({
         type:String,
         required:true
     },
+    courseLearnings:{
+        type:String,
+        required:true
+    },
+
 
 
 })
