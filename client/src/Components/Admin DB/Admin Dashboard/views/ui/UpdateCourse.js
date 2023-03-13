@@ -39,7 +39,7 @@ const UpdateCourse = () => {
   let handleFileChange = (event) => {
     courseImage = event.target.files[0];
     setCourseImage(courseImage);
-    // console.log(courseImage)
+
   };
 
 
