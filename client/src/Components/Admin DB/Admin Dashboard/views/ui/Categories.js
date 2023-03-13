@@ -110,25 +110,7 @@ import Styles from './StudentTable.module.css';
                 </div>
               </thead>
               <tbody>
-                {/* {data.map((tdata, index) => (
-                  <>
-                    <div className="d-flex align-items-center p-2">
-                      <div className="col-lg-6">
-                        <h6 className="mb-0">{tdata.username}</h6>
-                      </div>
-                      <div className="col-lg-6 d-flex">
-                        <button type="button" class="btn btn-danger" style={{ marginRight: "5px" }}>
-                          <i class="bi bi-trash-fill"></i>
-                        </button>
-  
-                        <button type="button" class="btn btn-success" >
-                          <i class="bi bi-pencil-fill"></i>
-                        </button>
-  
-                      </div>
-                    </div>
-                  </>
-                ))} */}
+           
               </tbody>
             </Table>
             <Items currentItems={currentItems} />
@@ -148,55 +130,7 @@ import Styles from './StudentTable.module.css';
               activeLinkClassName={`${Styles.four}`}
             />
             </div>
-            {/* <div className="d-flex justify-content-between border align-items-center">
-              <div>
-                <div className="d-flex justify-content-left">
-                  <p className="text-sm text-gray-700">
-                    Showing{" "}
-                    <span className="font-medium">
-                      {(+currentPage - 1) * recordsPerPage + 1}
-                    </span>{" "}
-                    to{" "}
-                    <span>
-                      {(+currentPage - 1) * recordsPerPage + currentData.length}
-                    </span>{" "}
-                    of <span>{students.length}</span> results
-                  </p>
-                </div>
-              </div>
-  
-              <div className="d-flex justify-content-end ">
-                {previousButton}
-                {pageNumbers.map((number) => (
-                  <button
-                    key={number}
-                    onClick={(e) => handleClick(e, number)}
-                    className="bg-light  text-gray-800 font-bold py-2 px-2 rounded m-2"
-                  >
-                    {number}
-                  </button>
-                ))}
-                {totalpage > 4 ? (
-                  <div className="d-flex justify-content-center align-items-center ">
-                    <span className="bg-light d-flex justify-content-center align-items-center text-black fw-bold py-0 px-2 rounded m-2 border border-2 border-dark ">
-                      ...
-                    </span>
-                    <span>
-                      <Dropdown
-                        ref={mydropdown}
-                        className={`${style.dropdown} bg-green-300 cursor-pointer`}
-                        options={options}
-                        onChange={(e) => {
-                          currentPage = e.value;
-                          setCurrentPage(currentPage);
-                        }}
-                      />
-                    </span>
-                  </div>
-                ) : null}
-                {nextButton}
-              </div>
-            </div> */}
+         
           </CardBody>
         </Card>
       </div>

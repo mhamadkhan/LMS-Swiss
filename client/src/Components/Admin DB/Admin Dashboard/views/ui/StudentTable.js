@@ -110,7 +110,7 @@ const ProjectTables = ({ itemsPerPage }) => {
             </thead>
 
             <tbody>
-              {currentData.map((tdata, index) => tdata.role=="Student" ?(
+              {students.map((tdata, index) => tdata.role=="Student" ?(
                 <tr key={index} className="border-top">
                   <td>
                     <div className="d-flex align-items-center p-2">
