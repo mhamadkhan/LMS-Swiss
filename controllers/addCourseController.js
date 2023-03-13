@@ -78,5 +78,14 @@ router.get('/',async(req,res)=>{
         res.status(500).json('Server Error');
     }
 });
+ router.delete('/courseDelete' ,async(req,res)=>{
+    try{
+        courseDelete=await Course.findByIdAndDelete(req.query.id);
+        res.send('Course Deleted'); 
+    }catch(e){
+        console.error(e.message);
+        res.status(500).json('Server Error');
+    }
+ })
 
 module.exports = router;

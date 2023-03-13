@@ -11,9 +11,12 @@ router.post('/addTestimonials',  async (req, res) => {
         
         
         let testimonials = new Testimonials(req.body);
-    
+        var today  = new Date();
+        console.log(today.toLocaleDateString("en-PK"));
+      testimonials.Date = today.toLocaleDateString("en-PK")
 
         await testimonials.save();
+
         res.send({ message: "Testimonial Added Successfully" });
     }
     

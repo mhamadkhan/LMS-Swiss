@@ -19,13 +19,9 @@ let testimonialsSchema = mongoose.Schema({
         required:true
     },
    Date:{
-    type:Date,
-    default:Date.now(),
+    type: String,
     required:true
-  
     },
-
-
 })
 
 module.exports=mongoose.model('testimonials',testimonialsSchema);
