@@ -158,29 +158,29 @@ const ProjectTables = () => {
           </CardSubtitle>
 
           <Table className="no-wrap mt-3" responsive borderless>
-           
+
 
             <tbody>
               <Accordion className="mb-3" defaultActiveKey="0">
-                <Accordion.Item style={{backgroundColor:"#319883"}} eventKey="0">
-                  
-                    <div className="container d-flex">
-                      <div className="row " style={{ width: "900px" }}>
-                        <div className="col-lg-3">
-                          <h6 style={{color:"white"}}>Course Title</h6>
-                        </div>
-                        <div className="col-lg-3">
-                          <h6 style={{color:"white"}}>Course Duration</h6>
-                        </div>
-                        <div className="col-lg-3">
-                          <h6 style={{color:"white"}}>Course Price</h6>
-                        </div>
-                        <div className="col-lg-3">
-                          <h6 style={{color:"white"}}>Course Level</h6>
-                        </div>
+                <Accordion.Item style={{ backgroundColor: "#319883" }} eventKey="0">
+
+                  <div className="container d-flex">
+                    <div className="row " style={{ width: "900px" }}>
+                      <div className="col-lg-3">
+                        <h6 style={{ color: "white" }}>Course Title</h6>
+                      </div>
+                      <div className="col-lg-3">
+                        <h6 style={{ color: "white" }}>Course Duration</h6>
+                      </div>
+                      <div className="col-lg-3">
+                        <h6 style={{ color: "white" }}>Course Price</h6>
+                      </div>
+                      <div className="col-lg-3">
+                        <h6 style={{ color: "white" }}>Course Level</h6>
                       </div>
                     </div>
-                 
+                  </div>
+
                 </Accordion.Item>
               </Accordion>
 
@@ -243,7 +243,7 @@ const ProjectTables = () => {
                               <div className="col-lg-12 mt-3">
                                 <th>Course Description*</th>
                                 <span>{tdata.courseDescription}</span>
-                    {/* <Link to={`/updateCourse/${tdata._id}`} > </Link> */}
+                                <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} > update </Link>
                               </div>
                             </div>
                           </div>
@@ -271,7 +271,7 @@ const ProjectTables = () => {
                 </p>
               </div>
             </div>
-              <div className="d-flex justify-content-end ">
+            <div className="d-flex justify-content-end ">
               {previousButton}
               {pageNumbers.map((number) => (
                 <button
