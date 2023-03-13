@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/logo/02.png";
 const phoneNumber = "+92-313-7267-440";
 const address = "Jinnah Colony Saeed Mart Road, Faisalabad";
-
+const mapLink ='https://www.google.com/maps/place/Jinnah+Colony,+Faisalabad,+Punjab,+Pakistan/@31.420278,73.066622,15z/data=!4m6!3m5!1s0x39224295734bcb73:0xe1a56cd8b1782cc1!8m2!3d31.420191!4d73.0656152!16s%2Fg%2F1tdn71ng?hl=en'
 
 let socialList = [
   {
@@ -46,7 +46,7 @@ const Header = () => {
   });
       let navigate = useNavigate()
           let state = useSelector((store)=>{
-            return store.userReducer.state;
+            return store.userReducer?.state;
           })
           console.log(state)
      
@@ -55,7 +55,7 @@ const Header = () => {
               store.dispatch({
                 type:"USER_LOGGED_OUT"
               })
-              navigate("/")
+              navigate("/login")
             } 
 
   return (
@@ -71,10 +71,14 @@ const Header = () => {
           <div className="header-top-area">
             <ul className="lab-ul left">
               <li>
+              <Link style={{color:'white'}} to= {`tel:${phoneNumber}`}> 
                 <i className="icofont-ui-call"></i> <span>{phoneNumber}</span>
+                </Link>
               </li>
               <li>
-                <i className="icofont-location-pin"></i> {address}
+               <Link style={{color:'white'}} to={mapLink}>
+                 <i className="icofont-location-pin"></i> {address}
+                </Link>
               </li>
             </ul>
             <ul className="lab-ul social-icons d-flex align-items-center">
@@ -83,9 +87,9 @@ const Header = () => {
               </li>
               {socialList.map((val, i) => (
                 <li key={i}>
-                  <a href={val.siteLink}>
+                  <Link to={val.siteLink}>
                     <i style={{ color: "white" }} className={val.iconName}></i>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

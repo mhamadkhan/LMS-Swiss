@@ -13,7 +13,7 @@ function userReducer(olData = initialData, newData){
     if(newData.type == "USER_LOGGED_IN"){
         olData.currentUser = newData.payload;
         localStorage.setItem("state", "loaded")
-        localStorage.setItem("role", "Student")
+        localStorage.setItem("role",  newData.payload.role)
         olData.state = "loaded";
     }
 

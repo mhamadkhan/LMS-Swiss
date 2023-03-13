@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 let app = express();
 app.use(express.json());
 app.use(cors());
-connectDB();
+// connectDB();
 const UserRoute = require('./controllers/userController');
 const passRoute = require('./controllers/passwordReset');
 const courseApplyRoute = require('./controllers/courseApplyController')
@@ -35,7 +35,8 @@ app.get("*", function (_, res) {
     }
   );
 });
-
+connectDB().then(() => {
 app.listen(PORT,()=>{
     console.log(`Server is running at ${PORT}`);
+})
 })

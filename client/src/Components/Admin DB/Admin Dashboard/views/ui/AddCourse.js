@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState , useEffect } from "react";
 // import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-// import "react-toastify/scss/main.scss";
+
 // import CurrentStore from "../../layouts/CurrentStore";
 import {
   Card,
@@ -26,7 +26,9 @@ import { storage } from "../../../../../firebase";
 const AddCourse = () => {
   // let currentStore = CurrentStore()
   let [courseImage, setCourseImage] = useState(null);
-
+  let [category,setCategory] = useState([])
+  let [skill,setSkill] = useState([])
+  
   const { control, register, handleSubmit, formState: { errors }, reset, } = useForm({
     resolver: yupResolver(AddCourseValidation),
   });
@@ -34,7 +36,7 @@ const AddCourse = () => {
   // eslint-disable-next-line no-unused-vars
 
   // const handleReset = () => {
-  //   formRef.current.reset();
+    //   formRef.current.reset();
   // }
 
   let handleFileChange = (event) => {
@@ -43,17 +45,7 @@ const AddCourse = () => {
     // console.log(courseImage)
   };
 
-  let courses = [
-    {
-      categoryName: "category1",
-    },
-    {
-      categoryName: "category2",
-    },
-    {
-      categoryName: "category3",
-    },
-  ];
+ 
   let schedule = [
     {
       name: "Physical",
@@ -63,17 +55,7 @@ const AddCourse = () => {
     },
   ];
 
-  let skills = [
-    {
-      skillname: "skill1",
-    },
-    {
-      skillname: "skill2",
-    },
-    {
-      skillname: "skill3",
-    },
-  ];
+  
 
   async function onSubmit(data) {
 
@@ -109,17 +91,31 @@ const AddCourse = () => {
       courseSkill: data.skills,
       passPercentage: data.passpercentage,
     }
-
+    
     try {
       const resp = await axios.post("/course/addCourse", data);
-      if (resp.data.message == "Course Added Successfully")
+      if (resp.data.message === "Course Added Successfully")
         toast.success("Course Added Successfully");
       reset({ skills: "" }, { category: "" }, { level: "" });
       reset();
     } catch (error) {
       console.log(error.message);
     }
+
   }
+ useEffect( ()=>{
+  
+     fetchData();  
+     async function fetchData() { 
+       let resp = await axios.get('/category/');
+       console.log(resp.data);
+       setCategory(resp.data);
+       let data = await axios.get('/skill/');
+       console.log(data.data);
+       setSkill(data.data);
+     }
+     }, []);
+
 
   return (
     <Row>
@@ -221,19 +217,21 @@ const AddCourse = () => {
                   name="category"
                   render={({ field }) => (
                     <Input
-                      type="text"
+                      type="select"
                       id="category"
                       {...field}
                       invalid={!!errors.category}
                     >
-                      {/* <option value="">Select Course Category</option>
-                      {courses.map((course, id) => {
+                      <option value="">Select Course Category</option>
+
+                      {category.map((val, id) => {
+
                         return (
-                          <option key={id} value={course.categoryName}>
-                            {course.categoryName}
+                          <option key={id} value={val.category}>
+                            {val.category}
                           </option>
                         );
-                      })} */}
+                      })}
                     </Input>
                   )}
                 />
@@ -293,10 +291,10 @@ const AddCourse = () => {
                       invalid={!!errors.skills}
                     >
                       <option value="">Select Course skills</option>
-                      {skills.map((course, id) => {
+                      {skill.map((val, id) => {
                         return (
-                          <option key={id} value={course.skillname}>
-                            {course.skillname}
+                          <option key={id} value={val.skill}>
+                            {val.skill}
                           </option>
                         );
                       })}

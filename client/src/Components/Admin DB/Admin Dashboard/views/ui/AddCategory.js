@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-// import "react-toastify/scss/main.scss";
+
 
 import {
     Card,
@@ -30,15 +30,31 @@ const AddCategory = () => {
 
         console.log(data);
 
-        let formData = new FormData();
 
-        formData.append("Category", data.category);
+        data = {
+            category: data.category,
+        }
+
 
         try {
-            const resp = await axios.post("/course/addCategory", formData);
-            if (resp.data.message == "Category Added Successfully")
+            const resp = await axios.post("/category/addCategory", data);
+            if (resp.data.message == "Category Added Successfully") {
                 toast.success("Category Added Successfully");
-            reset();
+                reset();
+            }
+            else if (resp.data.message == "Category already exist ") {
+                toast.error(" Already Added", {
+                    style: {
+                        border: '1px solid #713200',
+                        paddinSkillg: '16px',
+                        color: '#f97316',
+                    },
+                    iconTheme: {
+                        primary: '#713200',
+                        secondary: '#FFFAEE',
+                    },
+                })
+            }
         } catch (error) {
             console.log(error.message);
         }

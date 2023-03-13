@@ -1,7 +1,7 @@
 import { useState } from "react";
 // import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-// import "react-toastify/scss/main.scss";
+
 // import CurrentStore from "../../layouts/CurrentStore";
 import {
   Card,
@@ -54,14 +54,7 @@ const AddTestimonial = () => {
       categoryName: "category3",
     },
   ];
-  let schedule = [
-    {
-      name: "Physical",
-    },
-    {
-      name: "Online",
-    },
-  ];
+  let ratingList = [1, 2, 3, 4, 5];
 
   let skills = [
     {
@@ -204,19 +197,26 @@ const AddTestimonial = () => {
               </FormGroup>
 
               <FormGroup>
-                <Label for="rating">Course Rating</Label>
-
+                <Label for="rating"> Rating </Label>
                 <Controller
                   control={control}
                   name="rating"
-                  defaultValue=""
                   render={({ field }) => (
                     <Input
-                      type="number"
+                      type="select"
                       id="rating"
                       {...field}
                       invalid={!!errors.rating}
-                    />
+                    >
+                      <option value="">choose rating</option>
+                      {ratingList.map((rating, id) => {
+                        return (
+                          <option key={id} value={rating}>
+                            {rating}
+                          </option>
+                        );
+                      })}
+                    </Input>
                   )}
                 />
                 {errors.rating && (

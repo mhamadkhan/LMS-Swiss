@@ -560,7 +560,7 @@ const Form = () => {
                     class="form-control"
                     id="exampleFormControlSelect1"
                   >
-                    <option value="">Select Courses</option>
+                    <option value="">Select Nationality</option>
                     {countryList.map((val) => {
                       return (
                         <>

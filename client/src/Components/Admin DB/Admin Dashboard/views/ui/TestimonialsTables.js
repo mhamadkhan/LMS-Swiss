@@ -22,7 +22,9 @@ import ReactPaginate from "react-paginate";
 import Styles from './StudentTable.module.css';
 
 
+
 const Testimonials = ({ itemsPerPage }) => {
+
   // let [currentPage, setCurrentPage] = useState(1);
   // const [recordsPerPage] = useState(7);
   
@@ -41,6 +43,7 @@ const Testimonials = ({ itemsPerPage }) => {
       }, []);
       
   let mydropdown = useRef();
+
   function Items({ currentItems }) {
     return (
       <>
@@ -125,6 +128,7 @@ const Testimonials = ({ itemsPerPage }) => {
   const [open, setOpen] = useState(false);
 
 
+
   return (
     <div>
       {/* Testimonials Table */}
@@ -156,64 +160,10 @@ const Testimonials = ({ itemsPerPage }) => {
                   </div>
                 </Accordion.Item>
               </Accordion>
-              {/* {testmonials.map((tdata, index) => (
-                <Accordion
-                  className="col-lg-12 mb-1"
-                  defaultActiveKey={["0"]}
-                  alwaysOpen
-                >
-                  <Accordion.Item eventKey="1">
-                    <Accordion.Header>
-                      <tr>
-                        <td>
-                          <div className="d-flex  p-2 container">
-                            <div className="row" style={{ width: "900px" }}>
-                              <div className=" col-lg-5 d-flex ">
-                                <img
-                                  src={tdata.picture}
-                                  className="rounded-circle"
-                                  alt="avatar"
-                                  width="50"
-                                  height="50"
-                                  style={{marginRight:"1%"}}
-                                  
-                                />
-                                <h6 className="mb-0 mt-1">
-                                  {tdata.name}
-                                </h6>
-                              </div>
-                              <div className=" col-lg-4">
-                                <h6 style={{marginLeft:"-20px"}} className="mb-0 ">
-                                  {tdata.Date}
-                                </h6>
-                              </div>
-                              <div className=" col-lg-3">
-                                <h6 className="mb-0">
-                                  {tdata.rating}
-                                </h6>
-                              </div>
-                              
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </Accordion.Header>
-                    <Accordion.Body>
-                      <div className="container">
-                        <div className="row">
-                         
-                          <div className="col-lg-12 mt-3">
-                            <th>Description*</th>
-                            <span>{tdata.review}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-              ))} */}
+
             </tbody>
           </Table>
+
           <Items currentItems={currentItems} />
           <div className={Styles.mainPagination} >
             <ReactPaginate
@@ -230,6 +180,7 @@ const Testimonials = ({ itemsPerPage }) => {
               activeLinkClassName={`${Styles.four}`}
             />
             </div>
+
 
         </CardBody>
       </Card>

@@ -149,10 +149,11 @@ const ProjectTables = ({ itemsPerPage }) => {
           </CardSubtitle>
 
           <Table className="no-wrap mt-3" responsive borderless>
-           
+
 
             <tbody>
               <Accordion className="mb-3" defaultActiveKey="0">
+
                 <Accordion.Item style={{backgroundColor:"#319883"}} eventKey="0">
                   
                     <div className="container d-flex">
@@ -169,9 +170,11 @@ const ProjectTables = ({ itemsPerPage }) => {
                         <div className="col-lg-2">
                           <h6 style={{color:"white"}}>Actions</h6>
                         </div>
+
                       </div>
                     </div>
-                 
+                  </div>
+
                 </Accordion.Item>
               </Accordion>
 
@@ -231,6 +234,7 @@ const ProjectTables = ({ itemsPerPage }) => {
                               <div className="col-lg-12 mt-3">
                                 <th>Course Description*</th>
                                 <span>{tdata.courseDescription}</span>
+                                <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} > update </Link>
                               </div>
                             </div>
                           </div>
@@ -275,7 +279,6 @@ const ProjectTables = ({ itemsPerPage }) => {
                 </p>
               </div>
             </div>
-
             <div className="d-flex justify-content-end ">
               {previousButton}
               {pageNumbers.map((number) => (

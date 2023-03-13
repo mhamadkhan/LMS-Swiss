@@ -1,3 +1,4 @@
+
 import {
   Card,
   CardBody,
@@ -45,6 +46,7 @@ const ProjectTables = ({ itemsPerPage }) => {
     );
   }
 
+
   let [students, setStudents] = useState([]);
 
   let [abc, setAbc] = useState("");
@@ -55,6 +57,7 @@ const ProjectTables = ({ itemsPerPage }) => {
       console.log(resp.data);
       setStudents(resp.data);
     }
+
     fetchProducts();
   }, [abc]);
 
@@ -83,6 +86,7 @@ const ProjectTables = ({ itemsPerPage }) => {
           </CardSubtitle>
           <Table className="no-wrap mt-3 align-middle" responsive borderless>
             <thead>
+
               <div className="container">
                 <div className="row">
                   <div className="col-lg-4">
@@ -99,10 +103,31 @@ const ProjectTables = ({ itemsPerPage }) => {
               {/* <tr>
                 <th>UserName</th>
                 <th>Email</th>
+
                 
                 <th>Verified</th>
               </tr> */}
             </thead>
+
+            <tbody>
+              {currentData.map((tdata, index) => tdata.role=="Student" ?(
+                <tr key={index} className="border-top">
+                  <td>
+                    <div className="d-flex align-items-center p-2">
+                     
+                      <div className="ms-3">
+                        <h6 className="mb-0">{tdata.userName}</h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{tdata.email}</td>
+                 <td>  
+                    {tdata.verified == true ? "Yes" : "No"} 
+                     </td>                
+                </tr>
+              ):null)}
+            </tbody>
+
           </Table>
           <Items currentItems={currentItems} />
           <div className={Styles.mainPagination} >

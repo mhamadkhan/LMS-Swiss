@@ -9,12 +9,15 @@ router.post('/addCategory',  async (req, res) => {
     try {
         console.log(req.body);
         
-        
         let category = new Category(req.body);
-    
-
-        await category.save();
-        res.send({ message: "Skill Added Successfully" });
+        let alreadyExist = await Category.findOne({ category: req.body.category });
+        if (alreadyExist) {
+            res.send({ message: "Category already exist" });
+        }else{
+             await category.save();
+             res.send({ message: "Category Added Successfully" });
+        }
+     
     }
     
     catch (error) {

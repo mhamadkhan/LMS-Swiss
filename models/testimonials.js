@@ -18,9 +18,10 @@ let testimonialsSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    
-
-
+   Date:{
+    type: String,
+    required:true
+    },
 })
 
 module.exports=mongoose.model('testimonials',testimonialsSchema);
