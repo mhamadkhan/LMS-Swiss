@@ -63,13 +63,15 @@ const ProjectTables = ({ itemsPerPage }) => {
                         <h6 className="mb-0">{tdata.coursePrice}</h6>
                       </div>
                       <div className=" col-lg-2 ">
+
                       <button type="button" class="btn btn-danger" style={{ marginRight: "5px" }}>
                         <i class="bi bi-trash-fill"></i>
                       </button>
-
+                <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} > 
                       <button type="button" class="btn btn-success" >
                         <i class="bi bi-pencil-fill"></i>
                       </button>
+                     </Link>
                         {/* <h6 className="mb-0">{tdata.courseLevel}</h6> */}
                       </div>
                     </div>
