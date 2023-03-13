@@ -6,7 +6,6 @@ const title = "Advanced Adobe Photoshop For Everyone";
 const desc = "The most impressive is collection of share me online college courses";
 const author = "Rajib Raj";
 const reviewCount = "03 reviews";
-const videoLink = "https://www.youtube-nocookie.com/embed/jP649ZHA8Tg";
 
 
 // const categoryList = [

@@ -137,7 +137,7 @@ const CourseSingle = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+         
         </Fragment>
     );
 }
