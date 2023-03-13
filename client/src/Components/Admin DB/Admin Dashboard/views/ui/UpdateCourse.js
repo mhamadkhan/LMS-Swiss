@@ -100,7 +100,7 @@ const UpdateCourse = () => {
     }
 
     try {
-      const resp = await axios.put('/course/singleCourse/?id=' + courseID, data);
+      const resp = await axios.put('/course/updateCourse/?id=' + courseID, data);
       if (resp.data.message === "Course Updated Successfully")
         toast.success("Course Updated Successfully");
       reset({ skills: "" }, { category: "" }, { level: "" });
@@ -538,7 +538,7 @@ const UpdateCourse = () => {
                 )}
               </FormGroup>
 
-              <Button type="submit">Submit</Button>
+              <Button type="submit">Update</Button>
             </Form>
           </CardBody>
         </Card>
