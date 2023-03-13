@@ -28,9 +28,9 @@ const CourseSingle = () => {
         }
     }, [])
     console.log(course?.courseLearnings)
-    // let list =[]
-    let list = course?.courseLearnings.split('\n');
-    // let list = lists?.length - 1;
+    let list = course?.courseLearnings.split("\n");
+    list?.splice(list.length - 1, 1)
+    // list.length = list?.length - 1
     console.log(list)
 
     return (
@@ -56,11 +56,6 @@ const CourseSingle = () => {
                                                             {item}</li>
                                                     })
                                                 }
-                                                {/* <li><i className="icofont-tick-mark"></i>Ready to begin working on real-world data modeling projects</li>
-                                                <li><i className="icofont-tick-mark"></i>Expanded responsibilities as part of an existing role</li>
-                                                <li><i className="icofont-tick-mark"></i>Be able to create Flyers, Brochures, Advertisements</li>
-                                                <li><i className="icofont-tick-mark"></i>Find a new position involving data modeling.</li>
-                                                <li><i className="icofont-tick-mark"></i>Work with color and Gradients and Grids</li> */}
                                             </ul>
                                             {/* <p>In this course take you from the fundamentals and concepts of data modeling all the way through anumber  of best practices and techniques that you’ll need to build data models in your organization. You’ll find many examples that clearly the key covered the course</p>
                                             <p>By the end of the course, you’ll be all set to not only put these principles to works but also to maike the key data modeling and design decisions required by the info data modeling that transcend the nuts-and-bolts that clearly the key covered the course and design patterns.</p> */}
