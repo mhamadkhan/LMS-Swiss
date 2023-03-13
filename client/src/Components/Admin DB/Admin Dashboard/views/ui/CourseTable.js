@@ -159,7 +159,6 @@ const ProjectTables = () => {
 
           <Table className="no-wrap mt-3" responsive borderless>
 
-
             <tbody>
               <Accordion className="mb-3" defaultActiveKey="0">
                 <Accordion.Item style={{ backgroundColor: "#319883" }} eventKey="0">
@@ -187,10 +186,11 @@ const ProjectTables = () => {
               {currentData.map((tdata, index) => (
                 <>
                   <Accordion
-                    className="mb-2"
+                    className="mb-2 position-relative"
                     defaultActiveKey={["0"]}
                     alwaysOpen
                   >
+
                     <Accordion.Item eventKey="1">
                       <Accordion.Header>
                         <tr>
@@ -243,7 +243,7 @@ const ProjectTables = () => {
                               <div className="col-lg-12 mt-3">
                                 <th>Course Description*</th>
                                 <span>{tdata.courseDescription}</span>
-                                <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} > update </Link>
+                                <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} className={style.EditBtn} > update </Link>
                               </div>
                             </div>
                           </div>

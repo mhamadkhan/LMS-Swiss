@@ -1,27 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import { useParams } from 'react-router-dom'
 // import axios from "axios";
+import { useNavigate } from 'react-router-dom'
 import toast, { Toaster } from "react-hot-toast";
 // import CurrentStore from "../../layouts/CurrentStore";
-import {
-  Card,
-  Row,
-  Col,
-  CardTitle,
-  CardBody,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText,
-} from "reactstrap";
-import { AddCourseValidation } from "../../Schemas/index";
+import { Card, Row, Col, CardTitle, CardBody, Button, Form, FormGroup, Label, Input, FormText, } from "reactstrap";
+import { UpdateCourseValidation } from "../../Schemas/index";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytes, listAll } from "firebase/storage";
 import { storage } from "../../../../../firebase";
+import { v4 } from "uuid";
 
 
 const UpdateCourse = () => {
@@ -29,19 +19,13 @@ const UpdateCourse = () => {
   let [courseImage, setCourseImage] = useState(null);
   let [category, setCategory] = useState([])
   let [skill, setSkill] = useState([])
-  let [courseDetail , setCourseDetail ] = useState([])
+  let [fileURL, setfileURL] = useState("")
+  let navigate = useNavigate();
+  let [courseDetail, setCourseDetail] = useState({
+
+  })
   let { courseID } = useParams();
-
-  const { control, register, handleSubmit, formState: { errors }, reset, } = useForm({
-    resolver: yupResolver(AddCourseValidation),
-  });
-
-  let handleFileChange = (event) => {
-    courseImage = event.target.files[0];
-    setCourseImage(courseImage);
-
-  };
-
+  const getImageRef = ref(storage, 'courseImages/');
 
   let schedule = [
     {
@@ -51,37 +35,59 @@ const UpdateCourse = () => {
       name: "Online",
     },
   ];
-  
-  
-  useEffect(() => {
+
+  const { control, handleSubmit, formState: { errors }, reset, } = useForm({
+    resolver: yupResolver(UpdateCourseValidation),
+  });
+
+  let handleFileChange = (event) => {
+    courseImage = event.target.files[0];
+    setCourseImage(courseImage);
+  };
+
+
+  useLayoutEffect(() => {
+
     fetchData();
     async function fetchData() {
-        let resp = await axios.get('/course/singleCourse/?id=' + courseID);
-        // console.log(resp.data);
-        courseDetail = resp.data;
-        setCourseDetail(courseDetail)
-        console.log(courseDetail)
+      // fetching course categories
+      let respCat = await axios.get('/category/');
+      setCategory(respCat.data);
+      // console.log(respCat.data);
+      // fetching course skills
+      let respSkill = await axios.get('/skill/');
+      setSkill(respSkill.data);
+      // console.log(respSkill.data);
+      // fetching course with ID
+      let resp = await axios.get('/course/singleCourse/?id=' + courseID);
+
+      courseDetail = resp.data;
+      setCourseDetail(resp.data)
+      // console.log(courseDetail)
+
     }
-}, [])
+  }, [])
 
   async function onSubmit(data) {
 
-    if (courseImage === null) return
+    if (courseImage !== null) {
+      console.log("new picture ai ha yra")
+      const imageRef = ref(storage, `courseImages/${courseImage.name + v4()}`);
 
-    // saving the files into the firebase storage
-
-    const imageRef = ref(storage, `courseImages/${courseImage.name}`);
-
-    try {
-      let fileuploaded = await uploadBytes(imageRef, courseImage);
-      var fileURL = await getDownloadURL(fileuploaded.ref);
-      // console.log(fileURL);
-      // data = { ...data, courseCardPic: fileURL };
-    } catch (error) {
-      console.log(error.message)
+      // saving the file into the firebase storage
+      try {
+        let fileuploaded = await uploadBytes(imageRef, courseImage);
+        fileURL = await getDownloadURL(fileuploaded.ref);
+      } catch (error) {
+        console.log(error.message)
+      }
+    } else {
+      console.log("ni ai picture");
+      fileURL = courseDetail.courseCardPic;
+      setfileURL(fileURL);
     }
 
-    console.log(data);
+    // console.log(data);
     data = {
       courseTitle: data.title,
       coursePrice: data.price,
@@ -100,34 +106,17 @@ const UpdateCourse = () => {
     }
 
     try {
-      const resp = await axios.put('/course/singleCourse/?id=' + courseID, data);
+      const resp = await axios.put('/course/updateCourse/?id=' + courseID, data);
       if (resp.data.message === "Course Updated Successfully")
         toast.success("Course Updated Successfully");
       reset({ skills: "" }, { category: "" }, { level: "" });
       reset();
+      navigate('/AdminDashboard/Courses')
     } catch (error) {
       console.log(error.message);
     }
 
   }
-
-  // useEffect(() => {
-
-  //   fetchData();
-  //   async function fetchData() {
-  //     // let resp = await axios.get('/category/');
-  //     // console.log(resp.data);
-  //     // setCategory(resp.data);
-  //     // let data = await axios.get('/skill/');
-  //     // console.log(data.data);
-  //     // setSkill(data.data);
-
-  //     let EditCourse = await axios.put(`/updateCourse/${courseID}`);
-      
-  //     console.log(EditCourse)
-  //   }
-  // }, []);
-
 
   return (
     <Row>
@@ -140,406 +129,403 @@ const UpdateCourse = () => {
             <i className="bi bi-bag-check"></i> Update Course Form
           </CardTitle>
           <CardBody>
-            <Form onSubmit={handleSubmit(onSubmit)}>
-              <FormGroup>
-                <Label for="CourseTitle">Course Title</Label>
-                <Controller
-                  control={control}
-                  name="title"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="text"
-                      id="CourseTitle"
-                      {...field}
-                      invalid={!!errors.title}
-                    />
-                  )}
-                />
-                {errors.title && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.title.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="file">Course Picture</Label>
-                <Controller
-                  control={control}
-                  name="picture"
-                  render={({ field }) => (
-                    <Input
-                      id="file"
-                      accept="image/*"
-                      type="file"
-                      {...field}
-                      invalid={!!errors.picture}
-                      onChange={(e) => {
-                        field.onChange(e);
-                        handleFileChange(e);
-                      }}
-                    />
-                  )}
-                />
-
-                {errors.picture && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.picture.message}
-                  </span>
-                )}
-                <FormText>Attach Picture of Course</FormText>
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="desc">Course Description</Label>
-                <Controller
-                  control={control}
-                  name="desc"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="textarea"
-                      id="desc"
-                      {...field}
-                      invalid={!!errors.desc}
-                    />
-                  )}
-                />
-                {errors.desc && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.desc.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="category">Enter Course Category</Label>
-                <Controller
-                  control={control}
-                  name="category"
-                  render={({ field }) => (
-                    <Input
-                      type="select"
-                      id="category"
-                      {...field}
-                      invalid={!!errors.category}
+            {courseDetail.courseTitle &&
+              <Form onSubmit={handleSubmit(onSubmit)}>
+                <FormGroup>
+                  <Label for="CourseTitle">Course Title</Label>
+                  <Controller
+                    control={control}
+                    defaultValue={courseDetail.courseTitle}
+                    name="title"
+                    render={({ field }) => (
+                      <Input
+                        type="text"
+                        id="CourseTitle"
+                        {...field}
+                        invalid={!!errors.title}
+                      />
+                    )}
+                  />
+                  {errors.title && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
                     >
-                      <option value="">Select Course Category</option>
-
-                      {category.map((val, id) => {
-
-                        return (
-                          <option key={id} value={val.category}>
-                            {val.category}
-                          </option>
-                        );
-                      })}
-                    </Input>
+                      {errors.title.message}
+                    </span>
                   )}
-                />
-                {errors.category && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.category.message}
-                  </span>
-                )}
-              </FormGroup>
+                </FormGroup>
 
-              <FormGroup>
-                <Label for="schedule">Select Course Schedule</Label>
-                <Controller
-                  control={control}
-                  name="schedule"
-                  render={({ field }) => (
-                    <Input
-                      type="select"
-                      id="schedule"
-                      {...field}
-                      invalid={!!errors.schedule}
+                <FormGroup>
+                  <Label for="desc">Course Description</Label>
+                  <Controller
+                    control={control}
+                    name="desc"
+                    defaultValue={courseDetail.courseDescription}
+                    render={({ field }) => (
+                      <Input
+                        type="textarea"
+                        id="desc"
+                        {...field}
+                        invalid={!!errors.desc}
+                      />
+                    )}
+                  />
+                  {errors.desc && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
                     >
-                      <option value="">Select Course schedule</option>
-                      {schedule.map((schedule, id) => {
-                        return (
-                          <option key={id} value={schedule.name}>
-                            {schedule.name}
-                          </option>
-                        );
-                      })}
-                    </Input>
+                      {errors.desc.message}
+                    </span>
                   )}
-                />
-                {errors.schedule && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.schedule.message}
-                  </span>
-                )}
-              </FormGroup>
+                </FormGroup>
 
-              <FormGroup>
-                <Label for="skills">Select Course skills</Label>
-                <Controller
-                  control={control}
-                  name="skills"
-                  render={({ field }) => (
-                    <Input
-                      type="select"
-                      id="skills"
-                      {...field}
-                      invalid={!!errors.skills}
+                <FormGroup>
+                  <Label for="category">Enter Course Category</Label>
+                  <Controller
+                    control={control}
+                    defaultValue={courseDetail.courseCategory}
+                    name="category"
+                    render={({ field }) => (
+                      <Input
+                        type="select"
+                        id="category"
+                        {...field}
+                        invalid={!!errors.category}
+                      >
+                        <option value="">Select Course Category</option>
+
+                        {category.map((val, id) => {
+
+                          return (
+                            <option key={id} value={val.category}>
+                              {val.category}
+                            </option>
+                          );
+                        })}
+                      </Input>
+                    )}
+                  />
+                  {errors.category && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
                     >
-                      <option value="">Select Course skills</option>
-                      {skill.map((val, id) => {
-                        return (
-                          <option key={id} value={val.skill}>
-                            {val.skill}
-                          </option>
-                        );
-                      })}
-                    </Input>
+                      {errors.category.message}
+                    </span>
                   )}
-                />
-                {errors.skills && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.skills.message}
-                  </span>
-                )}
-              </FormGroup>
+                </FormGroup>
 
-              <FormGroup>
-                <Label for="coursePrice">Course Price(Rs)</Label>
-
-                <Controller
-                  control={control}
-                  name="price"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="number"
-                      id="price"
-                      {...field}
-                      invalid={!!errors.price}
-                    />
-                  )}
-                />
-                {errors.price && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.price.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="Duration">Course Duration</Label>
-
-                <Controller
-                  control={control}
-                  name="duration"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="number"
-                      id="duration"
-                      {...field}
-                      invalid={!!errors.duration}
-                    />
-                  )}
-                />
-                {errors.duration && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.duration.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="CourseLevel">Select Course Level</Label>
-
-                <Controller
-                  control={control}
-                  name="level"
-                  render={({ field }) => (
-                    <Input
-                      type="select"
-                      id="level"
-                      {...field}
-                      invalid={!!errors.level}
+                <FormGroup>
+                  <Label for="schedule">Select Course Schedule</Label>
+                  <Controller
+                    control={control}
+                    defaultValue={courseDetail.courseSchedule}
+                    name="schedule"
+                    render={({ field }) => (
+                      <Input
+                        type="select"
+                        id="schedule"
+                        {...field}
+                        invalid={!!errors.schedule}
+                      >
+                        <option value="">Select Course schedule</option>
+                        {schedule.map((schedule, id) => {
+                          return (
+                            <option key={id} value={schedule.name}>
+                              {schedule.name}
+                            </option>
+                          );
+                        })}
+                      </Input>
+                    )}
+                  />
+                  {errors.schedule && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
                     >
-                      <option value="">Select Course Level</option>
-                      <option value="Beginner">Beginner</option>
-                      <option value="Intermediate">Intermediate</option>
-                      <option value="Advanced">Advanced</option>
-                    </Input>
+                      {errors.schedule.message}
+                    </span>
                   )}
-                />
-                {errors.level && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.level.message}
-                  </span>
-                )}
-              </FormGroup>
+                </FormGroup>
 
-              <FormGroup>
-                <Label for="lessons">Course Lessons</Label>
-
-                <Controller
-                  control={control}
-                  name="lessons"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="number"
-                      id="lessons"
-                      {...field}
-                      invalid={!!errors.lessons}
-                    />
-                  )}
-                />
-                {errors.lessons && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.lessons.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="quizzes">Course Quizzes</Label>
-
-                <Controller
-                  control={control}
-                  name="quizzes"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="number"
-                      id="lessons"
-                      {...field}
-                      invalid={!!errors.quizzes}
-                    />
-                  )}
-                />
-                {errors.quizzes && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.quizzes.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="passpercentage">Enter Pass Percentage</Label>
-
-                <Controller
-                  control={control}
-                  name="passpercentage"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="number"
-                      id="passpercentage"
-                      {...field}
-                      invalid={!!errors.passpercentage}
-                    />
-                  )}
-                />
-                {errors.passpercentage && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.passpercentage.message}
-                  </span>
-                )}
-              </FormGroup>
-
-              <FormGroup>
-                <Label for="certificates">Course Certificates</Label>
-
-                <Controller
-                  control={control}
-                  name="certificates"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="select"
-                      id="certificates"
-                      {...field}
-                      invalid={!!errors.certificates}
+                <FormGroup>
+                  <Label for="skills">Select Course skills</Label>
+                  <Controller
+                    control={control}
+                    defaultValue={courseDetail.courseSkill}
+                    name="skills"
+                    render={({ field }) => (
+                      <Input
+                        type="select"
+                        id="skills"
+                        {...field}
+                        invalid={!!errors.skills}
+                      >
+                        <option value="">Select Course skills</option>
+                        {skill.map((val, id) => {
+                          return (
+                            <option key={id} value={val.skill}>
+                              {val.skill}
+                            </option>
+                          );
+                        })}
+                      </Input>
+                    )}
+                  />
+                  {errors.skills && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
                     >
-                      <option value="">Certificates(if any)</option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                    </Input>
+                      {errors.skills.message}
+                    </span>
                   )}
-                />
-                {errors.certificates && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.certificates.message}
-                  </span>
-                )}
-              </FormGroup>
+                </FormGroup>
 
-              <FormGroup>
-                <Label for="languages">Course languages</Label>
-                <Controller
-                  control={control}
-                  name="languages"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input
-                      type="text"
-                      id="languages"
-                      {...field}
-                      invalid={!!errors.languages}
-                    />
+                <FormGroup>
+                  <Label for="coursePrice">Course Price(Rs)</Label>
+
+                  <Controller
+                    control={control}
+                    name="price"
+                    defaultValue={courseDetail.coursePrice}
+                    render={({ field }) => (
+                      <Input
+                        type="number"
+                        id="price"
+                        {...field}
+                        invalid={!!errors.price}
+                      />
+                    )}
+                  />
+                  {errors.price && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
+                    >
+                      {errors.price.message}
+                    </span>
                   )}
-                />
-                {errors.languages && (
-                  <span
-                    className={`text-danger`}
-                    style={{ fontSize: "13px", height: "3.7rem" }}
-                  >
-                    {errors.languages.message}
-                  </span>
-                )}
-              </FormGroup>
+                </FormGroup>
 
-              <Button type="submit">Submit</Button>
-            </Form>
+                <FormGroup>
+                  <Label for="Duration">Course Duration</Label>
+
+                  <Controller
+                    control={control}
+                    defaultValue={courseDetail.courseDuration}
+                    name="duration"
+                    render={({ field }) => (
+                      <Input
+                        type="number"
+                        id="duration"
+                        {...field}
+                        invalid={!!errors.duration}
+                      />
+                    )}
+                  />
+                  {errors.duration && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
+                    >
+                      {errors.duration.message}
+                    </span>
+                  )}
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="CourseLevel">Select Course Level</Label>
+
+                  <Controller
+                    control={control}
+                    name="level"
+                    defaultValue={courseDetail.courseLevel}
+                    render={({ field }) => (
+                      <Input
+                        type="select"
+                        id="level"
+                        {...field}
+                        invalid={!!errors.level}
+                      >
+                        <option value="">Select Course Level</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                      </Input>
+                    )}
+                  />
+                  {errors.level && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
+                    >
+                      {errors.level.message}
+                    </span>
+                  )}
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="lessons">Course Lessons</Label>
+
+                  <Controller
+                    control={control}
+                    defaultValue={courseDetail.courseLessons}
+                    name="lessons"
+                    render={({ field }) => (
+                      <Input
+                        type="number"
+                        id="lessons"
+                        {...field}
+                        invalid={!!errors.lessons}
+                      />
+                    )}
+                  />
+                  {errors.lessons && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
+                    >
+                      {errors.lessons.message}
+                    </span>
+                  )}
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="quizzes">Course Quizzes</Label>
+
+                  <Controller
+                    control={control}
+                    defaultValue={courseDetail.courseQuizzes}
+                    name="quizzes"
+                    render={({ field }) => (
+                      <Input
+                        type="number"
+                        id="lessons"
+                        {...field}
+                        invalid={!!errors.quizzes}
+                      />
+                    )}
+                  />
+                  {errors.quizzes && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
+                    >
+                      {errors.quizzes.message}
+                    </span>
+                  )}
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="passpercentage">Enter Pass Percentage</Label>
+
+                  <Controller
+                    control={control}
+                    defaultValue={courseDetail.passPercentage}
+                    name="passpercentage"
+                    render={({ field }) => (
+                      <Input
+                        type="number"
+                        id="passpercentage"
+                        {...field}
+                        invalid={!!errors.passpercentage}
+                      />
+                    )}
+                  />
+                  {errors.passpercentage && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
+                    >
+                      {errors.passpercentage.message}
+                    </span>
+                  )}
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="certificates">Course Certificates</Label>
+
+                  <Controller
+                    control={control}
+                    defaultValue={courseDetail.courseCertificate}
+                    name="certificates"
+                    render={({ field }) => (
+                      <Input
+                        type="select"
+                        id="certificates"
+                        {...field}
+                        invalid={!!errors.certificates}
+                      >
+                        <option value="">Certificates(if any)</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                      </Input>
+                    )}
+                  />
+                  {errors.certificates && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
+                    >
+                      {errors.certificates.message}
+                    </span>
+                  )}
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="languages">Course languages</Label>
+                  <Controller
+                    control={control}
+                    defaultValue={courseDetail.courseLanguage}
+                    name="languages"
+                    render={({ field }) => (
+                      <Input
+                        type="text"
+                        id="languages"
+                        {...field}
+                        invalid={!!errors.languages}
+                      />
+                    )}
+                  />
+                  {errors.languages && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
+                    >
+                      {errors.languages.message}
+                    </span>
+                  )}
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="file">Course Picture</Label>
+                  <Controller
+                    control={control}
+                    name="picture"
+                    render={({ field }) => (
+                      <Input
+                        id="file"
+                        accept="image/*"
+                        type="file"
+                        {...field}
+                        onChange={(e) => {
+                          field.onChange(e);
+                          handleFileChange(e);
+                        }}
+                      />
+                    )}
+                  />
+
+                  <FormText>Select new picture. Otherwise leave empty!</FormText>
+                </FormGroup>
+
+                <Button type="submit">Submit</Button>
+              </Form>
+            }
           </CardBody>
         </Card>
       </Col>
