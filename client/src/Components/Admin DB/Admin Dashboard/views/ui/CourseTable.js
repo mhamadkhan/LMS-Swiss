@@ -66,10 +66,11 @@ const ProjectTables = ({ itemsPerPage }) => {
                       <button type="button" class="btn btn-danger" style={{ marginRight: "5px" }}>
                         <i class="bi bi-trash-fill"></i>
                       </button>
-
+                      <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} >
                       <button type="button" class="btn btn-success" >
                         <i class="bi bi-pencil-fill"></i>
                       </button>
+                      </Link>
                         {/* <h6 className="mb-0">{tdata.courseLevel}</h6> */}
                       </div>
                     </div>
@@ -177,82 +178,13 @@ const ProjectTables = ({ itemsPerPage }) => {
                 </Accordion.Item>
               </Accordion>
 
-              {currentData.map((tdata, index) => (
-                <>
-                  <Accordion
-                    className="mb-2 position-relative"
-                    defaultActiveKey={["0"]}
-                    alwaysOpen
-                  >
-
-                    <Accordion.Item eventKey="1">
-                      <Accordion.Header>
-                        <tr>
-                          <div className="d-flex  p-2 container">
-                            <div className="row" style={{ width: "930px" }}>
-                              <div className=" col-lg-3 ">
-                                {/* <h6>Title:</h6> */}
-                                {/* <span style={{fontSize:"18px"}}>{tdata.courseTitle}</span> */}
-                                <h6 className="mb-0">{tdata.courseTitle}</h6>
-                              </div>
-                              <div className=" col-lg-3">
-                                <h6 className="mb-0">{tdata.courseDuration}</h6>
-                              </div>
-                              <div className=" col-lg-3 ">
-                                {/* <span>Price:</span> */}
-                                <h6 className="mb-0">{tdata.coursePrice}</h6>
-                              </div>
-                              <div className=" col-lg-3 ">
-                                <h6 className="mb-0">{tdata.courseLevel}</h6>
-                              </div>
-                            </div>
-                          </div>
-                        </tr>
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        <Table border={1}>
-                          <div className="container">
-                            <div className="row">
-                              <div className="col-lg-4">
-                                <th>Course Language*</th>
-                                <span>{tdata.courseLanguage}</span>
-                              </div>
-                              <div className="col-lg-4">
-                                <th>Course Certificate*</th>
-                                <span>{tdata.courseCertificate}</span>
-                              </div>
-                              <div className="col-lg-4">
-                                <th>Course Quizzes*</th>
-                                <span>{tdata.courseQuizzes}</span>
-                              </div>
-                              <div className="col-lg-4 mt-3">
-                                <th>Course Skill*</th>
-                                <span>{tdata.courseSkill}</span>
-                              </div>
-
-                              <div className="col-lg-4 mt-3">
-                                <th>Course Lessons*</th>
-                                <span>{tdata.courseLessons}</span>
-                              </div>
-                              <div className="col-lg-12 mt-3">
-                                <th>Course Description*</th>
-                                <span>{tdata.courseDescription}</span>
-                                <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} className={style.EditBtn} > update </Link>
-                              </div>
-                            </div>
-                          </div>
-                        </Table>
-                      </Accordion.Body>
-                    </Accordion.Item>
-                  </Accordion>
-                </>
-              ))}
+             
+   
             </tbody>
           </Table>
           <Items currentItems={currentItems} />
           <div className={Styles.mainPagination} >
             <ReactPaginate
-
               breakLabel="..."
               nextLabel={nextButton()}
               onPageChange={handlePageClick}

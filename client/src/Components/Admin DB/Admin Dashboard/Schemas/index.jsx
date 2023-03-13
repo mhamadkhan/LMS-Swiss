@@ -21,6 +21,7 @@ export const AddCourseValidation = Yup.object().shape({
     title: Yup.string().required("Course Title field is required").min(4, "Course Title shoud be at least 4 characters"),
     picture: Yup.mixed().required("Course Picture field is required"),
     desc: Yup.string().required("Course Description field is required"),
+    learning: Yup.string().required("Course Learning field is required"),
     category: Yup.string().required("Please select a category field"),
     schedule: Yup.string().required("Please select a schedule field"),
     skills: Yup.string().required("Please select a skills field"),
@@ -35,6 +36,7 @@ export const AddCourseValidation = Yup.object().shape({
 export const UpdateCourseValidation = Yup.object().shape({
     title: Yup.string().required("Course Title field is required").min(4, "Course Title shoud be at least 4 characters"),
     desc: Yup.string().required("Course Description field is required"),
+    learning: Yup.string().required("Course Learning field is required"),
     category: Yup.string().required("Please select a category field"),
     schedule: Yup.string().required("Please select a schedule field"),
     skills: Yup.string().required("Please select a skills field"),
