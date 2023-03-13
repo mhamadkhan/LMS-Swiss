@@ -122,7 +122,7 @@ const ProjectTables = ({ itemsPerPage }) => {
                   </td>
                   <td>{tdata.email}</td>
                  <td>  
-                    {tdata.verified == true ? "Yes" : "No"} 
+                    {tdata.verified === true ? "Yes" : "No"} 
                      </td>                
                 </tr>
               ):null)}

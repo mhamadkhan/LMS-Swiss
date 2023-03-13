@@ -1,4 +1,4 @@
-import { useState , useEffect } from "react";
+import { useState, useEffect } from "react";
 // import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -22,13 +22,14 @@ import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../../../../firebase";
+import { v4 } from "uuid";
 
 const AddCourse = () => {
   // let currentStore = CurrentStore()
   let [courseImage, setCourseImage] = useState(null);
-  let [category,setCategory] = useState([])
-  let [skill,setSkill] = useState([])
-  
+  let [category, setCategory] = useState([])
+  let [skill, setSkill] = useState([])
+
   const { control, register, handleSubmit, formState: { errors }, reset, } = useForm({
     resolver: yupResolver(AddCourseValidation),
   });
@@ -36,7 +37,7 @@ const AddCourse = () => {
   // eslint-disable-next-line no-unused-vars
 
   // const handleReset = () => {
-    //   formRef.current.reset();
+  //   formRef.current.reset();
   // }
 
   let handleFileChange = (event) => {
@@ -45,7 +46,7 @@ const AddCourse = () => {
     // console.log(courseImage)
   };
 
- 
+
   let schedule = [
     {
       name: "Physical",
@@ -55,15 +56,14 @@ const AddCourse = () => {
     },
   ];
 
-  
+
 
   async function onSubmit(data) {
 
     if (courseImage === null) return
 
     // saving the files into the firebase storage
-
-    const imageRef = ref(storage, `courseImages/${courseImage.name}`);
+    const imageRef = ref(storage, `courseImages/${courseImage.name + v4()}`);
 
     try {
       let fileuploaded = await uploadBytes(imageRef, courseImage);
@@ -91,7 +91,7 @@ const AddCourse = () => {
       courseSkill: data.skills,
       passPercentage: data.passpercentage,
     }
-    
+
     try {
       const resp = await axios.post("/course/addCourse", data);
       if (resp.data.message === "Course Added Successfully")
@@ -103,18 +103,18 @@ const AddCourse = () => {
     }
 
   }
- useEffect( ()=>{
-  
-     fetchData();  
-     async function fetchData() { 
-       let resp = await axios.get('/category/');
-       console.log(resp.data);
-       setCategory(resp.data);
-       let data = await axios.get('/skill/');
-       console.log(data.data);
-       setSkill(data.data);
-     }
-     }, []);
+  useEffect(() => {
+
+    fetchData();
+    async function fetchData() {
+      let resp = await axios.get('/category/');
+      console.log(resp.data);
+      setCategory(resp.data);
+      let data = await axios.get('/skill/');
+      console.log(data.data);
+      setSkill(data.data);
+    }
+  }, []);
 
 
   return (

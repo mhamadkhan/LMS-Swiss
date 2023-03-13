@@ -31,7 +31,20 @@ export const AddCourseValidation = Yup.object().shape({
     quizzes: Yup.string().required("Course quizzes field is required"),
     certificates: Yup.string().required("Course Certificates field is required"),
     languages: Yup.string().required("Course languages field is required"),
-
+})
+export const UpdateCourseValidation = Yup.object().shape({
+    title: Yup.string().required("Course Title field is required").min(4, "Course Title shoud be at least 4 characters"),
+    desc: Yup.string().required("Course Description field is required"),
+    category: Yup.string().required("Please select a category field"),
+    schedule: Yup.string().required("Please select a schedule field"),
+    skills: Yup.string().required("Please select a skills field"),
+    price: Yup.string().required("Course Price field is required"),
+    duration: Yup.string().required("Course Duration field is required"),
+    level: Yup.string().required("Course Level field is required"),
+    lessons: Yup.string().required("Course Lessons field is required"),
+    quizzes: Yup.string().required("Course quizzes field is required"),
+    certificates: Yup.string().required("Course Certificates field is required"),
+    languages: Yup.string().required("Course languages field is required"),
 })
 
 export const ServiceValidation = Yup.object().shape({
