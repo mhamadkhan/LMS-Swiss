@@ -9,7 +9,7 @@ import { UpdateCourseValidation } from "../../Schemas/index";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, Controller } from "react-hook-form";
 import axios from "axios";
-import { getDownloadURL, ref, uploadBytes, listAll } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytes, deleteObject } from "firebase/storage";
 import { storage } from "../../../../../firebase";
 import { v4 } from "uuid";
 
@@ -25,7 +25,6 @@ const UpdateCourse = () => {
 
   })
   let { courseID } = useParams();
-  const getImageRef = ref(storage, 'courseImages/');
 
   let schedule = [
     {
@@ -63,7 +62,7 @@ const UpdateCourse = () => {
 
       courseDetail = resp.data;
       setCourseDetail(resp.data)
-      // console.log(courseDetail)
+      console.log(courseDetail)
 
     }
   }, [])
@@ -76,8 +75,20 @@ const UpdateCourse = () => {
 
       // saving the file into the firebase storage
       try {
+        // uploading file to firebase storage
         let fileuploaded = await uploadBytes(imageRef, courseImage);
         fileURL = await getDownloadURL(fileuploaded.ref);
+
+        // now delete the previous image from firebase storage
+        // let pictureDel = ref(storage, `courseImages/${courseDetail.courseCardPic}`);
+        // console.log(courseDetail.courseCardPic)
+        // console.log(pictureDel)
+
+        // deleteObject(pictureDel).then(() => {
+        //   console.log("picture deleted")
+        // }).catch((err) => {
+        //   console.log(err.message)
+        // })
       } catch (error) {
         console.log(error.message)
       }
@@ -92,6 +103,7 @@ const UpdateCourse = () => {
       courseTitle: data.title,
       coursePrice: data.price,
       courseDuration: data.duration,
+      courseLearnings: data.learning,
       courseCategory: data.category,
       courseSchedule: data.schedule,
       courseLevel: data.level,
@@ -177,6 +189,31 @@ const UpdateCourse = () => {
                       style={{ fontSize: "13px", height: "3.7rem" }}
                     >
                       {errors.desc.message}
+                    </span>
+                  )}
+                </FormGroup>
+
+                <FormGroup>
+                  <Label for="learning">Course Learning</Label>
+                  <Controller
+                    control={control}
+                    name="learning"
+                    defaultValue={courseDetail.courseLearnings}
+                    render={({ field }) => (
+                      <Input
+                        type="textarea"
+                        id="learning"
+                        {...field}
+                        invalid={!!errors.learning}
+                      />
+                    )}
+                  />
+                  {errors.learning && (
+                    <span
+                      className={`text-danger`}
+                      style={{ fontSize: "13px", height: "3.7rem" }}
+                    >
+                      {errors.learning.message}
                     </span>
                   )}
                 </FormGroup>

@@ -79,6 +79,7 @@ const AddCourse = () => {
       courseTitle: data.title,
       coursePrice: data.price,
       courseDuration: data.duration,
+      courseLearnings: data.learning,
       courseCategory: data.category,
       courseSchedule: data.schedule,
       courseLevel: data.level,
@@ -206,6 +207,31 @@ const AddCourse = () => {
                     style={{ fontSize: "13px", height: "3.7rem" }}
                   >
                     {errors.desc.message}
+                  </span>
+                )}
+              </FormGroup>
+
+              <FormGroup>
+                <Label for="learning">Course Learning</Label>
+                <Controller
+                  control={control}
+                  name="learning"
+                  defaultValue=""
+                  render={({ field }) => (
+                    <Input
+                      type="textarea"
+                      id="learning"
+                      {...field}
+                      invalid={!!errors.learning}
+                    />
+                  )}
+                />
+                {errors.learning && (
+                  <span
+                    className={`text-danger`}
+                    style={{ fontSize: "13px", height: "3.7rem" }}
+                  >
+                    {errors.learning.message}
                   </span>
                 )}
               </FormGroup>

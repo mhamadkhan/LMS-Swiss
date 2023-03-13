@@ -62,11 +62,13 @@ const ProjectTables = ({ itemsPerPage }) => {
                       <button type="button" class="btn btn-danger" style={{ marginRight: "5px" }}>
                         <i class="bi bi-trash-fill"></i>
                       </button>
-                <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} > 
+
+                      <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} >
                       <button type="button" class="btn btn-success" >
                         <i class="bi bi-pencil-fill"></i>
                       </button>
-                     </Link>
+                      </Link>
+
                         {/* <h6 className="mb-0">{tdata.courseLevel}</h6> */}
                       </div>
                     </div>
@@ -169,12 +171,12 @@ const ProjectTables = ({ itemsPerPage }) => {
 
                 </Accordion.Item>
               </Accordion>
+
             </tbody>
           </Table>
           <Items currentItems={currentItems} />
           <div className={Styles.mainPagination} >
             <ReactPaginate
-
               breakLabel="..."
               nextLabel={nextButton()}
               onPageChange={handlePageClick}
