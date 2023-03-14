@@ -20,7 +20,7 @@ import Styles from './StudentTable.module.css';
 
 const ProjectTables = ({ itemsPerPage }) => {
   let [product, setProduct] = useState([]);
-  let [reFetch, setReFetch] = useState("");
+  let [reFetch, setReFetch] = useState('');
 
   useEffect(() => {
     async function fetchProducts() {
@@ -30,6 +30,7 @@ const ProjectTables = ({ itemsPerPage }) => {
     }
     fetchProducts();
   }, [reFetch]);
+
   function Items({ currentItems }) {
     return (
       <>
@@ -59,9 +60,16 @@ const ProjectTables = ({ itemsPerPage }) => {
                       </div>
                       <div className=" col-lg-2 ">
 
-                      <button type="button" class="btn btn-danger" style={{ marginRight: "5px" }}>
+
+                      <button   onClick={async()=>{
+                    let resp = await axios.delete('/course/courseDelete/?id='+tdata._id)
+                    setReFetch(resp.data) 
+                    }}
+                      type="button" class="btn btn-danger" style={{ marginRight: "5px" }}>
                         <i class="bi bi-trash-fill"></i>
                       </button>
+
+                  
 
                       <Link to={`/AdminDashboard/updateCourse/${tdata._id}`} >
                       <button type="button" class="btn btn-success" >
@@ -69,7 +77,7 @@ const ProjectTables = ({ itemsPerPage }) => {
                       </button>
                       </Link>
 
-                        {/* <h6 className="mb-0">{tdata.courseLevel}</h6> */}
+                   
                       </div>
                     </div>
                   </div>

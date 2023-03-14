@@ -48,13 +48,7 @@ router.put('/updateCourse', async (req, res) => {
         }
 
 
-        // if (updateCourse) {
-        //     await updateCourse.save(updateCourse);
-        //     res.send({ message: "Course Updated Successfully" });
-        //     await res.json(updateCourse);
-        //     console.log((updateCourse)
-        //     )
-        // }
+    
 
     } catch (e) {
         console.error(e.message);
@@ -85,7 +79,7 @@ router.get('/', async (req, res) => {
 router.delete('/courseDelete', async (req, res) => {
     try {
         courseDelete = await Course.findByIdAndDelete(req.query.id);
-        res.send('Course Deleted');
+        res.send(courseDelete);
     } catch (e) {
         console.error(e.message);
         res.status(500).json('Server Error');
