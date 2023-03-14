@@ -21,32 +21,21 @@ import {
 import Styles from './StudentTable.module.css';
   
   const Categories = ({ itemsPerPage }) => {
-    const data = [
-      { username: "name1" },
-      { username: "name2" },
-      { username: "name3" },
-      { username: "name4" },
-      { username: "name5" },
-      { username: "name6" },
-      { username: "name7" },
-      { username: "name8" },
-      { username: "name9" },
-      { username: "name10" }
-    ];
-    // let [students, setStudents] = useState([]);
+   
+    let [category, setCategory] = useState([]);
   
-    // let [abc, setAbc] = useState("");
+    let [reFetch, setReFetch] = useState("");
   
   
   
-    // useEffect(() => {
-    //   async function fetchProducts() {
-    //     let resp = await axios.get("/user/");
-    //     console.log(resp.data);
-    //     setStudents(resp.data);
-    //   }
-    //   fetchProducts();
-    // }, [abc]);
+    useEffect(() => {
+      async function fetchProducts() {
+        let resp = await axios.get("/category/");
+        console.log(resp.data);
+        setCategory(resp.data);
+      }
+      fetchProducts();
+    }, [reFetch]);
   
 
 
@@ -58,7 +47,7 @@ import Styles from './StudentTable.module.css';
               currentItems.map((tdata) => (
                 <div className="d-flex align-items-center p-2">
                 <div className="col-lg-8">
-                  <h6 className="mb-0 ms-3">{tdata.username}</h6>
+                  <h6 className="mb-0 ms-3">{tdata.category}</h6>
                 </div>
                 <div className="col-lg-4 d-flex">
                   <button type="button" class="btn btn-danger" style={{ marginRight: "5px" }}>
@@ -80,11 +69,11 @@ import Styles from './StudentTable.module.css';
 
       const endOffset = itemOffset + itemsPerPage;
       console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-      const currentItems = data.slice(itemOffset, endOffset);
-      const pageCount = Math.ceil(data.length / itemsPerPage);
+      const currentItems = category.slice(itemOffset, endOffset);
+      const pageCount = Math.ceil(category.length / itemsPerPage);
     
       const handlePageClick = (event) => {
-        const newOffset = (event.selected * itemsPerPage) % data.length;
+        const newOffset = (event.selected * itemsPerPage) % category.length;
         console.log(
           `User requested page number ${event.selected}, which is offset ${newOffset}`
         );
