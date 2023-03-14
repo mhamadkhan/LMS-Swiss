@@ -8,15 +8,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import React from "react";
-import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-// import style from "./ui.module.css";
 import Accordion from "react-bootstrap/Accordion";
-// import { useAccordionButton } from "react-bootstrap/AccordionButton";
 import Card from "react-bootstrap/Card";
-import Collapse from "react-bootstrap/Collapse";
 import ReactPaginate from "react-paginate";
 import Styles from './StudentTable.module.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const ProjectTables = ({ itemsPerPage }) => {
   let [product, setProduct] = useState([]);
@@ -64,6 +61,7 @@ const ProjectTables = ({ itemsPerPage }) => {
                       <button   onClick={async()=>{
                     let resp = await axios.delete('/course/courseDelete/?id='+tdata._id)
                     setReFetch(resp.data) 
+                    toast.success('Course Deleted Successfully')
                     }}
                       type="button" class="btn btn-danger" style={{ marginRight: "5px" }}>
                         <i class="bi bi-trash-fill"></i>
